@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="public/logo.png" alt="BibGenie Logo" width="120"/>
+  <img src="./public/logo.png" alt="BibGenie Logo" width="120"/>
   
   # BibGenie
   
@@ -83,25 +83,25 @@
 <div align="center">
 
 ### 主界面 - 与 Zotero 完美融合
-<img src="public/blocks/main-page(empty-1440x1108).png" alt="BibGenie 主界面" width="800"/>
+<img src="./public/blocks/main-page(empty-1440x1108).png" alt="BibGenie 主界面" width="800"/>
 
 ### 快捷键操作 - Ctrl+L 打开对话框
-<img src="public/blocks/main-page(shoctcut-1440x1108).png" alt="快捷键操作" width="800"/>
+<img src="./public/blocks/main-page(shoctcut-1440x1108).png" alt="快捷键操作" width="800"/>
 
 ### 图片输入支持 - Ctrl+V 粘贴图片
-<img src="public/blocks/main-page(image-input-support-1440x1108).png" alt="图片输入支持" width="800"/>
+<img src="./public/blocks/main-page(image-input-support-1440x1108).png" alt="图片输入支持" width="800"/>
 
 ### 添加上下文 - 智能 PDF 管理
-<img src="public/blocks/main-page(add-context-1440x1108).png" alt="添加上下文" width="800"/>
+<img src="./public/blocks/main-page(add-context-1440x1108).png" alt="添加上下文" width="800"/>
 
 ### 多模型支持 - 自由切换 AI 模型
-<img src="public/blocks/main-page(multi-llm-support-1440x1108).png" alt="多模型支持" width="800"/>
+<img src="./public/blocks/main-page(multi-llm-support-1440x1108).png" alt="多模型支持" width="800"/>
 
 ### 对话历史 - 回顾研究思路
-<img src="public/blocks/main-page(chat-history-view-1440x1108).png" alt="对话历史" width="800"/>
+<img src="./public/blocks/main-page(chat-history-view-1440x1108).png" alt="对话历史" width="800"/>
 
 ### Prompt 管理 - 快捷输入模板
-<img src="public/blocks/main-page(prompt-snippet-1440x1108).png" alt="Prompt 管理" width="800"/>
+<img src="./public/blocks/main-page(prompt-snippet-1440x1108).png" alt="Prompt 管理" width="800"/>
 
 </div>
 

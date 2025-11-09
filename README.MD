@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="public/logo.png" alt="BibGenie Logo" width="120"/>
+  <img src="./public/logo.png" alt="BibGenie Logo" width="120"/>
   
   # BibGenie
   
@@ -83,25 +83,25 @@ Seamlessly integrate with ChatGPT, Claude, Gemini, DeepSeek, Qwen, Kimi, and mor
 <div align="center">
 
 ### Main Interface - Perfect Integration with Zotero
-<img src="public/blocks/main-page(empty-1440x1108).png" alt="BibGenie Main Interface" width="800"/>
+<img src="./public/blocks/main-page(empty-1440x1108).png" alt="BibGenie Main Interface" width="800"/>
 
 ### Keyboard Shortcuts - Ctrl+L to Open Dialog
-<img src="public/blocks/main-page(shoctcut-1440x1108).png" alt="Keyboard Shortcuts" width="800"/>
+<img src="./public/blocks/main-page(shoctcut-1440x1108).png" alt="Keyboard Shortcuts" width="800"/>
 
 ### Image Input Support - Ctrl+V to Paste Images
-<img src="public/blocks/main-page(image-input-support-1440x1108).png" alt="Image Input Support" width="800"/>
+<img src="./public/blocks/main-page(image-input-support-1440x1108).png" alt="Image Input Support" width="800"/>
 
 ### Add Context - Smart PDF Management
-<img src="public/blocks/main-page(add-context-1440x1108).png" alt="Add Context" width="800"/>
+<img src="./public/blocks/main-page(add-context-1440x1108).png" alt="Add Context" width="800"/>
 
 ### Multiple Models Support - Switch AI Models Freely
-<img src="public/blocks/main-page(multi-llm-support-1440x1108).png" alt="Multiple Models Support" width="800"/>
+<img src="./public/blocks/main-page(multi-llm-support-1440x1108).png" alt="Multiple Models Support" width="800"/>
 
 ### Conversation History - Review Research Thoughts
-<img src="public/blocks/main-page(chat-history-view-1440x1108).png" alt="Conversation History" width="800"/>
+<img src="./public/blocks/main-page(chat-history-view-1440x1108).png" alt="Conversation History" width="800"/>
 
 ### Prompt Management - Quick Input Templates
-<img src="public/blocks/main-page(prompt-snippet-1440x1108).png" alt="Prompt Management" width="800"/>
+<img src="./public/blocks/main-page(prompt-snippet-1440x1108).png" alt="Prompt Management" width="800"/>
 
 </div>
 
