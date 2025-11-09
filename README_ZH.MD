@@ -5,7 +5,7 @@
   
   ### 🧞 您的 Zotero 智能 AI 助手
   
-  [English](README_EN.MD) | 简体中文
+  [English](README.MD) | 简体中文
   
   [![Zotero](https://img.shields.io/badge/Zotero-7-red.svg)](https://www.zotero.org/)
   [![Discord](https://img.shields.io/badge/Discord-Join%20Community-7289da.svg)](https://discord.gg/kDXFAAYDNE)
