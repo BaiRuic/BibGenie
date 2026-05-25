@@ -1,0 +1,127 @@
+---
+title: Models
+description: Understand official models, custom models, the AUTO model, credit multipliers, and model refresh behavior.
+icon: BrainCircuit
+datePublished: 2026-05-16
+lastModified: 2026-05-16
+---
+
+BibGenie supports two kinds of models: **official models** and **custom models**.
+
+- Official models are maintained by BibGenie and work out of the box. You do not need to configure your own API key.
+- Custom models are configured by you, including the provider, Base URL, API key, and model capabilities.
+
+You can manage both from **Model Settings**.
+
+## Official Models
+
+There are many AI models on the market, but only a small subset works well as a Zotero agent. BibGenie does not choose models based only on public benchmarks. We care about whether they can reliably handle real research workflows:
+
+- Long-context paper reading
+- Multi-paper comparison
+- Complex research reasoning
+- Tool calling and structured output
+- Multimodal inputs such as figures, formulas, and screenshots
+- Accurate answers grounded in Zotero context
+
+Provider configuration also matters. The same model can behave very differently across providers because of context limits, tool-calling support, rate limits, parameter defaults, and network reliability.
+
+To reduce configuration work for users, BibGenie does several things:
+
+<Steps>
+  <Step>
+    We test a selected set of models on paper reading, literature search, library management, and note-taking workflows.
+  </Step>
+  <Step>
+    We discuss recommended deployment and usage patterns with model or provider teams when possible.
+  </Step>
+  <Step>
+    We work with selected providers to make sure models are served in a way that works well for BibGenie.
+  </Step>
+  <Step>
+    We benchmark model-provider combinations and maintain a recommendation list.
+  </Step>
+</Steps>
+
+## Custom Models
+
+If you have your own API key or want to use a local model, you can add a custom model.
+
+Custom models are useful when:
+
+- You already pay for a provider such as OpenAI, Anthropic, DeepSeek, or OpenRouter.
+- Your institution requires requests to go directly to a specific provider.
+- You want to use Ollama or LM Studio locally.
+- You need a model that is not currently included in the official list.
+
+See [Custom Models](/docs/custom-models) for setup instructions.
+
+## The AUTO Model
+
+BibGenie includes a permanently free `AUTO` model. It requires no setup and is suitable for lightweight tasks:
+
+- Simple translation
+- Short text rewriting
+- Basic Q&A
+- Trying out the BibGenie experience
+
+<Callout type="warning" title="AUTO is not designed for complex work">
+  The `AUTO` model is less capable than recommended official models. We do not recommend it for long PDF deep reading, complex reasoning, multi-paper literature reviews, library organization, or tasks that require high accuracy.
+</Callout>
+
+## What Do the Multipliers Mean?
+
+You may see labels such as `0x`, `1.5x`, or `2x` after a model name.
+
+These labels indicate the approximate speed at which the model may consume credits:
+
+| Label | Meaning |
+| :--- | :--- |
+| `0x` | Usually means the model consumes almost no credits or the cost is covered by the system, depending on the current product policy. |
+| `1x` | Standard consumption speed. |
+| `1.5x` | May consume credits faster than a standard model for a similar task. |
+| `2x` or higher | Usually indicates a higher-cost model, best reserved for more demanding tasks. |
+
+<Callout type="info" title="Actual usage depends on tokens and model pricing">
+  Multipliers are shown as a user-facing hint. Actual credit usage is calculated from input tokens, output tokens, model pricing, and tool usage.
+</Callout>
+
+## Refreshing the Model List
+
+The official model list refreshes automatically. You can also refresh it manually:
+
+<Steps>
+  <Step>
+    Open BibGenie.
+  </Step>
+  <Step>
+    Go to **Model Settings**.
+  </Step>
+  <Step>
+    Click **Refresh** in the official models section.
+  </Step>
+</Steps>
+
+If a model is missing, possible reasons include:
+
+- Your plugin version is out of date.
+- The model list has not refreshed yet.
+- The model is temporarily unavailable or being adjusted.
+- Your account status has not synced.
+
+## Choosing a Model
+
+<Cards>
+  <Card title="Translation and short Q&A">
+    Start with AUTO or a low-multiplier model.
+  </Card>
+  <Card title="Single-paper summaries">
+    Use an official model with reliable context handling and strong output quality.
+  </Card>
+  <Card title="Complex reasoning and reviews">
+    Use a model with stronger reasoning ability and a longer context window.
+  </Card>
+  <Card title="Privacy or local execution">
+    Use BYOK, a custom provider, Ollama, or LM Studio.
+  </Card>
+</Cards>

@@ -1,0 +1,129 @@
+---
+title: Zotero WebDAV
+description: Use WebDAV to sync Zotero PDF attachments and understand how it relates to BibGenie.
+icon: Cloud
+datePublished: 2026-05-16
+lastModified: 2026-05-24
+---
+
+Zotero sync lets you keep your library available across devices. In Zotero, syncing has two separate parts: **data syncing** and **file syncing**. WebDAV is used for file syncing, which includes PDFs, images, snapshots, and other attachments.
+
+<Callout type="info" title="How this relates to BibGenie">
+  WebDAV does not directly affect BibGenie's official models, credits, or chat features. However, if you use Zotero on multiple devices, WebDAV can help ensure attachments are available locally, which affects whether BibGenie can read PDFs or snapshots on a given device.
+</Callout>
+
+## Data Syncing vs File Syncing
+
+| Type | What it syncs | Notes |
+| :--- | :--- | :--- |
+| Data syncing | Items, titles, authors, publication years, notes, tags, collections, and metadata | Zotero provides unlimited data syncing for free |
+| File syncing | PDFs, images, snapshots, audio, and other attachment files | Zotero's free file storage is limited to 300 MB; WebDAV can be used as an alternative |
+
+To use Zotero sync, you usually need to sign in to a Zotero account and enable data syncing. WebDAV handles attachment files only; it does not replace Zotero account data syncing.
+
+<Callout type="warning" title="WebDAV only syncs files">
+  Set up Zotero data syncing first by signing in to your Zotero account in Zotero preferences. WebDAV only replaces the file storage part.
+</Callout>
+
+## What Is WebDAV?
+
+WebDAV is a protocol that lets applications manage files on a remote server. Zotero can use WebDAV as an alternative to Zotero's own file storage, allowing attachments to sync through supported third-party storage providers.
+
+This is useful if you want PDFs and attachments available across devices without buying Zotero's official file storage plan.
+
+## Common WebDAV Providers
+
+| Provider | Free space / limits | Website | Notes |
+| :--- | :--- | :--- | :--- |
+| Koofr | 2 GB initially; up to 10 GB after completing account tasks | [https://koofr.eu/](https://koofr.eu/) | Easy to set up; servers in Europe |
+| Jianguoyun | 1 GB/month upload traffic and 3 GB/month download traffic on the free tier | [https://www.jianguoyun.com/](https://www.jianguoyun.com/) | Often faster from mainland China |
+
+<Callout type="info" title="More providers">
+  See Zotero's official [WebDAV Providers](https://www.zotero.org/support/kb/webdav_services) page for more options.
+</Callout>
+
+## Configure Koofr WebDAV
+
+Koofr is a Europe-based cloud storage provider. It is commonly recommended because setup is straightforward and Koofr provides Zotero-specific WebDAV guidance.
+
+<Steps>
+  <Step>
+    Sign up for a [Koofr account](https://koofr.eu/) and log in to the Koofr web app.
+  </Step>
+  <Step>
+    Click your avatar in the upper-right corner and open **Preferences**.
+  </Step>
+  <Step>
+    Select **Password** in the left menu, then scroll to **App Passwords**.
+  </Step>
+  <Step>
+    Enter an app name such as `Zotero`, click **Generate**, and save the generated password. Koofr shows this password only once.
+  </Step>
+  <Step>
+    Open Zotero and go to **Edit -> Preferences -> Sync**. On macOS, use **Zotero -> Settings -> Sync**.
+  </Step>
+  <Step>
+    In **File Syncing**, enable attachment file syncing and choose **WebDAV**.
+  </Step>
+  <Step>
+    Enter:
+
+    - **URL**: `https://app.koofr.net/dav/Koofr`
+    - **Username**: your Koofr account email
+    - **Password**: the Koofr app password you generated
+  </Step>
+  <Step>
+    Click **Verify Server**. After verification succeeds, click **OK** to save the settings.
+  </Step>
+  <Step>
+    Click Zotero's sync button to start syncing attachment files.
+  </Step>
+</Steps>
+
+<Callout type="warning" title="Case matters">
+  The `Koofr` segment in the URL must start with a capital K.
+</Callout>
+
+## Configure Jianguoyun WebDAV
+
+<Steps>
+  <Step>
+    Log in to [Jianguoyun](https://www.jianguoyun.com/) in your browser.
+  </Step>
+  <Step>
+    Click your account name in the upper-right corner and open **Account Info**.
+  </Step>
+  <Step>
+    Open **Security Options**.
+  </Step>
+  <Step>
+    In **Third-party App Management**, click **Add Application**.
+  </Step>
+  <Step>
+    Enter a name such as `Zotero`, generate a password, and save it. This is an app-specific password, not your Jianguoyun login password.
+  </Step>
+  <Step>
+    Open Zotero and go to **Edit -> Preferences -> Sync**. On macOS, use **Zotero -> Settings -> Sync**.
+  </Step>
+  <Step>
+    In **File Syncing**, enable **Sync attachment files in My Library** and choose **WebDAV**.
+  </Step>
+  <Step>
+    Enter:
+
+    - **URL**: `https://dav.jianguoyun.com/dav/`
+    - **Username**: your Jianguoyun account, usually your email
+    - **Password**: the app-specific password generated in Jianguoyun
+  </Step>
+  <Step>
+    Click **Verify Server**. If Zotero asks to create a `zotero` folder on the WebDAV server, confirm it.
+  </Step>
+</Steps>
+
+<Callout type="info" title="Jianguoyun server address">
+  The usual Jianguoyun WebDAV server address is `https://dav.jianguoyun.com/dav/`.
+</Callout>
+
+<Callout type="tip" title="Using multiple devices">
+  If you use Zotero on multiple computers, configure the same WebDAV settings on each device and make sure Zotero data sync uses the same account.
+</Callout>

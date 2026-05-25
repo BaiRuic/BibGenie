@@ -1,0 +1,77 @@
+---
+title: Pricing & Credits
+description: Understand Free, Pro, Max, Lifetime, and how BibGenie credits are consumed.
+icon: CircleDollarSign
+datePublished: 2026-05-16
+lastModified: 2026-05-16
+---
+
+BibGenie uses credits to meter official model usage. Credits are not the same as request counts: the cost of a request depends on the model, context length, output length, and tool usage.
+
+<Callout type="info" title="Core product distinction">
+  Free users can use core chat, context, attachments, images, screenshots, and large context. Pro adds paid web access and more monthly credits for regular research workflows. Max provides the highest monthly credits for heavy reading, comparison, and review workflows.
+</Callout>
+
+## Plan Comparison
+
+| Plan | Price | Monthly credits | Main capabilities |
+| :--- | :--- | :--- | :--- |
+| Free | $0 | 50 credits / month | Core chat, context, attachments, images, screenshots, large context, custom models |
+| Pro Monthly | $9.99 / month | 1000 credits / month | Everything in Free + Web Search / Web Extract |
+| Pro Yearly | $99 / year | 1000 credits / month | Everything in Free + Web Search / Web Extract |
+| Max Monthly | $30 / month | 3500 credits / month | Everything in Pro + more room for deep reading, comparison, and review generation |
+| Max Yearly | $295 / year | 3500 credits / month | Everything in Max Monthly |
+| Lifetime | $199 one-time | 1000 credits / month | Long-term Pro benefits |
+
+<Callout type="warning" title="Checkout is the source of truth">
+  Prices, discounts, and promotions may change. The final price is the one shown on the Pricing page and in Stripe Checkout.
+</Callout>
+
+## Credit Booster
+
+Paid users can buy an additional credit package:
+
+| Package | Amount | Price | Expiration |
+| :--- | :--- | :--- | :--- |
+| Booster | 500 credits | $6.99 | 30 days |
+
+Free users currently cannot purchase standalone credit packages.
+
+## How Credits Are Consumed
+
+Credit usage is mainly affected by:
+
+- Model choice: higher-cost models usually consume credits faster.
+- Input length: PDFs, notes, snapshots, images, and chat history increase input tokens.
+- Output length: long reviews, long tables, and full notes use more tokens.
+- Tool usage: search, attachment reading, web search, and web extraction may involve multiple model calls.
+- **Web Search and Web Extract**: each use of Web Search or Web Extract costs a flat **1 credit** (in addition to the model's own token consumption).
+- Model multiplier: labels such as `1.5x` or `2x` provide an approximate usage hint.
+
+<Callout type="tip" title="BYOK and local models">
+  Custom models, Ollama, and LM Studio do not use BibGenie's official model service, so they do not consume BibGenie credits. Any cost or compute usage is handled by your provider or your local machine.
+</Callout>
+
+## How Many Credits Does Reading a Paper Use?
+
+There is no single fixed number because papers, models, context size, and output requirements vary. As a practical reference:
+
+| Scenario | Approximate usage |
+| :--- | :--- |
+| Translating or explaining a short selected passage | Very low |
+| Summarizing a typical paper | About 1 credit |
+| Deep-reading a long PDF with structured long-form output | About 2-5 credits |
+| Comparing multiple papers, generating a review, or repeatedly searching and reading | Usually more than 5 credits |
+
+## What Happens When Credits Run Out?
+
+If your credit balance is insufficient, official model requests may not continue. You can:
+
+- Wait for the next monthly refresh.
+- Upgrade to Pro, Max, or Lifetime.
+- Buy a Credit Booster.
+- Use BYOK or a local model.
+
+## Checking Your Balance
+
+After signing in, BibGenie syncs your account status and credit balance. You can also check your balance from the website account area or the plugin user page.

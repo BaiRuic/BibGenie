@@ -1,0 +1,182 @@
+---
+title: Custom Models
+description: Add and manage custom models, including OpenAI, Anthropic, OpenRouter, Ollama, LM Studio, and compatible APIs.
+icon: SlidersHorizontal
+datePublished: 2026-05-16
+lastModified: 2026-05-16
+---
+
+Custom models let you use your own API key, third-party provider, local model, or institutional model service. Once configured, BibGenie sends requests directly from the local Zotero plugin to the provider you choose.
+
+## Add a Model
+
+<Steps>
+  <Step>
+    Open BibGenie and go to **Model Settings**.
+  </Step>
+  <Step>
+    Click **Add Model** in the Custom Models section.
+  </Step>
+  <Step>
+    Select or enter a **Provider ID**. BibGenie loads common providers from a model catalog and automatically fills Provider Name, Provider Type, and Base URL when possible.
+  </Step>
+  <Step>
+    Select or enter a **Model ID**. If the model exists in the catalog, BibGenie automatically fills Model Name, Family, Model Types, Context Window, Max Tokens, and Description.
+  </Step>
+  <Step>
+    Enter your API Key. For local services such as Ollama, an API key is usually not required.
+  </Step>
+  <Step>
+    Click **Test** to verify the connection. A successful test shows **Connected**. If the test fails, BibGenie shows the provider error message so you can correct the configuration.
+  </Step>
+  <Step>
+    Review the auto-filled fields and adjust Model Types, Context Window, or Max Tokens if needed.
+  </Step>
+  <Step>
+    Click **Add Model**. The model is saved, enabled, and becomes available in the chat model selector.
+  </Step>
+</Steps>
+
+## Auto-Fill Behavior
+
+Adding a custom model is not entirely manual. BibGenie loads provider and model information from the `models.dev` catalog when available:
+
+- Provider ID supports searching common providers and entering a custom provider manually.
+- Selecting a provider can auto-fill Provider Name, Provider Type, and Base URL.
+- Model ID is filtered by the selected provider and supports both catalog models and custom model IDs.
+- Selecting a catalog model can auto-fill Model Name, Family, Model Types, Context Window, Max Tokens, Description, and pricing metadata.
+- If the model catalog cannot be loaded, BibGenie uses a built-in fallback provider list, and you can still add models manually.
+
+<Callout type="tip" title="Prefer catalog entries when available">
+  If your provider and model appear in the search dropdowns, select them instead of typing everything manually. This reduces mistakes in Provider Type, Base URL, model capabilities, and context limits.
+</Callout>
+
+## Fields
+
+| Field | Required | Description |
+| :--- | :--- | :--- |
+| Provider ID | Required | Unique provider identifier, such as `openai`, `anthropic`, or `openrouter`; custom IDs are supported |
+| Provider Name | Required | Display name for the provider; usually auto-filled from the catalog |
+| Model ID | Required | Actual model ID used by the provider API, such as `gpt-4.1` or `claude-sonnet-4-5` |
+| Model Name | Required | Display name shown in BibGenie; usually auto-filled from the catalog |
+| API Key | Optional | Your provider API key; local providers such as Ollama usually do not require one |
+| Base URL | Optional | API endpoint; often auto-filled for catalog providers, but compatible or local services may require manual confirmation |
+| Provider Type | Required | API integration type, such as OpenAI, Anthropic, Ollama, or OpenAI Compatible |
+| Family | Optional | Model family, such as `qwen`, `gpt`, or `claude`; often auto-filled |
+| Model Types | Required | Capabilities such as Text, Vision, Reasoning, Function Calling, or Web Search |
+| Context Window | Optional | Model context window; often auto-filled for catalog models |
+| Max Tokens | Optional | Maximum output tokens; often auto-filled for catalog models |
+| Description | Optional | Model description; often auto-filled |
+
+## Provider Type Guide
+
+| Provider Type | Use when |
+| :--- | :--- |
+| OpenAI | You use the official OpenAI API |
+| Anthropic | You use the Anthropic Claude API |
+| xAI | You use the xAI Grok API |
+| DeepSeek | You use the official DeepSeek API |
+| Google | You use the Gemini API |
+| Groq | You use the Groq API |
+| Moonshot AI | You use Kimi / Moonshot models |
+| OpenRouter | You use the OpenRouter API |
+| Alibaba | Usually via OpenAI Compatible |
+| Z.AI / Zhipu AI | Usually via OpenAI Compatible |
+| Ollama | You use a local Ollama service |
+| OpenAI Compatible | You use LM Studio, an API proxy, or an institutional compatible endpoint |
+
+## Base URL
+
+Many official providers have a default Base URL. You usually need to edit Base URL only when:
+
+- You use OpenAI Compatible.
+- You use an API proxy.
+- You use a local model service.
+- Your provider requires a custom endpoint.
+
+Examples:
+
+```text
+https://api.openai.com/v1
+https://openrouter.ai/api/v1
+http://localhost:11434
+http://localhost:1234/v1
+```
+
+<Callout type="warning" title="Watch the /v1 path">
+  Many compatible APIs require a Base URL ending in `/v1`. Missing the version path can cause NetworkError, 404, or model-not-found errors.
+</Callout>
+
+## Ollama Example
+
+<Steps>
+  <Step>
+    Make sure Ollama is installed and running.
+  </Step>
+  <Step>
+    Run `ollama list` in a terminal to confirm a local model is available.
+  </Step>
+  <Step>
+    If Ollama is not yet running, start it with `ollama serve`. You should see output confirming it is listening on `127.0.0.1:11434`.
+  </Step>
+  <Step>
+    Add a model in BibGenie and choose **Ollama** as Provider Type.
+  </Step>
+  <Step>
+    Use `http://localhost:11434` as Base URL.
+  </Step>
+  <Step>
+    Use the model name shown by `ollama list`, such as `llama3.1:8b`, as Model ID.
+  </Step>
+</Steps>
+
+## LM Studio Example
+
+LM Studio is usually configured through OpenAI Compatible:
+
+<Steps>
+  <Step>
+    Start the local API server in LM Studio.
+  </Step>
+  <Step>
+    Add a model in BibGenie and choose **OpenAI Compatible** as Provider Type.
+  </Step>
+  <Step>
+    Enter the LM Studio API address as Base URL, usually similar to `http://localhost:1234/v1`.
+  </Step>
+  <Step>
+    Enter the ID of the model currently loaded in LM Studio as Model ID.
+  </Step>
+</Steps>
+
+## Model Types
+
+Select capabilities according to what the model actually supports:
+
+- **Text**: text chat; usually required.
+- **Vision**: image, screenshot, and figure input.
+- **Reasoning**: useful for complex reasoning tasks.
+- **Function Calling**: affects search, reading, and library-management workflows.
+- **Web Search**: enable only if the provider and model support it.
+
+Incorrect capability settings can cause `ModelNotSupported` or tool-calling failures.
+
+## FAQ
+
+<Accordions>
+  <Accordion title="Why does my model not appear in the chat page?">
+    Make sure the model was saved and enabled. If it still does not appear, reopen Model Settings or restart Zotero.
+  </Accordion>
+  <Accordion title="Is my API key uploaded to BibGenie?">
+    Custom model requests are sent directly from the local Zotero plugin to the provider you configure. See [Bring Your Own Key](/docs/byok) for data-flow details.
+  </Accordion>
+  <Accordion title="What should I check if a local model fails to connect?">
+    Make sure the local service is running, the port is correct, the Base URL is reachable, and no firewall or proxy is blocking the request.
+  </Accordion>
+  <Accordion title="Is my API key safe?">
+    Yes. Your API Key is encrypted and stored only in your local Zotero configuration. It is used directly to make requests to the model provider and will **never** pass through BibGenie's servers.
+  </Accordion>
+  <Accordion title="How do I reset all custom model settings?">
+    Click the **Reset** button in the Custom Models area to restore all custom configurations to their initial state. **Warning: this will delete all models you have manually added.**
+  </Accordion>
+</Accordions>

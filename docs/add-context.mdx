@@ -1,0 +1,110 @@
+---
+title: Add Context
+description: Add Zotero items, attachments, notes, selected text, and screenshots to a BibGenie conversation.
+icon: PlusCircle
+datePublished: 2026-05-16
+lastModified: 2026-05-16
+---
+
+import { AtSign, Image, MousePointerClick, Plus } from 'lucide-react';
+
+The quality of a BibGenie answer depends heavily on context. Add Context lets you bring Zotero research material into a conversation so BibGenie can respond based on your items, attachments, notes, and current reading state.
+
+## Ways to Add Context
+
+<Cards>
+  <Card title="@ mention" icon={<AtSign />}>
+    Type a space followed by `@` in the input box to search for and insert Zotero items, attachments, notes, tags, collections, and more.
+  </Card>
+  <Card title="Add Context button" icon={<Plus />}>
+    Click the Add Context button near the input box to open a selection dialog.
+  </Card>
+  <Card title="Right-click Add to Chat" icon={<MousePointerClick />}>
+    Add context from Zotero items, collections, tags, reader tabs, or selected text.
+  </Card>
+  <Card title="Paste images or screenshots" icon={<Image />}>
+    Paste images into the input box or use Zotero-side screenshots for figures, formulas, and page regions.
+  </Card>
+</Cards>
+
+## Supported Context Types
+
+| Type | Best for |
+| :--- | :--- |
+| Regular item | Bibliographic metadata, title, authors, year, and related attachments |
+| PDF attachment | Full-paper reading, section summaries, methods, and results |
+| Snapshot | Reading web pages saved in Zotero |
+| Note | Using Zotero notes, excerpts, and research notes as context |
+| Collection | Working with a set of papers |
+| Tag | Working with papers under a specific tag |
+| Selected text from PDF / EPUB / Snapshot | Precise explanation of a passage |
+| Current PDF page context | Asking about the page you are reading |
+| Image / screenshot | Analyzing figures, formulas, diagrams, and page regions |
+
+## Add Context With `@`
+
+Type a space followed by `@` in the input box to open the context search menu. You can then type a title, author, keyword, note name, tag name, or collection name to filter results.
+
+Common examples:
+
+```text
+@attention is all you need
+@Smith 2023
+@my research note
+@systematic-review
+@my project collection
+```
+
+After selecting a result, it appears as a context block in the input box. You can add multiple context blocks before asking a question.
+
+## Add Context From Zotero
+
+You can add the current Zotero object directly to BibGenie:
+
+- Right-click one or more library items and choose **Add to Chat**.
+- Right-click a collection in the collection tree.
+- Right-click a tag in the tag selector.
+- Right-click a PDF, snapshot, or note tab.
+- Select text in a PDF, EPUB, or snapshot and add it to chat.
+
+These entry points can be enabled or disabled in [Add to Chat Settings](/docs/add-to-chat-settings).
+
+## Examples
+
+<Tabs items={['Single paper', 'Multi-paper comparison', 'Selected text', 'Screenshot question']}>
+  <Tab value="Single paper">
+    Add a PDF and ask:
+
+    ```text
+    Summarize this paper by research question, method, data, main findings, and limitations.
+    ```
+  </Tab>
+  <Tab value="Multi-paper comparison">
+    Add several related papers and ask:
+
+    ```text
+    Compare these papers by assumptions, methods, and conclusions. Return a comparison table.
+    ```
+  </Tab>
+  <Tab value="Selected text">
+    Add a selected passage and ask:
+
+    ```text
+    Explain the logic of this passage and identify the key concepts.
+    ```
+  </Tab>
+  <Tab value="Screenshot question">
+    Add a figure screenshot and ask:
+
+    ```text
+    Explain the axes, curves, and main conclusion of this figure.
+    ```
+  </Tab>
+</Tabs>
+
+## Tips
+
+- Add only the context that is relevant to the current question.
+- For complex tasks, ask for a summary first, then follow up with details.
+- For multi-paper comparisons, ask BibGenie to list each paper first before synthesizing.
+- Screenshots are useful for figures and formulas, but add the source PDF or item if you need citation-level grounding.

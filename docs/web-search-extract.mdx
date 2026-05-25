@@ -1,0 +1,78 @@
+---
+title: Web Search & Web Extract
+description: Use paid web access to search and read public web pages beyond your Zotero library.
+icon: Globe
+datePublished: 2026-05-16
+lastModified: 2026-05-16
+---
+
+import { FileText, Search } from 'lucide-react';
+
+By default, BibGenie searches and reads your Zotero library first. Web Search / Web Extract are paid-plan features that let BibGenie supplement your library with information from the public web.
+
+## Web Search vs Web Extract
+
+<Cards>
+  <Card title="Web Search" icon={<Search />}>
+    Searches the public web and returns ranked, AI-readable excerpts.
+  </Card>
+  <Card title="Web Extract" icon={<FileText />}>
+    Reads a specific web page and extracts its main content for the conversation.
+  </Card>
+</Cards>
+
+## When to Use Web Access
+
+Web Search / Web Extract is useful when you need to:
+
+- Find a paper's project page, code repository, or dataset page.
+- Gather recent background information.
+- Read public documentation for a model, tool, institution, or product.
+- Supplement information that is not yet in your Zotero library.
+- Summarize, extract, or compare web page content.
+
+<Callout type="warning" title="Verify web results">
+  Web content can change and may be inaccurate. For formal citations, verify information against the original paper, official documentation, or another authoritative source.
+</Callout>
+
+## How to Turn It On
+
+<Steps>
+  <Step>
+    Make sure your account is on a paid plan.
+  </Step>
+  <Step>
+    Find the **Web Search** button below the chat input box.
+  </Step>
+  <Step>
+    Click the button to turn web search on or off.
+  </Step>
+  <Step>
+    When enabled, ask BibGenie explicitly to search the web or read a web page.
+  </Step>
+</Steps>
+
+## Examples
+
+<Tabs items={['Find a project page', 'Read a web page', 'Gather recent context']}>
+  <Tab value="Find a project page">
+    ```text
+    Search the web to see whether this paper has an official project page, code repository, or dataset page.
+    ```
+  </Tab>
+  <Tab value="Read a web page">
+    ```text
+    Read this web page and summarize the parts relevant to my paper topic:
+    https://example.com
+    ```
+  </Tab>
+  <Tab value="Gather recent context">
+    ```text
+    First search my Zotero library, then search the web for recent developments in this area.
+    ```
+  </Tab>
+</Tabs>
+
+## Privacy Note
+
+Web tools access public web pages. Avoid including sensitive, unpublished, or confidential material in requests that require web access. For private work, use Zotero library context, local context, BYOK, or local models instead.

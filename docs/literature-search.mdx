@@ -1,0 +1,112 @@
+---
+title: Literature Search
+description: Find papers in your Zotero library with keyword search, semantic search, and List Items.
+icon: Search
+datePublished: 2026-05-16
+lastModified: 2026-05-16
+---
+
+import { Brain, List, TextSearch } from 'lucide-react';
+
+By default, BibGenie searches and reads your Zotero library first instead of going directly to the public web. This keeps responses grounded in the material you have already collected and organized.
+
+## Three Search Modes
+
+<Cards>
+  <Card title="Keyword Search" icon={<TextSearch />}>
+    Best when you know a title, author, year, DOI, tag, collection, or other explicit clue.
+  </Card>
+  <Card title="Semantic Search" icon={<Brain />}>
+    Best when you want to describe a research topic, theory, method, or problem in natural language.
+  </Card>
+  <Card title="List Items" icon={<List />}>
+    Best for listing candidate papers, paging through results, or inspecting items within a defined scope.
+  </Card>
+</Cards>
+
+## Keyword Search
+
+Keyword search works well when you already know part of the target information:
+
+- Words in the paper title
+- Author name
+- Year
+- DOI
+- Collection name
+- Tag name
+- Journal or conference name
+
+Examples:
+
+```text
+Find papers in my Zotero library about contrastive learning.
+```
+
+```text
+Find causal inference papers after 2022 with the tag review.
+```
+
+Keyword search is precise and easy to control. The trade-off is that it may miss relevant papers when your wording does not match the metadata.
+
+## Semantic Search
+
+Semantic search is designed for conceptual queries. You do not need to guess the exact terms used in titles or abstracts; describe the research topic instead.
+
+Examples:
+
+```text
+Find papers that discuss how large language models affect academic writing norms.
+```
+
+```text
+My project is about how AI tools change researchers' knowledge work. Find related papers.
+```
+
+Semantic search uses a local index of Zotero regular item titles and abstracts. Keep in mind:
+
+- It is not PDF full-text search.
+- Papers without abstracts may be harder to match.
+- The first run may require time to build the semantic index.
+
+See [Semantic Index](/docs/semantic-index) for index status and troubleshooting.
+
+## List Items
+
+List Items is used to display matching papers or continue browsing results.
+
+Example requests:
+
+```text
+List the 20 most recent papers in this collection.
+```
+
+```text
+Show more results.
+```
+
+```text
+List papers tagged systematic-review and sort them by year.
+```
+
+List Items is especially useful when you want BibGenie to show a candidate set first, then decide which PDFs or notes to read next.
+
+## Recommended Workflow
+
+<Steps>
+  <Step>
+    Use semantic search to find papers related to a broad topic.
+  </Step>
+  <Step>
+    Ask BibGenie to list titles, years, authors, and abstracts.
+  </Step>
+  <Step>
+    Select a few papers and add them as context.
+  </Step>
+  <Step>
+    Ask BibGenie to read PDFs, compare claims, generate a table, or save a note.
+  </Step>
+</Steps>
+
+<Callout type="tip" title="Constrain your search">
+  Add year, tag, collection, or result limits to make searches more useful. For example: "only after 2020", "within the Methods collection", or "return at most 10 papers".
+</Callout>

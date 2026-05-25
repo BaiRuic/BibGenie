@@ -1,0 +1,74 @@
+---
+title: Semantic Index
+description: Understand the local title-and-abstract index used by BibGenie semantic search.
+icon: DatabaseZap
+datePublished: 2026-05-16
+lastModified: 2026-05-16
+---
+
+Semantic Index powers BibGenie's semantic literature search. It indexes Zotero regular-item titles and abstracts locally, so you can describe a research topic in natural language instead of relying only on keywords.
+
+## What Does It Index?
+
+The semantic index currently focuses on Zotero regular items:
+
+- Title
+- Abstract
+- Selected metadata useful for search
+
+<Callout type="warning" title="Not PDF full-text search">
+  Semantic Search is not the same as PDF full-text search. If a paper has no abstract or incomplete metadata, semantic matching may be less accurate.
+</Callout>
+
+## Status Reference
+
+| Status | Meaning |
+| :--- | :--- |
+| bootstrapping | Indexing capability is initializing |
+| indexing | The index is being built |
+| updating | Existing index entries are being updated |
+| idle | The index is ready |
+| error | An indexing error occurred |
+
+## Metrics
+
+| Metric | Meaning |
+| :--- | :--- |
+| Indexed Count | Number of items successfully indexed |
+| Failed Count | Number of items that failed indexing |
+| Message | Current status or error message |
+
+## When to Check Semantic Index
+
+- Semantic search returns very few results.
+- BibGenie reports that the semantic index is unavailable.
+- Newly imported papers do not appear in semantic search.
+- Failed Count keeps increasing.
+- Zotero just started and the index is still bootstrapping or indexing.
+
+## Troubleshooting
+
+<Steps>
+  <Step>
+    Open Preferences and check the Semantic Index status.
+  </Step>
+  <Step>
+    If it is indexing or updating, wait for it to finish.
+  </Step>
+  <Step>
+    If there are failed items, retry failed indexing.
+  </Step>
+  <Step>
+    Check whether the relevant papers have titles and abstracts.
+  </Step>
+  <Step>
+    If failures continue, restart Zotero and check again.
+  </Step>
+</Steps>
+
+## Tips
+
+- Complete abstracts improve semantic search quality.
+- Use natural language descriptions instead of only keywords.
+- Combine semantic search with year, tag, or collection filters.
+- After finding candidate papers, add the PDFs or notes as context for deep reading.

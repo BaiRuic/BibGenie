@@ -1,0 +1,87 @@
+---
+title: Library Management
+description: Use BibGenie to help organize Zotero tags, collections, metadata, and item movement.
+icon: LibraryBig
+datePublished: 2026-05-16
+lastModified: 2026-05-16
+---
+
+BibGenie can do more than read papers. It can help organize your Zotero library by managing tags, creating collections, moving items, and editing metadata.
+
+<Callout type="warning" title="Preview before applying changes">
+  Library management actions can modify your Zotero library. For batch operations, ask BibGenie to show a plan or preview before applying any changes.
+</Callout>
+
+## Supported Organization Tasks
+
+| Task | Examples |
+| :--- | :--- |
+| Tag management | Add, remove, and list tags |
+| Collection management | Create collections, list collections, move items |
+| Metadata editing | Edit title, abstract, publication title, DOI, and related fields |
+| Metadata reading | Inspect authors, year, attachments, notes, and tags |
+| Literature classification | Group papers by topic, method, year, or project |
+
+## Common Workflows
+
+<Cards>
+  <Card title="Add a shared tag">
+    Add `literature-review` or a project tag to selected items.
+  </Card>
+  <Card title="Create a collection">
+    Create a new collection around a research topic and move relevant papers into it.
+  </Card>
+  <Card title="Check metadata">
+    Find papers missing DOI, abstract, or publication title.
+  </Card>
+  <Card title="Organize by theme">
+    Group papers into a clearer library structure based on research themes.
+  </Card>
+</Cards>
+
+## Example Prompts
+
+```text
+Review the selected papers and propose a collection structure by research topic. Do not modify Zotero yet.
+```
+
+```text
+Add the tags deep-research and llm-agent to the currently selected papers.
+```
+
+```text
+Find papers in this collection that are missing a DOI or abstract, and return a table.
+```
+
+## Recommended Workflow
+
+<Steps>
+  <Step>
+    Ask BibGenie to search or list the candidate papers.
+  </Step>
+  <Step>
+    Ask for an organization plan, including which items will be modified.
+  </Step>
+  <Step>
+    Review the plan.
+  </Step>
+  <Step>
+    Explicitly authorize BibGenie to apply the changes.
+  </Step>
+  <Step>
+    Ask for a summary of what was changed.
+  </Step>
+</Steps>
+
+<Callout type="tip" title="Set clear boundaries">
+  For batch work, specify scope: "only selected items", "only this collection", or "do not edit metadata, only add tags".
+</Callout>
+
+## Use Extra Care With
+
+- Moving many papers at once.
+- Removing tags in bulk.
+- Overwriting titles, abstracts, DOI, or other key metadata.
+- Creating or reorganizing collections across many items.
+
+For these operations, work in smaller batches and ask BibGenie to list the affected items first.

@@ -1,0 +1,125 @@
+---
+title: Getting Started
+description: Install BibGenie in Zotero and ask your first AI-powered research question.
+icon: Rocket
+datePublished: 2026-05-16
+lastModified: 2026-05-16
+---
+
+This guide takes you through the fastest path to a working setup: download the plugin, install it in Zotero, open the sidebar, and ask your first question about a paper.
+
+<Callout type="info" title="Supported Zotero versions">
+  BibGenie supports Zotero 7, Zotero 8, and Zotero 9. We recommend using a recent Zotero version for the most stable plugin and reader experience.
+</Callout>
+
+## Download the Plugin
+
+Go to the [BibGenie download page](https://www.bibgenie.com/download) and download the latest plugin release.
+
+The downloaded file is usually named:
+
+```text
+bibgenie-<version>.xpi
+```
+
+where `<version>` is the release number.
+
+## Install BibGenie in Zotero
+
+<Steps>
+  <Step>
+    Open Zotero and choose **Tools -> Plugins** from the menu bar.
+  </Step>
+  <Step>
+    In the Plugin Manager window, click the gear icon in the top-right corner and choose **Install Plugin From File...**.
+  </Step>
+  <Step>
+    Select the `bibgenie-<version>.xpi` file you downloaded.
+  </Step>
+  <Step>
+    Restart Zotero after installation.
+  </Step>
+  <Step>
+    After restarting, open BibGenie from the Zotero toolbar or the Tools menu.
+  </Step>
+</Steps>
+
+## Open BibGenie
+
+You can open BibGenie in several ways:
+
+- Click the BibGenie icon in the Zotero toolbar.
+- Choose **Tools -> BibGenie** from the menu bar.
+- Use the configured keyboard shortcut to show or switch the BibGenie sidebar.
+
+If the shortcut conflicts with Zotero or your operating system, you can change it in [Keyboard Shortcuts](/docs/keyboard-shortcuts).
+
+## Sign In
+
+Free users can start with the core chat and context features. After you sign in, BibGenie can sync your subscription status, credit balance, and official model access.
+
+<Cards>
+  <Card title="Free users">
+    Best for lightweight translation, simple questions, and basic paper reading.
+  </Card>
+  <Card title="Pro / Lifetime users">
+    Includes more monthly credits and access to Web Search / Web Extract.
+  </Card>
+</Cards>
+
+## Ask Your First Question
+
+A good first task is to start with a PDF paper:
+
+<Steps>
+  <Step>
+    Select a Zotero item that has a PDF attachment.
+  </Step>
+  <Step>
+    On first launch, BibGenie uses a built-in model by default. You do not need to configure an API key or manually choose a model before asking your first question.
+  </Step>
+  <Step>
+    In the BibGenie input box, type a space followed by `@`, then search for and add the paper. You can also right-click the Zotero item and choose **Add to Chat**.
+  </Step>
+  <Step>
+    Ask a concrete question, for example:
+
+    ```text
+    Summarize this paper's research question, method, main findings, and limitations.
+    ```
+  </Step>
+  <Step>
+    If the answer is useful, click **Save as Note** on the last assistant message to save it as a Zotero note.
+  </Step>
+</Steps>
+
+If you want to use your own API key, a local model, or an institutional model service later, read [Bring Your Own Key](/docs/byok) and [Custom Models](/docs/custom-models).
+
+<Callout type="tip" title="Ask for a clear output format">
+  Strong prompts specify both the goal and the expected format, such as "summarize in five bullet points", "use sections for method, results, and limitations", or "turn this into a literature review note".
+</Callout>
+
+## Next Steps
+
+- Learn how to add richer context: [Add Context](/docs/add-context)
+- Understand model choices: [Models](/docs/models)
+- Understand plans and credits: [Pricing & Credits](/docs/pricing-credits)
+- Create reusable prompts: [Quick Prompts](/docs/quick-prompts)
+
+## Updating BibGenie
+
+BibGenie checks for updates automatically when Zotero starts. When a new version is detected, an update button appears in the BibGenie menu bar — click it to install the latest release.
+
+You can also enable automatic updates through Zotero's Plugin Manager:
+
+<Steps>
+  <Step>
+    Open Zotero and choose **Tools -> Plugins**.
+  </Step>
+  <Step>
+    Select BibGenie in the plugin list.
+  </Step>
+  <Step>
+    Set **Allow automatic updates** to On. Zotero will then update BibGenie automatically when new versions are available.
+  </Step>
+</Steps>

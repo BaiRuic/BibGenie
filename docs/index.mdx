@@ -1,0 +1,74 @@
+---
+title: Overview
+description: Learn what BibGenie is, how it fits into Zotero, and where to start.
+icon: Sparkles
+datePublished: 2026-05-16
+lastModified: 2026-05-16
+---
+
+import { NotebookPen, PlusCircle, Search } from 'lucide-react';
+
+BibGenie is an AI research agent built directly into Zotero. Instead of acting like a separate web chatbot, it works inside your Zotero workspace with your library, PDFs, web snapshots, notes, and the material you are reading.
+
+Add Zotero items, PDF attachments, snapshots, notes, selected text, page context, images, or screenshots to a conversation, then ask BibGenie to read, explain, search, organize, and preserve your research material.
+
+<Callout type="info" title="Local-first by design">
+  BibGenie's core experience runs in your Zotero environment. Chat history and many settings are stored locally. When you use a custom or local model, requests are sent directly to the provider you configure.
+</Callout>
+
+## Core Workflow
+
+<Cards>
+  <Card title="Add context" icon={<PlusCircle />}>
+    Add Zotero items, PDFs, snapshots, notes, selected text, or screenshots so BibGenie understands the material you are working with.
+  </Card>
+  <Card title="Ask and search" icon={<Search />}>
+    Summarize papers, explain figures, search your library, compare articles, or use paid-plan web search to gather public information.
+  </Card>
+  <Card title="Organize and save" icon={<NotebookPen />}>
+    Save useful answers as Zotero notes, or ask BibGenie to help organize tags, collections, and metadata.
+  </Card>
+</Cards>
+
+## What You Can Do With BibGenie
+
+- Read papers: summarize research questions, methods, contributions, limitations, and future work.
+- Deep-read excerpts: explain selected passages, formulas, figures, or experimental results.
+- Search your library: find relevant papers by keyword or by describing a research topic in natural language.
+- Organize your library: manage tags, collections, metadata, and item movement.
+- Save notes: turn structured AI responses into Zotero notes.
+- Connect external tools: expose local Zotero tools through BibGenie's MCP server.
+
+## Recommended Reading Path
+
+<Steps>
+  <Step>
+    **First-time setup**: start with [Getting Started](/docs/getting-started) to install BibGenie and ask your first question.
+  </Step>
+  <Step>
+    **Understand models and credits**: read [Models](/docs/models) and [Pricing & Credits](/docs/pricing-credits).
+  </Step>
+  <Step>
+    **Learn the core features**: continue with [Add Context](/docs/add-context), [Literature Search](/docs/literature-search), and [Save as Note](/docs/save-as-note).
+  </Step>
+  <Step>
+    **Advanced setup**: if you have your own API key or a local model, read [Bring Your Own Key](/docs/byok) and [Custom Models](/docs/custom-models).
+  </Step>
+</Steps>
+
+## Documentation Sections
+
+<Cards>
+  <Card title="Introduction" href="/docs/getting-started">
+    Installation, models, pricing, and credits.
+  </Card>
+  <Card title="Features" href="/docs/add-context">
+    Context, prompts, search, web access, library management, notes, and MCP.
+  </Card>
+  <Card title="Configuration" href="/docs/custom-models">
+    Custom models, MCP, Add to Chat, shortcuts, citation format, and semantic indexing.
+  </Card>
+  <Card title="Troubleshooting" href="/docs/error-in-bibgenie">
+    Common errors, model failures, network issues, and Zotero compatibility.
+  </Card>
+</Cards>

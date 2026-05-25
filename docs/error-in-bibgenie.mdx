@@ -1,0 +1,157 @@
+---
+title: Troubleshooting
+description: Diagnose common BibGenie errors and resolve model, network, and configuration issues.
+icon: AlertCircle
+datePublished: 2025-12-07
+lastModified: 2026-05-16
+---
+
+This page helps you diagnose common BibGenie errors and choose the right next step.
+
+<Callout type="warning" title="Update first">
+  Before troubleshooting, make sure you are using the latest version of BibGenie. Many model, Zotero compatibility, and network issues may already be fixed in a newer release.
+</Callout>
+
+<Callout type="info" title="Error details matter">
+  Error dialogs often include useful details such as model name, request URL, provider response, and failure reason. Read them carefully before changing settings.
+</Callout>
+
+## ModelNotSupported
+
+<Cards>
+  <Card title="What you see">
+    A dialog titled "ModelNotSupported".
+  </Card>
+  <Card title="Likely cause">
+    The selected model does not support the current input type. This often happens when you send an image to a model that does not support vision input.
+  </Card>
+</Cards>
+
+### How to Fix It
+
+<Steps>
+  <Step>
+    Choose a model that supports the required capability, such as Vision for image or screenshot input.
+  </Step>
+  <Step>
+    If you are using a custom model and you know it supports images, check that the model is marked as a **Vision** model in Custom Models.
+  </Step>
+  <Step>
+    If the task requires tool use, make sure the model supports **Function Calling**.
+  </Step>
+</Steps>
+
+## AI_APICallError
+
+<Cards>
+  <Card title="What you see">
+    A dialog titled "AI_APICallError".
+  </Card>
+  <Card title="Likely cause">
+    The model API request failed. Common causes include invalid API key, wrong model ID, incorrect Base URL, provider timeout, or network failure.
+  </Card>
+</Cards>
+
+### Common Error Types
+
+<Tabs items={['API key', 'Model ID', 'Base URL']}>
+  <Tab value="API key">
+    Invalid or expired keys may produce messages like:
+
+    ```text
+    Unauthorized Failure reason: Authentication Fails
+    (auth header format should be Bearer sk-...)
+    ```
+
+    ```text
+    Incorrect API key provided.
+    ```
+
+    Check that the API key is complete, active, and belongs to the provider you selected.
+  </Tab>
+  <Tab value="Model ID">
+    Wrong model IDs may produce messages like:
+
+    ```text
+    Model Not Exist
+    ```
+
+    Compare the Model ID in BibGenie with the exact model ID shown by the provider.
+  </Tab>
+  <Tab value="Base URL">
+    Incorrect Base URLs may produce request or 404 errors.
+
+    <Callout type="warning" title="Check the version path">
+      Many providers require a Base URL ending in `/v1`. A URL such as `/v/` instead of `/v1/` will fail.
+    </Callout>
+  </Tab>
+</Tabs>
+
+### How to Fix It
+
+<Accordions>
+  <Accordion title="When using official models">
+    Refresh the official model list in Model Settings. If the issue persists, update BibGenie and contact support with the full error message.
+  </Accordion>
+  <Accordion title="When using custom models">
+    Check Provider Type, Provider ID, Model ID, API Key, and Base URL. Use the Test button in Custom Models to verify the connection.
+  </Accordion>
+  <Accordion title="When using local models">
+    Make sure Ollama, LM Studio, or your local server is running, the port is correct, and the Base URL is reachable from Zotero's browser environment.
+  </Accordion>
+</Accordions>
+
+## NetworkError
+
+<Cards>
+  <Card title="What you see">
+    An error such as `TypeError: NetworkError when attempting to fetch resource.`
+  </Card>
+  <Card title="Likely cause">
+    BibGenie could not reach the provider endpoint.
+  </Card>
+</Cards>
+
+Possible causes:
+
+- Local model server is not running.
+- Base URL or port is incorrect.
+- Firewall, proxy, or network policy blocks the request.
+- The provider endpoint is temporarily unavailable.
+- The configured provider does not support browser-side requests in your environment.
+
+## Attachment or Context Issues
+
+If BibGenie cannot read a PDF, snapshot, note, or selected text:
+
+- Make sure the file exists on this device.
+- If you use Zotero sync, verify that the attachment has been downloaded locally.
+- For WebDAV users, check that Zotero file sync is working.
+- Try opening the attachment directly in Zotero.
+- Restart Zotero if the reader state appears stale.
+
+## MCP Connection Issues
+
+If an external MCP client cannot connect:
+
+- Confirm **Enable MCP Server** is on.
+- Copy the Server URL again.
+- Click **Test Connection** in MCP Settings.
+- Make sure Zotero is still running.
+- Disconnect clients you do not trust.
+
+## Getting Help
+
+If the issue persists, send the following information when asking for help:
+
+- BibGenie version
+- Zotero version
+- Operating system
+- Whether you are using an official or custom model
+- Provider Type and Model ID
+- Full error message
+- Whether the issue happens with a specific PDF, note, or context type
+
+<Callout type="tip" title="Support channel">
+  You can join the [BibGenie Discord community](https://discord.gg/kDXFAAYDNE) for support.
+</Callout>

@@ -1,0 +1,139 @@
+---
+title: Quick Prompts
+description: Create reusable prompt shortcuts for common research tasks.
+icon: WandSparkles
+datePublished: 2026-05-16
+lastModified: 2026-05-16
+---
+
+Quick Prompts are reusable shortcuts for recurring research tasks. Save prompts you use often, insert them quickly into the input box, and adapt them to the current context.
+
+## What Are Quick Prompts Good For?
+
+<Cards>
+  <Card title="Paper reading">
+    Summarize research questions, methods, contributions, limitations, and future work.
+  </Card>
+  <Card title="Translation and editing">
+    Translate selected text, polish English paragraphs, or adjust academic tone.
+  </Card>
+  <Card title="Literature reviews">
+    Extract claims, generate comparison tables, and organize related work.
+  </Card>
+  <Card title="Critical reading">
+    Analyze assumptions, methodological weaknesses, evidence strength, and reproducibility.
+  </Card>
+</Cards>
+
+## Create a Quick Prompt
+
+<Steps>
+  <Step>
+    Open BibGenie and go to **Prompts Settings**.
+  </Step>
+  <Step>
+    Click the add button to create a new quick prompt.
+  </Step>
+  <Step>
+    Enter a name, prompt content, description, and tags.
+  </Step>
+  <Step>
+    Use the toggle to control whether it appears on the chat page.
+  </Step>
+  <Step>
+    Save your settings and return to chat.
+  </Step>
+</Steps>
+
+## Use a Quick Prompt
+
+On the chat page, click a Quick Prompt or search for it from the prompt menu. Once inserted, it becomes part of the current input, so you can continue editing it, add context, or specify an output format.
+
+Example:
+
+```text
+Based on the paper I added, please use the following structure:
+1. Research question
+2. Method and data
+3. Core findings
+4. Limitations
+5. How I might cite this paper
+```
+
+## Quick Prompts vs Custom Instructions
+
+| Type | Scope | Best for |
+| :--- | :--- | :--- |
+| Quick Prompts | The current input | Task templates such as summarization, translation, comparison, and extraction |
+| Custom Instructions | Longer-term behavior preferences | Response language, tone, role, and formatting preferences |
+
+<Callout type="tip" title="Recommended approach">
+  Put stable personal preferences in Custom Instructions and task-specific workflows in Quick Prompts.
+</Callout>
+
+## System Prompt
+
+System Prompts guide the AI's overall behavior across all conversations. Unlike Quick Prompts (which apply to the current input), a System Prompt takes effect **globally** — every conversation follows the same instruction.
+
+For example, setting the system prompt to:
+
+```text
+Always respond in English. Use academic writing conventions appropriate for computer science.
+```
+
+means every response will follow this instruction without you needing to repeat it.
+
+You can set one System Prompt in **Prompts Settings**. The default is `Always respond in English.` You can change it to match your preferred response language, tone, role, or formatting style.
+
+## Quick Prompt Configuration
+
+Each Quick Prompt has the following fields:
+
+<Cards>
+  <Card title="Prompt Name">
+    Required. When enabled, this name is displayed as a button above the chat input box.
+  </Card>
+  <Card title="Prompt Content">
+    Required. The text that will be sent to the AI model as context.
+  </Card>
+  <Card title="Prompt Description">
+    Optional. Describes the purpose of the prompt, shown on hover.
+  </Card>
+  <Card title="Prompt Tags">
+    Optional. Used for categorization and filtering when managing many prompts.
+  </Card>
+</Cards>
+
+## Example Templates
+
+<Tabs items={['Paper summary', 'Passage explanation', 'Review extraction']}>
+  <Tab value="Paper summary">
+    ```text
+    Read the paper I added and summarize it using this structure:
+    - Research question
+    - Core hypothesis
+    - Method and data
+    - Main findings
+    - Limitations
+    - Relevance to my current research
+    ```
+  </Tab>
+  <Tab value="Passage explanation">
+    ```text
+    Explain the selected text I added:
+    - What is the passage saying?
+    - What are the key concepts?
+    - How does it relate to the paper's main argument?
+    - What should I be careful about if I cite it?
+    ```
+  </Tab>
+  <Tab value="Review extraction">
+    ```text
+    Extract material from these papers for a literature review:
+    - Core claim of each paper
+    - Agreements and disagreements between papers
+    - Themes that can be synthesized
+    - Remaining research gaps
+    ```
+  </Tab>
+</Tabs>

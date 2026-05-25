@@ -1,0 +1,141 @@
+---
+title: How BibGenie Understands Your Library
+description: Learn what embeddings are, how BibGenie uses them for semantic search, and why indexing improves paper discovery.
+icon: Brain
+datePublished: 2026-04-27
+lastModified: 2026-04-27
+---
+
+## Why this page exists
+
+When you search in BibGenie, the goal is not only to find papers that contain the exact same words you typed. In many cases, you want BibGenie to find papers that are **about the same idea**, even if they use different terminology.
+
+That is where **embeddings** and **indexing** come in.
+
+## What is an embedding?
+
+An embedding is a way to turn a piece of text into a numeric representation that captures its meaning.
+
+You do not need to think about the math behind it. The practical idea is simple:
+
+- Similar text tends to produce similar embeddings
+- Different topics tend to produce more distant embeddings
+- This lets BibGenie compare meaning, not only exact wording
+
+For example, a paper about *drug discovery with knowledge graphs* may still be found when you search for *graph methods for biomedical research*, even if the wording is not identical.
+
+## How BibGenie uses embeddings
+
+BibGenie currently builds semantic search from the **title** and **abstract** of your regular Zotero items.
+
+The process is:
+
+1. BibGenie reads the title and abstract of a paper.
+2. It converts that text into an embedding.
+3. It stores the result in a local search index for your Zotero library.
+4. When you ask a topic-style question, BibGenie converts your query into an embedding too.
+5. It compares your query with the indexed papers and returns the closest matches.
+
+This is why semantic search can surface papers that are relevant in meaning, not only in wording.
+
+## What is indexing?
+
+Indexing is the preparation step that makes semantic search fast and practical.
+
+Instead of recomputing everything every time you search, BibGenie first prepares a local index of embeddings for your library. Once that index exists, BibGenie can search across your papers much more efficiently.
+
+In short:
+
+- **Embedding** helps BibGenie represent meaning
+- **Indexing** helps BibGenie search that meaning quickly
+
+## What does this help with?
+
+Semantic indexing is especially useful when you want to:
+
+- Find papers related to a research topic
+- Discover work that uses different wording for a similar idea
+- Explore a method, theory, or problem area
+- Search a large Zotero library more naturally
+
+Keyword search is still useful when you know the exact author, title, term, or phrase. Semantic search is more helpful when your question is conceptual.
+
+## What content is included?
+
+BibGenie currently uses:
+
+- Paper titles
+- Paper abstracts
+
+BibGenie does **not** currently build this semantic index from:
+
+- PDF full text
+- Notes
+- Annotations
+- Attachments
+
+This helps keep indexing focused, predictable, and fast.
+
+## Do I need to rebuild the index often?
+
+Usually, **no**.
+
+Most of the time, BibGenie handles indexing updates automatically in the background as your library changes. If you add papers, modify records, or remove items, BibGenie will usually take care of the necessary updates for you.
+
+You may want to rebuild the index in a few situations:
+
+- The first time you set up semantic indexing
+- After switching to a different embedding model
+- After a large import, if results seem incomplete or outdated
+- If BibGenie tells you the current index needs attention
+- If semantic results look clearly wrong and you want a clean rebuild
+
+<Callout type="info" title="Good default rule">
+  If semantic search is working normally, you usually do not need to do anything. Rebuild only when the app suggests it, or when results no longer match your expectations.
+</Callout>
+
+## What do the buttons mean on the Indexing page?
+
+### Build / Rebuild
+
+This creates the index for the first time, or rebuilds it from scratch when needed.
+
+Use it when:
+
+- You are setting up indexing for the first time
+- You changed embedding models
+- You want to refresh the entire index
+
+### Retry Failed Items
+
+This only retries papers that failed during previous indexing attempts.
+
+Use it when:
+
+- The failed item count is greater than zero
+- You want a lighter recovery step before trying a full rebuild
+
+## Common questions
+
+<Accordions>
+  <Accordion title="Why does semantic search return different results from keyword search?">
+    Keyword search looks for matching words. Semantic search looks for related meaning. Because of that, semantic search can return papers that are relevant even when the wording is different.
+  </Accordion>
+
+  <Accordion title="Why do I need embeddings at all?">
+    Without embeddings, BibGenie would mostly depend on exact terms. Embeddings make it possible to search by topic, concept, and semantic similarity.
+  </Accordion>
+
+  <Accordion title="Why is a paper missing from semantic search?">
+    A paper may not have been indexed yet, may not contain enough title/abstract content, or the index may need attention. If the issue persists, try rebuilding the index.
+  </Accordion>
+
+  <Accordion title="Will BibGenie constantly ask me to rebuild?">
+    No. In normal use, BibGenie is designed to update the index automatically. Manual rebuild is mainly for first setup, model changes, and recovery scenarios.
+  </Accordion>
+</Accordions>
+
+## Next Steps
+
+- Check index status and troubleshoot issues: [Semantic Index](/docs/semantic-index)
+- Learn how to use semantic search in practice: [Literature Search](/docs/literature-search)

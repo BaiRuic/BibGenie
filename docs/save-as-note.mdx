@@ -1,0 +1,77 @@
+---
+title: Save as Note
+description: Save BibGenie responses as Zotero notes and understand how parent items are handled.
+icon: NotebookPen
+datePublished: 2026-05-16
+lastModified: 2026-05-16
+---
+
+import { MessageSquareText, Save } from 'lucide-react';
+
+Save as Note turns useful BibGenie responses into Zotero notes that you can keep, search, and reuse in your research workflow.
+
+## Two Ways to Save
+
+<Cards>
+  <Card title="Ask in natural language" icon={<MessageSquareText />}>
+    Tell BibGenie: "Save the summary above as a note for this paper."
+  </Card>
+  <Card title="Use the button" icon={<Save />}>
+    Click **Save as Note** on the last assistant message to save the latest response.
+  </Card>
+</Cards>
+
+## Supported Content
+
+BibGenie converts Markdown / HTML content into Zotero notes. Common supported content includes:
+
+- Headings and paragraphs
+- Ordered and unordered lists
+- Mathematical formulas
+- Code blocks
+- Tables
+- Citations and links
+- Bold text and inline code
+
+<Callout type="info" title="Formatting may be simplified">
+  Zotero notes have their own editor and HTML support. Most common formats work well, but very complex Markdown or custom HTML may be simplified.
+</Callout>
+
+## Parent Item Logic
+
+When saving a note, BibGenie places it in the most appropriate location it can determine.
+
+| Input | Result |
+| :--- | :--- |
+| Regular item specified | Creates a child note under that item |
+| PDF attachment specified | Finds the attachment's regular parent item when possible and attaches the note there |
+| Child note specified | Finds the child note's regular parent item when possible and attaches the note there |
+| No parent specified | Creates a standalone note |
+| Parent and collection both specified | The collection is ignored because Zotero child notes inherit collection membership from their parent item |
+
+## Examples
+
+<Tabs items={['Paper summary', 'Review note', 'Experimental protocol']}>
+  <Tab value="Paper summary">
+    ```text
+    Save the paper summary above as a Zotero note for this item, titled "Paper Summary".
+    ```
+  </Tab>
+  <Tab value="Review note">
+    ```text
+    Turn the comparison above into a literature review note and save it to Zotero.
+    ```
+  </Tab>
+  <Tab value="Experimental protocol">
+    ```text
+    Convert the method section into reproducible experimental steps and save it as a note. Preserve code blocks and tables.
+    ```
+  </Tab>
+</Tabs>
+
+## Tips
+
+- Ask BibGenie to structure the response before saving it.
+- For long conversations, first ask BibGenie to "rewrite this as a note", then save.
+- If the note should belong to a specific paper, name the target item explicitly.
+- If you want a standalone note, say that it should not be attached to a paper.

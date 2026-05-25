@@ -1,0 +1,80 @@
+---
+title: MCP Settings
+description: Turn BibGenie's local MCP server on or off, copy its URL, and test the connection.
+icon: ServerCog
+datePublished: 2026-05-16
+lastModified: 2026-05-24
+---
+
+MCP Settings controls BibGenie's local MCP server. When enabled, external MCP clients can connect to the Server URL and access BibGenie's Zotero tools.
+
+## Controls
+
+<Cards>
+  <Card title="Enable MCP Server">
+    Starts or stops the local MCP server.
+  </Card>
+  <Card title="Server URL">
+    The URL external clients use to connect to BibGenie. It usually looks like `http://127.0.0.1:23119/bibgenie/mcp`, but the port can be different if Zotero uses a custom HTTP server port.
+  </Card>
+  <Card title="Copy">
+    Copies the Server URL to your clipboard.
+  </Card>
+  <Card title="Test Connection">
+    Sends an MCP initialize request with HTTP POST JSON-RPC to verify that the endpoint is reachable.
+  </Card>
+</Cards>
+
+<Callout type="info" title="Browser testing can be misleading">
+  Opening the Server URL directly in your browser is not the same as an MCP connection. MCP clients send POST JSON-RPC requests, while the browser address bar sends a GET request. Use **Test Connection** for the real check.
+</Callout>
+
+## Status Reference
+
+| Status | Meaning |
+| :--- | :--- |
+| Server is off | MCP Server is disabled |
+| Starting | Server is starting |
+| Server running | Server is ready for external clients |
+| Testing connection | Connection test is running |
+| Connection verified | Test succeeded |
+| Connection failed | Test failed; check the URL or server state |
+
+## When Connection Fails
+
+- Make sure Zotero is running.
+- Make sure BibGenie is enabled in Zotero.
+- Make sure **Enable MCP Server** is on.
+- Copy the displayed Server URL instead of assuming port `23119`.
+- Restart Zotero if the server was recently enabled or the plugin was updated.
+
+## Enable MCP
+
+<Steps>
+  <Step>
+    Open BibGenie Preferences.
+  </Step>
+  <Step>
+    Find the **MCP Server** section.
+  </Step>
+  <Step>
+    Turn on **Enable MCP Server**.
+  </Step>
+  <Step>
+    Wait for the Server URL to appear.
+  </Step>
+  <Step>
+    Click Copy and paste the URL into your external MCP client.
+  </Step>
+  <Step>
+    Click Test Connection to verify it works.
+  </Step>
+</Steps>
+
+## Disable MCP
+
+When you are not using external clients, turn off **Enable MCP Server**. External clients will no longer be able to access BibGenie's MCP tools.
+
+<Callout type="warning" title="Connect only trusted clients">
+  MCP tools may read or modify your Zotero library. Share the Server URL only with clients you trust.
+</Callout>

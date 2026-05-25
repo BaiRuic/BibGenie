@@ -1,0 +1,73 @@
+---
+title: Bring Your Own Key
+description: Use your own API key or local model, and understand BYOK data flow and privacy boundaries.
+icon: KeyRound
+datePublished: 2026-05-16
+lastModified: 2026-05-16
+---
+
+BYOK means Bring Your Own Key. It lets you use your own model provider, API key, or local model with BibGenie.
+
+## Why Use BYOK?
+
+<Cards>
+  <Card title="Control data flow">
+    Custom model requests go directly from the local Zotero plugin to the provider you configure.
+  </Card>
+  <Card title="Use local models">
+    Run models on your own machine with Ollama or LM Studio.
+  </Card>
+  <Card title="Avoid BibGenie credit usage">
+    BYOK requests do not use BibGenie's official model service, so they do not consume BibGenie credits.
+  </Card>
+  <Card title="Access more models">
+    Use models that are not currently included in the official list.
+  </Card>
+</Cards>
+
+## Does Data Pass Through BibGenie's Service?
+
+If you add a custom model, request data does not go through BibGenie's model service. The local Zotero plugin sends requests directly to the provider you configure.
+
+That means:
+
+- OpenAI API key: requests go directly to OpenAI.
+- Anthropic API key: requests go directly to Anthropic.
+- OpenAI-compatible proxy: requests go to the Base URL you enter.
+- Ollama or LM Studio: requests can stay entirely on your machine.
+
+<Callout type="warning" title="Third-party providers still receive data">
+  BYOK bypasses BibGenie's model service, but cloud providers still receive the content you send to them. Choose providers according to your institution, lab, or project data policy.
+</Callout>
+
+## Supported Providers
+
+BibGenie supports multiple provider types:
+
+| Provider | Notes |
+| :--- | :--- |
+| OpenAI | OpenAI GPT models |
+| Anthropic | Claude models |
+| xAI | Grok models |
+| DeepSeek | DeepSeek models |
+| Google | Gemini models |
+| Groq | Groq-hosted models |
+| Moonshot AI | Kimi models |
+| OpenRouter | Unified model routing platform |
+| Ollama | Local model service |
+| OpenAI Compatible | Any OpenAI-compatible API |
+
+LM Studio is usually configured through **OpenAI Compatible**.
+
+## When BYOK Is a Good Fit
+
+- You already have a provider API key.
+- You want provider billing to happen through your own account.
+- You need to use an institutional model service.
+- You want requests to bypass BibGenie's official model service.
+- You want to process sensitive material with a local model.
+- You need a model that is not in the official list yet.
+
+## Next Step
+
+Read [Custom Models](/docs/custom-models) to add a provider, enter the Base URL and API key, and test the connection.
