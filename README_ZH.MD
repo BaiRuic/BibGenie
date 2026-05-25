@@ -1,190 +1,140 @@
 <div align="center">
-  <img src="./public/logo.png" alt="BibGenie Logo" width="120"/>
-  
+  <img src="./public/logo.png" alt="BibGenie logo" width="112"/>
+
   # BibGenie
-  
-  ### 🧞 您的 Zotero 智能 AI 助手
-  
-  [English](README.MD) | 简体中文
-  
-  [![Zotero](https://img.shields.io/badge/Zotero-7-red.svg)](https://www.zotero.org/)
-  [![Discord](https://img.shields.io/badge/Discord-Join%20Community-7289da.svg)](https://discord.gg/kDXFAAYDNE)
-  [![Website](https://img.shields.io/badge/Website-bibgenie.com-blue.svg)](https://www.bibgenie.com)
-  
-  **BibGenie 是一款强大的 Zotero AI 助手插件，帮助研究人员理解 PDF 文献、回答研究问题、提升科研效率。**
-  
-  **🌐 更多信息请访问官方网站：[www.bibgenie.com](https://www.bibgenie.com)**
-  
-  [下载插件](#-安装) · [加入 Discord](https://discord.gg/kDXFAAYDNE)
-  
+
+  ### Zotero 内的 AI 研究智能体
+
+  [English](README.MD) | [简体中文](README_ZH.MD)
+
+  [![Zotero 7, 8 and 9](https://img.shields.io/badge/Zotero-7%20%7C%208%20%7C%209-cc2936)](https://www.zotero.org/)
+  [![官网](https://img.shields.io/badge/Website-bibgenie.com-2563eb)](https://www.bibgenie.com/zh)
+  [![文档](https://img.shields.io/badge/Docs-开始使用-0f766e)](https://www.bibgenie.com/zh/docs)
+  [![Discord](https://img.shields.io/badge/Discord-Community-5865f2)](https://discord.gg/kDXFAAYDNE)
+
+  **BibGenie 原生运行在 Zotero 中，围绕你的论文、笔记、网页快照、图片和文库结构工作。添加研究上下文，提出有依据的问题，检索并整理文献库，再把有价值的结果保存回 Zotero 笔记。**
+
+  [免费下载插件](https://www.bibgenie.com/zh/download) · [查看文档](https://www.bibgenie.com/zh/docs) · [加入 Discord](https://discord.gg/kDXFAAYDNE)
 </div>
 
 ---
 
-## ✨ 核心特性
+## 原生的 Zotero 研究工作流
 
-### 🤖 多模型支持
-与 ChatGPT、Claude、Gemini、DeepSeek、Qwen、Kimi 等多个 AI 模型无缝集成，选择最适合您研究需求的 AI 模型。
+BibGenie 不是一个需要你把研究材料搬出 Zotero 的独立网页聊天工具。它是位于 Zotero 侧边栏中的 AI research agent，围绕你现有的文献材料和整理方式工作。
 
-- ✅ **OpenAI (ChatGPT)** - GPT-4, GPT-3.5
-- ✅ **Anthropic (Claude)** - Claude 3.5 Sonnet, Claude 3 Opus
-- ✅ **Google (Gemini)** - Gemini Pro, Gemini Ultra
-- ✅ **DeepSeek** - DeepSeek Chat, DeepSeek Coder
-- ✅ **Alibaba (Qwen)** - 通义千问系列
-- ✅ **Moonshot (Kimi)** - Kimi Chat
-- ✅ **Ollama** - 本地模型支持
-- ✅ **OpenRouter** - 统一 API 接入
+1. **添加上下文**：插入 Zotero item、PDF attachment、网页快照、note、选中文字、当前页面、图片、截图、tag 或 collection。
+2. **提问与检索**：阅读论文、解释公式和图表、检索文献库、对比多篇文章，或综合一个文献集合。
+3. **整理与沉淀**：将回答保存为 Zotero note，并以可审核的方式整理 tag、collection 与元信息。
 
-### 🎯 与 Zotero 深度集成
+<p align="center">
+  <img src="./public/blocks/demo-workflow.gif" alt="BibGenie 在 Zotero 内添加上下文、围绕论文提问并保存结果的工作流" width="860"/>
+  <br/>
+  <sub>完整研究工作流预览：添加上下文、阅读论文、保存结果。<a href="https://cfr2.bibgenie.com/bibgenie-mp4s/add_context_read_save_lq.mp4">查看高清原视频</a></sub>
+</p>
 
-<table>
-  <tr>
-    <td width="50%">
-      <h4>📋 快捷键操作</h4>
-      <ul>
-        <li><kbd>Ctrl</kbd> + <kbd>L</kbd> 快速打开聊天对话框</li>
-        <li><kbd>Ctrl</kbd> + <kbd>V</kbd> 直接粘贴图片到对话框</li>
-        <li>无需手动导入，流畅的研究体验</li>
-      </ul>
-    </td>
-    <td width="50%">
-      <h4>📚 智能上下文管理</h4>
-      <ul>
-        <li>一键添加当前阅读的 PDF 到 LLM 上下文</li>
-        <li>搜索并添加文库中的任意 PDF 附件</li>
-        <li>无需手动复制粘贴，自动提取内容</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%">
-      <h4>💬 对话历史管理</h4>
-      <ul>
-        <li>保存所有聊天记录</li>
-        <li>一键继续之前的对话</li>
-        <li>方便回顾研究思路</li>
-      </ul>
-    </td>
-    <td width="50%">
-      <h4>⚡ Prompt 快捷管理</h4>
-      <ul>
-        <li>内置 Prompt 模板库</li>
-        <li>支持自定义 Prompt</li>
-        <li>快捷输入，提升效率</li>
-      </ul>
-    </td>
-  </tr>
-</table>
+## 核心功能
 
----
+### 添加任意 Zotero 上下文
 
-## 📸 产品截图
+无需把研究材料复制到独立聊天工具中，直接把你的 Zotero 工作区带入对话：
 
-<div align="center">
+- 使用 `@` 或 Zotero 中的 **Add to Chat** 入口添加 item、PDF、note、snapshot、tag 与 collection。
+- 添加选中文字、当前页面、图表、粘贴图片与截图。
+- 基于当前论文、项目或文献集合提出有依据的问题。
 
-### 主界面 - 与 Zotero 完美融合
-<img src="./public/blocks/main-page(empty-1440x1108).png" alt="BibGenie 主界面" width="800"/>
+<p align="center">
+  <img src="./public/blocks/demo-at-context.gif" alt="在 BibGenie 中使用 @ 菜单添加 Zotero 上下文" width="760"/>
+  <br/>
+  <sub>使用 <code>@</code> 添加 Zotero 材料。<a href="https://cfr2.bibgenie.com/bibgenie-mp4s/at_any_context.mp4">查看高清原视频</a></sub>
+</p>
 
-### 快捷键操作 - Ctrl+L 打开对话框
-<img src="./public/blocks/main-page(shoctcut-1440x1108).png" alt="快捷键操作" width="800"/>
+图表和截图同样可以作为上下文。你可以在 Zotero reader 中直接让 BibGenie 解释图示、公式或页面区域。
 
-### 图片输入支持 - Ctrl+V 粘贴图片
-<img src="./public/blocks/main-page(image-input-support-1440x1108).png" alt="图片输入支持" width="800"/>
+<p align="center">
+  <img src="./public/blocks/demo-explain-image.gif" alt="BibGenie 解释 Zotero PDF 中选取的图表" width="760"/>
+  <br/>
+  <sub>讨论 reader 中的图表与截图。<a href="https://cfr2.bibgenie.com/bibgenie-mp4s/explain_image.mp4">查看高清原视频</a></sub>
+</p>
 
-### 添加上下文 - 智能 PDF 管理
-<img src="./public/blocks/main-page(add-context-1440x1108).png" alt="添加上下文" width="800"/>
+### 检索、阅读并综合你的文献库
 
-### 多模型支持 - 自由切换 AI 模型
-<img src="./public/blocks/main-page(multi-llm-support-1440x1108).png" alt="多模型支持" width="800"/>
+- 按标题、作者、年份、DOI、tag、collection、期刊或会议检索文献。
+- 基于本地 Zotero 标题和摘要索引进行语义检索。
+- 精读论文、比较多篇文章、生成结构化表格，并将有价值的结果保存为 Zotero note。
 
-### 对话历史 - 回顾研究思路
-<img src="./public/blocks/main-page(chat-history-view-1440x1108).png" alt="对话历史" width="800"/>
+<p align="center">
+  <img src="./public/blocks/search_paper_compres.png" alt="BibGenie 检索并阅读 Zotero 文献库中的论文" width="860"/>
+</p>
 
-### Prompt 管理 - 快捷输入模板
-<img src="./public/blocks/main-page(prompt-snippet-1440x1108).png" alt="Prompt 管理" width="800"/>
+### 整理你的 Zotero 文献库
 
-</div>
+- 检查并整理 tag、collection、文献移动和 metadata。
+- 对于敏感的批量操作，先让 BibGenie 给出计划，确认受影响条目后再明确执行。
 
----
+<p align="center">
+  <img src="./public/blocks/organize_library_compress.png" alt="BibGenie 以先预览后执行的方式整理 Zotero 文献库" width="860"/>
+</p>
 
-## 🚀 安装
+### 选择适合研究环境的模型配置
+
+- 直接使用 BibGenie 官方模型选项；第一次提问无需配置 API Key。
+- 使用自己的 Key 接入 OpenAI、Anthropic、DeepSeek、Gemini、OpenRouter、Groq 或 OpenAI-compatible endpoint。
+- 使用 Ollama 或 LM Studio 进行本地推理。自定义模型与本地模型请求会直接发往你配置的 provider 或 runtime。
+
+### 通过联网研究与 Zotero MCP 扩展工作流
+
+- 付费套餐提供 **Web Search** 与 **Web Extract**，用于读取文库之外的公开网页资料。
+- 内置的本地 **Zotero MCP** server 可让 Cursor、Claude Code、Claude Desktop、Cherry Studio 等支持 MCP 的客户端使用 Zotero 上下文。
+- 受信任的外部客户端可通过 MCP 在本地检索 item、读取附件或 snapshot、创建 note，并管理文库 metadata。
+
+## 安装 BibGenie
 
 ### 系统要求
-- **Zotero 7** (目前仅支持 Zotero 7，Zotero 8 支持正在开发中)
-- Windows / macOS / Linux
+
+- Zotero 7、Zotero 8 或 Zotero 9
+- Windows、macOS 或 Linux
 
 ### 安装步骤
 
-1. **下载插件**
-   - 前往 [Releases](https://github.com/BaiRuic/BibGenie/releases) 页面
-   - 下载最新版本的 `.xpi` 文件
+1. 从 [BibGenie 下载页](https://www.bibgenie.com/zh/download) 或 [GitHub Releases](https://github.com/BaiRuic/BibGenie/releases) 下载最新 `.xpi` 插件。
+2. 在 Zotero 中打开 **Tools -> Plugins**。
+3. 点击齿轮图标，选择 **Install Plugin From File...**。
+4. 选择 `bibgenie-<version>.xpi`，然后重启 Zotero。
+5. 从 Zotero 工具栏或 **Tools -> BibGenie** 打开 BibGenie。
 
-2. **安装到 Zotero**
-   - 打开 Zotero
-   - 进入 `工具` → `插件`
-   - 点击右上角齿轮图标 ⚙️
-   - 选择 `Install Add-on From File...`
-   - 选择下载的 `.xpi` 文件
-   - 重启 Zotero
+BibGenie 会在 Zotero 启动时检查更新；你也可以在 Zotero Plugin Manager 中为 BibGenie 开启自动更新。
 
----
+## 套餐与隐私
 
-## ❓ 常见问题
+- **Free** 包含 Zotero 核心研究智能体、上下文工具、文库检索、Save as Note、自定义模型以及每月官方模型 Credit。
+- **Pro / Max / Lifetime** 提供更多官方模型额度；付费套餐包含 Web Search / Web Extract。
+- **BYOK 与本地模型** 不消耗 BibGenie 官方模型 Credit，相关 provider 费用或本地算力由用户承担。
+- 对话记录默认保存在 Zotero 本地数据库中。使用自定义模型或本地模型时，请求直接发往配置的 provider 或 runtime。
 
-<details>
-<summary><strong>是否提供免费试用？</strong></summary>
-<br>
-对于免费用户，我们提供永久免费使用权限。您只需要配置自己的 AI 模型 API Key 即可使用。
-</details>
+当前套餐价格和 Credit 详情以官网 [Pricing 页面](https://www.bibgenie.com/zh/pricing) 与[文档](https://www.bibgenie.com/zh/docs/pricing-credits)为准。
 
-<details>
-<summary><strong>支持哪些文档格式？</strong></summary>
-<br>
-目前仅支持 PDF 附件。其他文件类型的支持正在开发中，即将推出。
-</details>
+## 了解更多
 
-<details>
-<summary><strong>BibGenie 如何安全访问我的研究论文？</strong></summary>
-<br>
-BibGenie 通过官方安全 API 连接到您的 Zotero 文库。您的研究数据完全私密和安全，存储在您的本地设备上。我们从不上传您的研究内容或索引到外部服务器。
-</details>
+- [快速开始](https://www.bibgenie.com/zh/docs/getting-started)
+- [添加上下文](https://www.bibgenie.com/zh/docs/add-context)
+- [文献检索](https://www.bibgenie.com/zh/docs/literature-search)
+- [模型与 BYOK](https://www.bibgenie.com/zh/docs/models)
+- [Zotero MCP](https://www.bibgenie.com/zh/docs/mcp)
 
-<details>
-<summary><strong>可以集成自己的 AI 模型和 API 吗？</strong></summary>
-<br>
-当然可以！BibGenie 支持自定义 LLM 配置，您可以使用自己的 API Host 和 Key 设置多个 AI 模型。您可以在研究过程中无缝切换不同模型以获得最佳效果。
-</details>
+## 关于本仓库
 
-<details>
-<summary><strong>支持哪些版本的 Zotero？</strong></summary>
-<br>
-目前仅支持 Zotero 7。Zotero 8 的支持正在开发中，即将推出。
-</details>
+本仓库用于公开展示 BibGenie 产品信息并提供可下载版本。BibGenie 应用程序的源代码不在本仓库中公开。
 
-<details>
-<summary><strong>在哪里可以获得帮助和支持？</strong></summary>
-<br>
-加入我们活跃的 Discord 社区，我们的开发团队和研究人员同行随时准备提供帮助。
-</details>
+## 支持
 
----
-
-## 📞 联系我们
-
-- **Discord 社区**: [加入我们](https://discord.gg/kDXFAAYDNE)
-- **官方网站**: [www.bibgenie.com](https://www.bibgenie.com)
-- **邮箱**: support@bibgenie.com
-
----
+- 官网：[www.bibgenie.com](https://www.bibgenie.com/zh)
+- 文档：[www.bibgenie.com/zh/docs](https://www.bibgenie.com/zh/docs)
+- Discord：[加入社区](https://discord.gg/kDXFAAYDNE)
+- 邮箱：[support@bibgenie.com](mailto:support@bibgenie.com)
 
 <div align="center">
-  
-  **用 BibGenie 开启您的智能研究之旅** 🚀
-  
-  [立即下载](https://github.com/BaiRuic/BibGenie/releases) · [访问官网](https://www.bibgenie.com) · [加入社区](https://discord.gg/kDXFAAYDNE)
-  
-  ---
-  
-  Made with ❤️ by the BibGenie Team
-  
+  <strong>让你的 Zotero 文献库进入 AI 原生研究工作流。</strong>
+  <br/><br/>
+  <a href="https://www.bibgenie.com/zh/download"><strong>下载 BibGenie</strong></a>
 </div>

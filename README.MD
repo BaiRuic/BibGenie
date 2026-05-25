@@ -1,191 +1,140 @@
 <div align="center">
-  <img src="./public/logo.png" alt="BibGenie Logo" width="120"/>
-  
+  <img src="./public/logo.png" alt="BibGenie logo" width="112"/>
+
   # BibGenie
-  
-  ### 🧞 Your Intelligent AI Assistant for Zotero
-  
-  English | [简体中文](README_ZH.MD)
-  
-  [![Zotero](https://img.shields.io/badge/Zotero-7-red.svg)](https://www.zotero.org/)
-  [![Discord](https://img.shields.io/badge/Discord-Join%20Community-7289da.svg)](https://discord.gg/kDXFAAYDNE)
-  [![Website](https://img.shields.io/badge/Website-bibgenie.com-blue.svg)](https://www.bibgenie.com)
-  
-  **BibGenie is a powerful AI assistant plugin for Zotero that helps researchers understand PDFs, answer research questions, and boost productivity.**
-  
-  **🌐 Visit our official website for more information: [www.bibgenie.com](https://www.bibgenie.com)**
-  
-  [Download Plugin](#-installation) · [Join Discord](https://discord.gg/kDXFAAYDNE)
-  
+
+  ### AI Research Agent for Zotero
+
+  [English](README.MD) | [简体中文](README_ZH.MD)
+
+  [![Zotero 7, 8 and 9](https://img.shields.io/badge/Zotero-7%20%7C%208%20%7C%209-cc2936)](https://www.zotero.org/)
+  [![Website](https://img.shields.io/badge/Website-bibgenie.com-2563eb)](https://www.bibgenie.com)
+  [![Documentation](https://img.shields.io/badge/Docs-Get%20Started-0f766e)](https://www.bibgenie.com/docs)
+  [![Discord](https://img.shields.io/badge/Discord-Community-5865f2)](https://discord.gg/kDXFAAYDNE)
+
+  **BibGenie works natively inside Zotero with your papers, notes, snapshots, images, and library structure. Add research context, ask grounded questions, search and organize your library, then save useful results back to Zotero notes.**
+
+  [Download Free Plugin](https://www.bibgenie.com/download) · [Documentation](https://www.bibgenie.com/docs) · [Join Discord](https://discord.gg/kDXFAAYDNE)
 </div>
 
 ---
 
-## ✨ Key Features
+## A Native Zotero Research Workflow
 
-### 🤖 Multiple AI Models Support
-Seamlessly integrate with ChatGPT, Claude, Gemini, DeepSeek, Qwen, Kimi, and more AI models. Choose the AI model that best suits your research needs.
+BibGenie is not a separate web chatbot that requires you to move research material out of Zotero. It is an AI research agent in the Zotero sidebar, designed around the materials and organization you already use.
 
-- ✅ **OpenAI (ChatGPT)** - GPT-4, GPT-3.5
-- ✅ **Anthropic (Claude)** - Claude 3.5 Sonnet, Claude 3 Opus
-- ✅ **Google (Gemini)** - Gemini Pro, Gemini Ultra
-- ✅ **DeepSeek** - DeepSeek Chat, DeepSeek Coder
-- ✅ **Alibaba (Qwen)** - Qwen Series
-- ✅ **Moonshot (Kimi)** - Kimi Chat
-- ✅ **Ollama** - Local Model Support
-- ✅ **OpenRouter** - Unified API Access
+1. **Add context**: insert Zotero items, PDF attachments, saved web snapshots, notes, selected text, page context, images, screenshots, tags, or collections.
+2. **Ask and search**: read papers, explain figures and formulas, search your library, compare articles, or synthesize a literature set.
+3. **Organize and preserve**: save responses as Zotero notes and use reviewable workflows for tags, collections, and metadata.
 
-### 🎯 Deep Integration with Zotero
+<p align="center">
+  <img src="./public/blocks/demo-workflow.gif" alt="BibGenie workflow inside Zotero: add context, ask a paper question, and save the result" width="860"/>
+  <br/>
+  <sub>Research workflow preview: add context, read a paper, and save the result. <a href="https://cfr2.bibgenie.com/bibgenie-mp4s/add_context_read_save_lq.mp4">View full-quality video</a></sub>
+</p>
 
-<table>
-  <tr>
-    <td width="50%">
-      <h4>📋 Keyboard Shortcuts</h4>
-      <ul>
-        <li><kbd>Ctrl</kbd> + <kbd>L</kbd> to quickly open chat dialog</li>
-        <li><kbd>Ctrl</kbd> + <kbd>V</kbd> to paste images directly into dialog</li>
-        <li>No manual import needed, smooth research experience</li>
-      </ul>
-    </td>
-    <td width="50%">
-      <h4>📚 Smart Context Management</h4>
-      <ul>
-        <li>Add current reading PDF to LLM context with one click</li>
-        <li>Search and add any PDF attachment from your library</li>
-        <li>No manual copy-paste, automatic content extraction</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%">
-      <h4>💬 Conversation History</h4>
-      <ul>
-        <li>Save all chat records</li>
-        <li>Continue previous conversations with one click</li>
-        <li>Easy to review research thoughts</li>
-      </ul>
-    </td>
-    <td width="50%">
-      <h4>⚡ Prompt Management</h4>
-      <ul>
-        <li>Built-in prompt template library</li>
-        <li>Support custom prompts</li>
-        <li>Quick input to boost efficiency</li>
-      </ul>
-    </td>
-  </tr>
-</table>
+## Core Features
 
----
+### Add Any Zotero Context
 
-## 📸 Screenshots
+Bring your workspace into the conversation rather than copying research material into a separate chatbot:
+
+- Type `@` or use Zotero's **Add to Chat** entry points to add items, PDFs, notes, snapshots, tags, and collections.
+- Add selected passages, current-page context, figures, pasted images, and screenshots.
+- Ask grounded questions about the paper, project, or literature set in view.
+
+<p align="center">
+  <img src="./public/blocks/demo-at-context.gif" alt="Adding Zotero context to BibGenie with the at sign menu" width="760"/>
+  <br/>
+  <sub>Add Zotero material with <code>@</code>. <a href="https://cfr2.bibgenie.com/bibgenie-mp4s/at_any_context.mp4">View full-quality video</a></sub>
+</p>
+
+Figures and screenshots are context too. BibGenie can explain a diagram, formula, or page region without leaving the Zotero reader.
+
+<p align="center">
+  <img src="./public/blocks/demo-explain-image.gif" alt="BibGenie explaining a figure selected from a PDF in Zotero" width="760"/>
+  <br/>
+  <sub>Discuss figures and screenshots in the reader. <a href="https://cfr2.bibgenie.com/bibgenie-mp4s/explain_image.mp4">View full-quality video</a></sub>
+</p>
+
+### Search, Read, and Synthesize Your Library
+
+- Find papers by title, author, year, DOI, tag, collection, journal, or conference.
+- Use semantic search over the local index of Zotero item titles and abstracts.
+- Deep-read papers, compare multiple articles, generate structured tables, and save useful results as Zotero notes.
+
+<p align="center">
+  <img src="./public/blocks/search_paper_compres.png" alt="BibGenie searching and reading papers in a Zotero library" width="860"/>
+</p>
+
+### Organize Your Zotero Library
+
+- Inspect and organize tags, collections, item movement, and metadata.
+- For sensitive batch operations, ask BibGenie for a plan, review affected items, then explicitly apply the changes.
+
+<p align="center">
+  <img src="./public/blocks/organize_library_compress.png" alt="BibGenie organizing a Zotero library with preview-first changes" width="860"/>
+</p>
+
+### Choose the Model Setup That Fits Your Research
+
+- Start immediately with BibGenie's official model options; no API key is required for the first question.
+- Connect OpenAI, Anthropic, DeepSeek, Gemini, OpenRouter, Groq, or OpenAI-compatible endpoints with your own key.
+- Use Ollama or LM Studio for local inference. Custom and local model requests go directly to the provider or runtime you configure.
+
+### Extend the Workflow With Web Research and Zotero MCP
+
+- Paid plans add **Web Search** and **Web Extract** for reading public web sources beyond your library.
+- The built-in local **Zotero MCP** server lets MCP-compatible clients such as Cursor, Claude Code, Claude Desktop, and Cherry Studio work with Zotero context.
+- Through MCP, trusted external clients can search items, read attachments or snapshots, create notes, and manage library metadata locally.
+
+## Install BibGenie
+
+### Requirements
+
+- Zotero 7, Zotero 8, or Zotero 9
+- Windows, macOS, or Linux
+
+### Installation
+
+1. Download the latest `.xpi` plugin from the [BibGenie download page](https://www.bibgenie.com/download) or [GitHub Releases](https://github.com/BaiRuic/BibGenie/releases).
+2. In Zotero, open **Tools -> Plugins**.
+3. Click the gear icon and choose **Install Plugin From File...**.
+4. Select `bibgenie-<version>.xpi`, then restart Zotero.
+5. Open BibGenie from the Zotero toolbar or **Tools -> BibGenie**.
+
+BibGenie checks for updates when Zotero starts. Automatic updates can also be enabled for BibGenie in Zotero's Plugin Manager.
+
+## Plans and Privacy
+
+- **Free** includes the core Zotero research agent, context tools, library search, Save as Note, custom models, and monthly official-model credits.
+- **Pro / Max / Lifetime** provide larger official-model allowances; paid plans include Web Search / Web Extract.
+- **BYOK and local models** do not consume BibGenie official-model credits; provider cost or local compute remains yours.
+- Chat records are stored locally in Zotero by default. When using a custom or local model, requests are sent directly to the configured provider or runtime.
+
+Current pricing and credit details are maintained on the [Pricing page](https://www.bibgenie.com/pricing) and in the [documentation](https://www.bibgenie.com/docs/pricing-credits).
+
+## Learn More
+
+- [Getting Started](https://www.bibgenie.com/docs/getting-started)
+- [Add Context](https://www.bibgenie.com/docs/add-context)
+- [Literature Search](https://www.bibgenie.com/docs/literature-search)
+- [Models and BYOK](https://www.bibgenie.com/docs/models)
+- [Zotero MCP](https://www.bibgenie.com/docs/mcp)
+
+## About This Repository
+
+This repository is the public home for BibGenie product information and downloadable releases. The BibGenie application source code is not published in this repository.
+
+## Support
+
+- Website: [www.bibgenie.com](https://www.bibgenie.com)
+- Documentation: [www.bibgenie.com/docs](https://www.bibgenie.com/docs)
+- Discord: [Join the community](https://discord.gg/kDXFAAYDNE)
+- Email: [support@bibgenie.com](mailto:support@bibgenie.com)
 
 <div align="center">
-
-### Main Interface - Perfect Integration with Zotero
-<img src="./public/blocks/main-page(empty-1440x1108).png" alt="BibGenie Main Interface" width="800"/>
-
-### Keyboard Shortcuts - Ctrl+L to Open Dialog
-<img src="./public/blocks/main-page(shoctcut-1440x1108).png" alt="Keyboard Shortcuts" width="800"/>
-
-### Image Input Support - Ctrl+V to Paste Images
-<img src="./public/blocks/main-page(image-input-support-1440x1108).png" alt="Image Input Support" width="800"/>
-
-### Add Context - Smart PDF Management
-<img src="./public/blocks/main-page(add-context-1440x1108).png" alt="Add Context" width="800"/>
-
-### Multiple Models Support - Switch AI Models Freely
-<img src="./public/blocks/main-page(multi-llm-support-1440x1108).png" alt="Multiple Models Support" width="800"/>
-
-### Conversation History - Review Research Thoughts
-<img src="./public/blocks/main-page(chat-history-view-1440x1108).png" alt="Conversation History" width="800"/>
-
-### Prompt Management - Quick Input Templates
-<img src="./public/blocks/main-page(prompt-snippet-1440x1108).png" alt="Prompt Management" width="800"/>
-
+  <strong>Bring your Zotero library into an AI-native research workflow.</strong>
+  <br/><br/>
+  <a href="https://www.bibgenie.com/download"><strong>Download BibGenie</strong></a>
 </div>
-
----
-
-## 🚀 Installation
-
-### System Requirements
-- **Zotero 7** (Currently only supports Zotero 7, Zotero 8 support is under development)
-- Windows / macOS / Linux
-
-### Installation Steps
-
-1. **Download Plugin**
-   - Go to [Releases](https://github.com/BaiRuic/BibGenie/releases) page
-   - Download the latest `.xpi` file
-
-2. **Install to Zotero**
-   - Open Zotero
-   - Go to `Tools` → `Add-ons`
-   - Click the gear icon ⚙️ in the top right corner
-   - Select `Install Add-on From File...`
-   - Select the downloaded `.xpi` file
-   - Restart Zotero
-
----
-
-## ❓ FAQ
-
-<details>
-<summary><strong>Do you offer a free trial?</strong></summary>
-<br>
-For free users, we offer permanent free usage rights. You only need to configure your own AI model API Key to use it.
-</details>
-
-<details>
-<summary><strong>What document formats are supported?</strong></summary>
-<br>
-Currently, only PDF attachments are supported. Support for other file types is under development and will be available soon.
-</details>
-
-<details>
-<summary><strong>How does BibGenie securely access my research papers?</strong></summary>
-<br>
-BibGenie connects to your Zotero library through official, secure APIs. Your research data remains completely private and secure, stored locally on your device. We never upload your research content or index to external servers.
-</details>
-
-<details>
-<summary><strong>Can I integrate my own AI models and APIs?</strong></summary>
-<br>
-Absolutely! BibGenie supports custom LLM configurations where you can set up multiple AI models using your own API Host and Keys. You can seamlessly switch between different models during research sessions for optimal results.
-</details>
-
-<details>
-<summary><strong>Which versions of Zotero are supported?</strong></summary>
-<br>
-Currently, only Zotero 7 is supported. Zotero 8 support is under development and will be available soon.
-</details>
-
-<details>
-<summary><strong>Where can I get help and support?</strong></summary>
-<br>
-Join our active Discord community where our development team and fellow researchers are ready to help.
-</details>
-
----
-
-## 📞 Contact Us
-
-- **Discord Community**: [Join Us](https://discord.gg/kDXFAAYDNE)
-- **Official Website**: [www.bibgenie.com](https://www.bibgenie.com)
-- **Email**: support@bibgenie.com
-
----
-
-<div align="center">
-  
-  **Start Your Research Journey With BibGenie** 🚀
-  
-  [Download Now](https://github.com/BaiRuic/BibGenie/releases) · [Visit Website](https://www.bibgenie.com) · [Join Community](https://discord.gg/kDXFAAYDNE)
-  
-  ---
-  
-  Made with ❤️ by the BibGenie Team
-  
-</div>
-
