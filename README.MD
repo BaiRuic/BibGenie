@@ -86,7 +86,7 @@ Figures and screenshots are context too. BibGenie can explain a diagram, formula
 
 ### Extend the Workflow With Web Research and Zotero MCP
 
-- Paid plans add **Web Search** and **Web Extract** for reading public web sources beyond your library.
+- Paid plans add **Web Search**, **Web Extract**, and **OpenAlex Academic Search** for discovering public scholarly metadata, exploring citation networks, and analyzing research trends beyond your library.
 - The built-in local **Zotero MCP** server lets MCP-compatible clients such as Cursor, Claude Code, Claude Desktop, and Cherry Studio work with Zotero context.
 - Through MCP, trusted external clients can search items, read attachments or snapshots, create notes, and manage library metadata locally.
 
@@ -110,7 +110,7 @@ BibGenie checks for updates when Zotero starts. Automatic updates can also be en
 ## Plans and Privacy
 
 - **Free** includes the core Zotero research agent, context tools, library search, Save as Note, custom models, and monthly official-model credits.
-- **Pro / Max / Lifetime** provide larger official-model allowances; paid plans include Web Search / Web Extract.
+- **Pro / Max / Lifetime** provide larger official-model allowances; paid plans include Web Search / Web Extract / OpenAlex Academic Search.
 - **BYOK and local models** do not consume BibGenie official-model credits; provider cost or local compute remains yours.
 - Chat records are stored locally in Zotero by default. When using a custom or local model, requests are sent directly to the configured provider or runtime.
 
@@ -121,6 +121,7 @@ Current pricing and credit details are maintained on the [Pricing page](https://
 - [Getting Started](https://www.bibgenie.com/docs/getting-started)
 - [Add Context](https://www.bibgenie.com/docs/add-context)
 - [Literature Search](https://www.bibgenie.com/docs/literature-search)
+- [OpenAlex Academic Search](https://www.bibgenie.com/docs/openalex-research)
 - [Models and BYOK](https://www.bibgenie.com/docs/models)
 - [Zotero MCP](https://www.bibgenie.com/docs/mcp)
 

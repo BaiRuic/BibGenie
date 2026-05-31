@@ -3,10 +3,10 @@ title: Overview
 description: Learn what BibGenie is, how it fits into Zotero, and where to start.
 icon: Sparkles
 datePublished: 2026-05-16
-lastModified: 2026-05-16
+lastModified: 2026-05-29
 ---
 
-import { NotebookPen, PlusCircle, Search } from 'lucide-react';
+import { Network, NotebookPen, PlusCircle, Search } from 'lucide-react';
 
 BibGenie is an AI research agent built directly into Zotero. Instead of acting like a separate web chatbot, it works inside your Zotero workspace with your library, PDFs, web snapshots, notes, and the material you are reading.
 
@@ -23,7 +23,10 @@ Add Zotero items, PDF attachments, snapshots, notes, selected text, page context
     Add Zotero items, PDFs, snapshots, notes, selected text, or screenshots so BibGenie understands the material you are working with.
   </Card>
   <Card title="Ask and search" icon={<Search />}>
-    Summarize papers, explain figures, search your library, compare articles, or use paid-plan web search to gather public information.
+    Summarize papers, explain figures, search your library, compare articles, use OpenAlex for public scholarly records, or use paid-plan web search to gather public information.
+  </Card>
+  <Card title="Discover beyond Zotero" icon={<Network />}>
+    Use OpenAlex to find external papers, authors, venues, citation neighbors, and publication trends while keeping them separate from saved Zotero items.
   </Card>
   <Card title="Organize and save" icon={<NotebookPen />}>
     Save useful answers as Zotero notes, or ask BibGenie to help organize tags, collections, and metadata.
@@ -35,6 +38,7 @@ Add Zotero items, PDF attachments, snapshots, notes, selected text, page context
 - Read papers: summarize research questions, methods, contributions, limitations, and future work.
 - Deep-read excerpts: explain selected passages, formulas, figures, or experimental results.
 - Search your library: find relevant papers by keyword or by describing a research topic in natural language.
+- Discover external literature: use OpenAlex to find public scholarly records, citation neighbors, authors, venues, and research trends beyond your Zotero library.
 - Organize your library: manage tags, collections, metadata, and item movement.
 - Save notes: turn structured AI responses into Zotero notes.
 - Connect external tools: expose local Zotero tools through BibGenie's MCP server.
@@ -49,7 +53,7 @@ Add Zotero items, PDF attachments, snapshots, notes, selected text, page context
     **Understand models and credits**: read [Models](/docs/models) and [Pricing & Credits](/docs/pricing-credits).
   </Step>
   <Step>
-    **Learn the core features**: continue with [Add Context](/docs/add-context), [Literature Search](/docs/literature-search), and [Save as Note](/docs/save-as-note).
+    **Learn the core features**: continue with [Add Context](/docs/add-context), [Literature Search](/docs/literature-search), [OpenAlex Research](/docs/openalex-research), and [Save as Note](/docs/save-as-note).
   </Step>
   <Step>
     **Advanced setup**: if you have your own API key or a local model, read [Bring Your Own Key](/docs/byok) and [Custom Models](/docs/custom-models).
@@ -63,7 +67,7 @@ Add Zotero items, PDF attachments, snapshots, notes, selected text, page context
     Installation, models, pricing, and credits.
   </Card>
   <Card title="Features" href="/docs/add-context">
-    Context, prompts, search, web access, library management, notes, and MCP.
+    Context, prompts, Zotero search, OpenAlex research, web access, library management, notes, and MCP.
   </Card>
   <Card title="Configuration" href="/docs/custom-models">
     Custom models, MCP, Add to Chat, shortcuts, citation format, and semantic indexing.

@@ -1,0 +1,572 @@
+---
+title: Zotero Collections & Tags Guide
+description: Build a maintainable Zotero library organization system using collections, tags, and saved searches, with BibGenie's Library Organization feature to safely batch-organize your library.
+icon: Tags
+datePublished: 2026-05-29
+lastModified: 2026-05-29
+---
+
+Zotero's collections and tags both help you organize references, but they solve different problems. A maintainable Zotero library rarely relies on just collections or just tags alone. Instead, use collections as project or topic entry points, tags as cross-collection search dimensions, and saved searches for dynamic workflows.
+
+If you use BibGenie, this guide is more than a "how to organize" methodology — it becomes an actionable workflow. BibGenie's Library Organization feature can inventory your existing collections, tags, and items, propose an organization plan based on your research system, then (after your confirmation) batch-create collections, add or remove tags, move items, and rename or merge messy tags.
+
+<Callout type="info" title="One-sentence rule">
+  Collections answer "Which project, course, review, or topic entry point do these references belong to?" Tags answer "What characteristics, methods, statuses, objects, or use cases does this reference have?"
+</Callout>
+
+<Callout type="tip" title="BibGenie's role">
+  Zotero provides the basic organizing capabilities — collections and tags. BibGenie's Library Organization feature acts as your library organization assistant: it first understands how you already organize, then proposes a reviewable plan, and finally executes after your approval.
+
+  For a complete introduction to BibGenie's library organization capabilities and example prompts, see the [Library Management documentation](https://www.bibgenie.com/docs/library-management).
+</Callout>
+
+## Quick Reference
+
+If you're just starting to organize your Zotero, follow these rules:
+
+| Scenario | Recommended | How BibGenie helps |
+| :--- | :--- | :--- |
+| Paper, course, project, thesis, dissertation | Collection | Generate a project collection structure from selected items and add references to the matching collection |
+| Research topic, method, data type, region, theoretical framework | Tag | Read titles, abstracts, and metadata, and suggest consistent topic/method/status tags |
+| `to-read`, `read`, `important`, `reviewed` | Colored tag or plain tag | Batch add or remove status tags for your current reading workflow |
+| Recently added (7 days), unread, missing DOI, tag combinations | Saved search | Help design search criteria and follow-up organization rules |
+| Book review and the reviewed book, different versions of the same work | Related items | Identify potentially related entries, though establishing relationships is best left for manual confirmation |
+| Too many nested subcollections | Avoid | Identify overly deep, fragmented, or duplicate collections and suggest merging |
+
+## What BibGenie's Library Organization Can Do
+
+When manually organizing Zotero collections and tags, the time-consuming part isn't clicking buttons — it's deciding: which tags are duplicates, which items belong in which collection, which metadata is missing, and which operations affect too many items. That's where BibGenie's Library Organization feature shines.
+
+| Task | What BibGenie can do |
+| :--- | :--- |
+| Audit existing structure | List collection hierarchy, tag vocabulary, items under a specific collection or tag |
+| Find items to organize | Locate unfiled items, recently added references, entries missing DOI/abstract, items by tag or collection |
+| Design an organization scheme | Propose a classification system based on titles, abstracts, metadata, existing tags and collections |
+| Batch-organize items | Add or remove tags, add to or remove from collections for specified items |
+| Create collections | Create new collections under the right parent, optionally placing candidate items inside |
+| Clean up tags | Rename tags, merge old tags into existing ones, delete library-wide unused tags |
+| Organize collections | Rename collections, move collections, delete empty or unused collections (deleting a collection does not delete its items) |
+| Check metadata | Read full metadata, identify missing fields, and help correct them when reliable sources are available |
+
+<Callout type="warning" title="BibGenie never bypasses confirmation">
+  Modifying metadata, creating collections, moving items, batch-editing tags, renaming or deleting collections/tags are all write operations. BibGenie will propose actions and wait for your approval. It should never modify your Zotero library without explicit confirmation.
+</Callout>
+
+A good BibGenie organization request should include scope, goal, and constraints:
+
+```text
+Please organize the currently selected items. First read the existing collections and tags, then propose an organization plan based on titles, abstracts, and metadata.
+Prefer reusing existing collections and tags; only suggest creating new ones if there is genuinely no suitable place.
+Do not modify Zotero yet. First output which items will be affected, which tags will be added, and which collections will be used.
+```
+
+The principle behind this prompt is the core workflow of BibGenie's Library Organization feature: first discover the current state, then identify items to organize, then propose a plan, and finally execute.
+
+## What Are Collections
+
+Collections are the folders and subfolders in Zotero's left sidebar. Zotero's official documentation recommends thinking of collections as "playlists" rather than file system folders: the same item can appear in multiple collections without duplicating the reference. The true complete library remains `My Library` or the corresponding group library.
+
+Collections work best as entry points. For example:
+
+- `PhD Thesis`
+- `2026 Systematic Review`
+- `Course - Research Methods`
+- `Project - AI Literature Review`
+- `Topic - Retrieval-Augmented Generation`
+
+The advantage is clarity, visibility, and project-readiness. Open a collection and you see the core references needed for that work right now.
+
+When using BibGenie, ask it to draft a collection structure aligned with your project goals before moving items:
+
+```text
+Please list my existing collections first, then decide whether the selected items can fit into existing collections.
+If the existing structure isn't sufficient, design a one-to-two-level collection draft for my "literature review writing project."
+Output each collection's purpose and the proposed items it would contain. Do not modify Zotero.
+```
+
+<Callout type="warning" title="Deleting a collection does not delete items">
+  Deleting a regular collection only removes this organizational entry point, not the items inside it. To truly delete items, you need to move them to the Trash. This distinction is important for new users.
+</Callout>
+
+This is also why BibGenie explicitly warns you when deleting a collection: deleting a collection only removes the organizational entry; items remain in the Zotero library. If a collection has subcollections, BibGenie will refuse to delete the parent directly and will ask you to decide how to handle the subcollections first.
+
+## What Are Tags
+
+Tags are text labels attached to items, attachments, and notes. They have no hierarchy but can describe the same paper from multiple angles. Zotero's official documentation notes that tags can be used for topic, method, status, rating, or personal workflow.
+
+Tags work best as dimensions. For example:
+
+- Topic: `llm-agent`, `scientific-discovery`, `citation-network`
+- Method: `survey`, `experiment`, `meta-analysis`, `case-study`
+- Object: `clinical-trial`, `graduate-students`, `zotero-users`
+- Status: `to-read`, `read`, `skimmed`, `cited`
+- Use: `intro-section`, `related-work`, `method-baseline`
+
+The power of tags lies in combinatorial search. You can filter within a collection for items tagged with both `llm-agent` and `survey`, or search your entire library for everything tagged `to-read` and `citation-network`.
+
+BibGenie's strength is batch-suggesting tags based on item content. Start by asking it to analyze only:
+
+```text
+Please list my existing tags first, then review the titles, abstracts, and existing tags of items in this collection.
+Prefer reusing existing tags; only suggest new tags when no suitable one exists.
+Finally, present recommended tags to keep, merge, add, and delete in a table. Do not modify Zotero.
+```
+
+## Collections vs Tags
+
+| Dimension | Collections | Tags |
+| :--- | :--- | :--- |
+| Organization | Hierarchical with subcollections | Flat, no native subtags |
+| Best for expressing | Projects, courses, papers, topic entry points | Topic, method, status, quality, use case attributes |
+| Can an item appear in multiple? | Yes | Yes |
+| Preserved when copying across libraries | Usually not | Usually yes with the item |
+| Browsing | Strong | Moderate |
+| Cross-filtering | Moderate | Strong |
+| Maintenance risk | Collection bloat | Tag synonym and spelling drift |
+| Recommended granularity | Few, stable | Can be finer, but naming must be consistent |
+
+<Callout type="tip" title="Don't make them fully redundant">
+  If you already have a `Topic - LLM Agents` collection, you don't necessarily need to tag every item in it with `llm-agents`, unless you want to search for that topic across other collections.
+</Callout>
+
+When using BibGenie to organize, add this principle to your prompt:
+
+```text
+Please avoid making tags and collections fully redundant. Don't mechanically add the same tag to every item when the collection already expresses the project membership. Only add topic tags when cross-collection search is needed.
+```
+
+## Recommended Organization Model
+
+For most researchers, a solid Zotero structure has three layers.
+
+### 1. A Few Top-Level Collections for Big Directions
+
+Don't create too many top-level collections. Design them as entry points you won't frequently rename:
+
+```text
+My Library
+  Inbox
+  Thesis
+  Papers
+  Projects
+  Topics
+  Teaching
+  Archive
+```
+
+Or more closely aligned with your research domain:
+
+```text
+My Library
+  Domain - AI for Science
+  Domain - Bibliometrics
+  Domain - Human-Computer Interaction
+  Project - BibGenie SEO
+  Project - Zotero Workflow Study
+```
+
+### 2. One to Two Levels of Subcollections for Projects
+
+Don't drill down indefinitely. Two levels is usually enough:
+
+```text
+Project - Systematic Review
+  01 Search Results
+  02 Screening
+  03 Included Studies
+  04 Background Reading
+  05 Cited in Manuscript
+```
+
+This structure maps to the research workflow, making it more practical for actual writing than a dozen topic-based subdivisions.
+
+### 3. Tags as Composable Cross-Cutting Dimensions
+
+Tags shouldn't replace all collections. They're better for recording "what else is searchable about this paper":
+
+```text
+method:survey
+method:experiment
+topic:semantic-search
+topic:zotero
+status:to-read
+status:read
+use:background
+use:key-citation
+```
+
+Zotero has no native hierarchical tags, but you can simulate namespaces with prefixes like `method:`, `topic:`, `status:`. This reduces ambiguity and makes scanning in the tag selector easier.
+
+## Tag Naming Conventions
+
+A good tag system isn't about having more tags; it's about being consistent.
+
+| Rule | Recommended | Not Recommended |
+| :--- | :--- | :--- |
+| Use lowercase | `semantic-search` | `Semantic Search`, `semantic Search` |
+| Use hyphens for compound words | `citation-network` | `citation network`, `citation_network` |
+| Prefix categories | `method:survey` | Mixed `survey`, `surveys` |
+| Keep status tags consistent | `status:to-read` | Mixed `unread`, `to read`, `todo` |
+| Avoid overly broad tags | `topic:llm-agent` | `ai`, `paper`, `research` |
+| Avoid overly temporary tags polluting the library | `use:intro-section` | `maybe-use-in-chapter-2-later` |
+
+If you already have duplicate tags, rename the old tag to the target name in the tag selector to merge them. For example, rename `to read` to `status:to-read`.
+
+If tags are already messy, ask BibGenie to do a tag audit first:
+
+```text
+Please list the current library's tags and identify potentially duplicate or synonymous tags — for example, different casing, spaces vs hyphens, singular vs plural.
+Give merge suggestions and note how many items each tag affects.
+Do not execute any renaming or deletion yet.
+```
+
+Then confirm before executing:
+
+```text
+I confirm the merge plan. Please rename the tag `to read` to `status:to-read`.
+If `status:to-read` already exists, merge the two tags. Before executing, confirm how many items will be affected.
+```
+
+BibGenie's tag renaming and merging doesn't loop through items one by one; it uses Zotero's library-wide tag operations. When you rename an old tag to an existing tag name, Zotero merges them. This is more reliable and better suited for cleaning up long-accumulated synonymous tags than manually adding new tags and removing old ones item by item.
+
+## How to Use Colored Tags
+
+Zotero supports assigning colors to a small number of tags, which can be quickly added or removed with number keys. The current official documentation states a maximum of 9 colored tags.
+
+Colored tags are best for "high-frequency statuses," not for all topics:
+
+| Colored tag | Purpose |
+| :--- | :--- |
+| `status:to-read` | To read |
+| `status:reading` | Currently reading |
+| `status:read` | Read |
+| `use:key-citation` | Key citation |
+| `use:write-next` | For upcoming writing |
+
+Avoid assigning colored tag status to ordinary topic tags like `machine-learning`, `history`, or `statistics`. Topics multiply over time, but colored tag slots are scarce.
+
+BibGenie can't decide which tags should permanently occupy your colored tag slots, but it can help identify your most frequently used status-like tags and suggest whether to consolidate them into fewer high-frequency tags.
+
+## Should You Keep Automatic Tags
+
+When Zotero saves items from databases, websites, or library catalogs, it sometimes automatically imports subject headings or keywords. These automatic tags can sometimes be useful, but they often create noise: inconsistent casing, messy granularity, overly broad terms, and tag bloat.
+
+Recommended strategies:
+
+1. New libraries or heavy organizers: Turn off automatic tags and maintain core tags manually.
+2. Medical, legal, library science users relying on controlled vocabularies: Keep automatic tags initially, then clean up periodically.
+3. Users with a large backlog of automatic tags: Hide automatic tags first, then batch-delete after confirming they're useless.
+
+To disable, go to Zotero Settings / Preferences > General and uncheck `Automatically tag items with keywords and subject headings`.
+
+If you're unsure which automatic tags are valuable, ask BibGenie to group them by frequency and semantics:
+
+```text
+Please check the current library's tags and list those that may be from automatic import, overly broad, or inconsistently cased. Do not delete anything, just give cleanup suggestions.
+```
+
+## Saved Searches Are an Underrated Organization Tool
+
+Saved searches are like "smart collections." They store search criteria, not fixed results, so they automatically update as your library changes.
+
+Good use cases for saved searches:
+
+- `Unread`: tag is not `status:read`
+- `Recent Additions`: items added in the last 7 days
+- `Missing DOI`: items where DOI is empty
+- `Need Review`: items tagged `status:to-read` in a specific collection
+- `Key RAG Papers`: items with both `topic:rag` and `use:key-citation`
+
+If you find yourself repeatedly using the same filter criteria, consider creating a saved search rather than a new static collection.
+
+BibGenie is better suited to helping you design saved search rules than converting every dynamic task into a collection. For example:
+
+```text
+I want to create a dynamic view of "unread RAG papers."
+Please review my existing tags and collections first, then suggest Zotero saved search criteria.
+If existing tags aren't suitable, explain which tags need to be standardized first.
+```
+
+BibGenie can also use a similar saved-search approach to find items to organize, such as "items added in the last 30 days that haven't been placed in any collection," "journal articles missing DOIs," or "items with old tags but no new tags." These tasks are best handled by first outputting a candidate list, then deciding whether to make batch changes.
+
+## How to Use Related Items
+
+Related items shouldn't replace tags or collections. As discussed in Zotero forums, the problem with Related is that it only expresses "two items are related" without clarifying "why they are related." It's therefore best for explicit one-to-one or small-scale relationships:
+
+- A book review and the reviewed book
+- A conference paper and its extended journal version
+- A dataset paper and the benchmark paper that uses it
+- A preprint, published version, and corrigendum of the same study
+- Core source papers repeatedly discussed in a review article
+
+If you simply want to express "these items all belong to the same topic," use tags or collections instead.
+
+## Three Common Workflows
+
+### Workflow A: Writing a Paper or Review
+
+<Steps>
+  <Step>
+    Create a collection for your writing project, e.g., `Project - LLM Agent Review`.
+  </Step>
+  <Step>
+    Place candidate papers in `01 Search Results` or `Inbox` first.
+  </Step>
+  <Step>
+    Use tags to mark topics, methods, and statuses, e.g., `topic:tool-use`, `method:benchmark`, `status:to-read`.
+  </Step>
+  <Step>
+    After screening, move or add core papers to `03 Included Studies`.
+  </Step>
+  <Step>
+    Use `use:key-citation`, `use:intro-section`, `use:method-section` to mark writing purposes.
+  </Step>
+</Steps>
+
+Suitable BibGenie prompt:
+
+```text
+Please examine the `Project - LLM Agent Review` collection.
+First list the existing subcollections and tags, then classify the papers into five categories following a review writing workflow: search results, screening, included, background, and cited.
+Prefer using existing subcollections; justify any new ones needed.
+First output a table, do not move any items yet.
+```
+
+After confirmation:
+
+```text
+I confirm this classification table. Please add these items to the corresponding collections per the table, and add the `use:key-citation` tag to core papers.
+After completion, summarize how many items were modified, which collections were used, and which tags were added.
+```
+
+### Workflow B: Building a Long-Term Research Domain
+
+<Steps>
+  <Step>
+    Create a long-term collection, e.g., `Domain - AI for Science`.
+  </Step>
+  <Step>
+    Create a limited number of subcollections only when truly needed, e.g., `Foundation Papers`, `Benchmarks`, `Applications`.
+  </Step>
+  <Step>
+    Use fine-grained tags to record topics, methods, datasets, and experimental subjects.
+  </Step>
+  <Step>
+    Periodically check `Unfiled Items` and add orphaned items to appropriate collections or delete them.
+  </Step>
+</Steps>
+
+Suitable BibGenie prompt:
+
+```text
+Please analyze the items in `Domain - AI for Science`.
+First read the existing tags, identify 5 to 8 stable research topics, and suggest corresponding `topic:` tags.
+Avoid creating too many subcollections; prefer tags unless a topic will be maintained separately long-term.
+```
+
+### Workflow C: Lightweight Users
+
+If you don't want to maintain a complex system, follow these minimal rules:
+
+- Collections: Create by project or course.
+- Tags: Use only 5 to 15 high-frequency statuses or topics.
+- Colored tags: Only mark `to-read`, `read`, `important`.
+- Monthly cleanup: Automatic tags, duplicates, and unfiled items.
+
+A lightweight system that's maintained is more reliable than a complex one that isn't.
+
+Lightweight users can still use BibGenie, but the focus should be on reducing maintenance overhead, not generating more tags:
+
+```text
+Please classify the currently selected items into only three statuses: `status:to-read`, `status:reading`, `status:read`. If you can't determine the status, put it in `status:to-read` and show a preview first.
+```
+
+## Monthly Maintenance Checklist
+
+Perform Zotero library housekeeping monthly:
+
+- Open `Unfiled Items` and process items not in any collection.
+- Open `Duplicate Items` and merge duplicates rather than deleting one.
+- Check the tag selector for synonymous tags, e.g., `methods` and `research-methods`.
+- Hide or delete useless automatic tags.
+- Check recently added items for clean title, author, year, DOI, and abstract.
+- Delete temporary subcollections that have lost their purpose to avoid collection bloat.
+
+<Callout type="tip" title="Use BibGenie for assisted organizing">
+  Ask BibGenie to list candidate items and proposed changes before executing batch tag additions, collection creations, item moves, or metadata checks. For any batch operation, preview first and scope it, e.g., "only process the currently selected items" or "only process this collection."
+</Callout>
+
+A solid BibGenie monthly organization prompt:
+
+```text
+Please help me with Zotero library housekeeping:
+1. First list existing collections and tags.
+2. Check for unfiled items, duplicate or synonymous tags, overly deep collections, and recently added unorganized items.
+3. When checking items missing DOI or abstract, consider the item type to determine whether a DOI is actually expected.
+4. Only output the problem list, impact scope, and suggested actions. Do not modify Zotero.
+```
+
+If you want to place unfiled items in appropriate locations, ask BibGenie to execute a more specific task:
+
+```text
+Please find the most recent 50 unfiled items and determine which collections they best fit into based on existing collections.
+Do not create new collections unless the existing structure clearly has no suitable place.
+First output each item, the suggested collection, the reason, and your confidence level.
+```
+
+## Common Mistakes
+
+### Mistake 1: Using Collections as Your Only Organization System
+
+If you create a subcollection for every minor topic, you'll end up with dozens or hundreds of collections after a few years. Items get buried in deep trees, making them harder to find.
+
+When using BibGenie, don't ask it to create collections for every small topic. A better instruction: "Only create collections for long-term projects, courses, papers, or stable topics; use tags for fine-grained concepts."
+
+### Mistake 2: Tags Without Naming Rules
+
+If `to read`, `ToRead`, `unread`, `todo` all coexist, search breaks down. Tag systems fear synonym drift most of all.
+
+BibGenie can detect this drift and rename old tags to unified ones. Renaming to an existing tag effectively merges them.
+
+### Mistake 3: Using Related to Express Topic Membership
+
+Related is better for explicit relationships, not for linking a batch of topically similar items. Topic membership should use tags or collections.
+
+### Mistake 4: Forgetting Subcollection Display Settings
+
+In Zotero, subcollection items don't necessarily show in the parent collection by default. Change this via `View -> Show Items from Subcollections`. This setting affects how you understand parent-child collection relationships, so it's best to standardize in team workflows.
+
+### Mistake 5: Ignoring Automatic Tags for Too Long
+
+Auto-imported tags clutter the tag selector. Unless you explicitly rely on these keywords, periodically hide, delete, or disable automatic tags.
+
+### Mistake 6: Treating "Organize My Entire Library" as a Vague Command
+
+"Please organize my entire library" sounds convenient but is usually too broad. BibGenie's Library Organization feature is better suited to starting with specific pain points, such as:
+
+- Recently added but unorganized items.
+- Items in a collection that need further subdivision.
+- Duplicate or synonymous tags.
+- Entries missing DOI, abstract, or publication title.
+- Core papers to mark with `use:key-citation` for an upcoming writing project.
+
+A better prompt:
+
+```text
+Please don't organize the entire library yet. Help me diagnose the 3 most pressing categories of issues: unfiled items, duplicate tags, and missing metadata. Only output the problem scope and suggested next steps.
+```
+
+### Mistake 7: Having AI Fill Unverifiable Metadata
+
+BibGenie can check metadata and help correct it when reliable sources are available, but you should never ask AI to write its own DOI, abstract, journal name, author, or page number. For metadata writes, reliable sources should come from Zotero's existing metadata, user-provided information, already-read item content, or BibGenie's verifiable external reference lookups.
+
+A good prompt:
+
+```text
+Please check the metadata completeness of the most recent 20 items. For entries missing a DOI or abstract, only suggest corrections when verifiable through reliable sources. Mark unverifiable items as "unconfirmed" and do not generate or guess content.
+```
+
+## Recommended Template
+
+You can start directly from this template:
+
+```text
+Collections
+  Inbox
+  Project - [Project Name]
+    01 Search Results
+    02 To Screen
+    03 Included
+    04 Background
+    05 Cited
+  Domain - [Long-term Topic]
+    Foundation Papers
+    Methods
+    Applications
+  Archive
+
+Tags
+  status:to-read
+  status:reading
+  status:read
+  use:key-citation
+  use:intro-section
+  use:method-section
+  method:survey
+  method:experiment
+  method:case-study
+  topic:[Topic Name]
+```
+
+## Safety Workflow for Using BibGenie
+
+BibGenie can manage tags, collections, item membership, and some metadata, but library organization involves modifying Zotero data. Always follow this four-step process:
+
+<Steps>
+  <Step>
+    Ask BibGenie to read the existing structure: collections, tags, and the scope of items to organize.
+  </Step>
+  <Step>
+    Require BibGenie to prefer reusing existing collections and tags; only create new ones if genuinely no suitable place exists.
+  </Step>
+  <Step>
+    Ask BibGenie to output the organization plan, including tags to add, tags to remove, collections to move items to, which items are affected, and which operations require approval.
+  </Step>
+  <Step>
+    After manual confirmation, explicitly authorize BibGenie to execute. After execution, ask for a summary of modifications, skipped items, and incomplete tasks.
+  </Step>
+</Steps>
+
+Recommended prompt template:
+
+```text
+Please organize the currently selected items. The goal is to establish clear Zotero collections and tags:
+1. First list existing collections and tags.
+2. Prefer reusing existing collections and tags; don't create similar names unnecessarily.
+3. Determine which items should go into the same collection.
+4. Then suggest consistent `topic:`, `method:`, `status:` tags.
+5. Output which tags and collections will be added or removed for each item.
+6. Do not modify Zotero yet; wait for my confirmation.
+```
+
+After confirmation:
+
+```text
+I confirm the organization plan above. Please execute these changes, then summarize how many items were modified, which tags were added, and which collections were used.
+```
+
+For batch operations on 50+ items, be more specific:
+
+```text
+This is a large batch organization task. First give a brief plan including which existing collections/tags will be used, whether new ones are needed, how many items will be affected, and which write operations need my approval.
+After I confirm, execute in focused batches by shared purpose. Do not run one operation per item.
+```
+
+If you only need to rename, merge, or delete a library-wide tag, don't have BibGenie modify items one by one. Describe the tag-level operation directly:
+
+```text
+Please merge the library-wide tag `methodology` into the existing tag `method:methods`.
+First confirm that both tags exist and how many items are affected, then wait for my approval.
+```
+
+If you only need to rename or move a collection, have BibGenie operate on the collection itself rather than creating a new collection and moving all items:
+
+```text
+Please rename the collection `Old Thesis Reading` to `Project - Dissertation Reading`.
+First list the matching collection key and its item count, wait for my confirmation, then execute.
+```
+
+## References
+
+- [Zotero Official Docs: Collections and Tags](https://www.zotero.org/support/collections_and_tags)
+- [Zotero Official KB: Organizing a library](https://www.zotero.org/support/kb/organizing_a_library)
+- [Zotero Forums: tags and collections best practice?](https://forums.zotero.org/discussion/115437/tags-and-collections-best-practice)
+- [Zotero Forums: Collections vs tags](https://forums.zotero.org/discussion/116758/collections-vs-tags)
+- [Zotero Forums: best use for related, tags, collections](https://forums.zotero.org/discussion/129569/best-use-for-related-tags-collections)
+- [Mastering Zotero: Working with Tags](https://pressbooks.library.yorku.ca/masteringzotero/chapter/working-with-tags/)
+- [Zotero Manual: Tags](https://zotero-manual.github.io/tags/)
+- [Harvard Library: Organize Your Zotero Library](https://guides.library.harvard.edu/c.php?g=1245347&p=9129454)
+- [UMGC Library: Collections & Tags](https://libguides.umgc.edu/c.php?g=930616&p=6753118)
+- [Massachusetts General Hospital: Organizing Your Library](https://libguides.massgeneral.org/zotero/organizing-library)
+- [Catherine Pope: Keeping Your Zotero Library Tidy](https://catherinepope.com/posts/keeping-your-zotero-library-tidy/)
+- [Reddit: Collections and Tags](https://www.reddit.com/r/zotero/comments/1izhq0m/collections_and_tags/)

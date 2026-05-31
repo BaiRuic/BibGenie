@@ -1,14 +1,16 @@
 ---
 title: Literature Search
-description: Find papers in your Zotero library with keyword search, semantic search, and List Items.
+description: Find papers in your Zotero library, and know when to switch to OpenAlex for external scholarly discovery.
 icon: Search
 datePublished: 2026-05-16
-lastModified: 2026-05-16
+lastModified: 2026-05-29
 ---
 
 import { Brain, List, TextSearch } from 'lucide-react';
 
 By default, BibGenie searches and reads your Zotero library first instead of going directly to the public web. This keeps responses grounded in the material you have already collected and organized.
+
+When you need papers beyond your saved Zotero items, use [OpenAlex Research](/docs/openalex-research). OpenAlex searches public scholarly metadata such as works, authors, venues, institutions, topics, citation counts, and citation relationships. It does not mean the paper is already in your library.
 
 ## Three Search Modes
 
@@ -106,6 +108,23 @@ List Items is especially useful when you want BibGenie to show a candidate set f
     Ask BibGenie to read PDFs, compare claims, generate a table, or save a note.
   </Step>
 </Steps>
+
+## When to Switch to OpenAlex
+
+Use Zotero library search when you want to work with saved items, selected papers, collections, tags, notes, or attached PDFs.
+
+Use OpenAlex when you want to:
+
+- Find papers you have not saved yet.
+- Resolve an author, institution, journal, topic, publisher, or funder to a stable OpenAlex ID.
+- Explore works that cite a seed paper, works cited by a seed paper, or related works.
+- Group public scholarly records by year, source, country, topic, open-access status, or another supported field.
+
+Keep the two result types separate in prompts when needed:
+
+```text
+First search my Zotero library for papers about LLM agents, then use OpenAlex to find external papers I may be missing. Keep Zotero results and external OpenAlex results separate.
+```
 
 <Callout type="tip" title="Constrain your search">
   Add year, tag, collection, or result limits to make searches more useful. For example: "only after 2020", "within the Methods collection", or "return at most 10 papers".

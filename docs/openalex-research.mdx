@@ -1,0 +1,117 @@
+---
+title: OpenAlex Academic Search
+description: Search public scholarly metadata, resolve entities, explore citation neighborhoods, and analyze research trends outside your Zotero library.
+icon: Network
+datePublished: 2026-05-28
+lastModified: 2026-05-29
+---
+
+import { Database, Network, SearchCheck, TrendingUp } from 'lucide-react';
+
+OpenAlex Research is available in BibGenie v0.7.0 and helps you explore the public scholarly catalog beyond your Zotero library. Use it when you want to discover new papers, find authors or institutions, analyze research trends, or map citations around a known work.
+
+OpenAlex results are external bibliographic metadata. They do not mean a paper is already saved in your Zotero library, and they do not replace reading the paper itself.
+
+OpenAlex search is a paid-plan feature.
+
+## What It Can Do
+
+<Cards>
+  <Card title="Discover papers" icon={<SearchCheck />}>
+    Search public scholarly records by topic, exact phrase, DOI, PMID, PMCID, OpenAlex ID, and supported filters or sort fields.
+  </Card>
+  <Card title="Resolve entities" icon={<Database />}>
+    Find stable OpenAlex IDs for authors, institutions, journals, topics, publishers, and funders.
+  </Card>
+  <Card title="Explore citations" icon={<Network />}>
+    Find works that cite a seed paper, works referenced by a seed paper, or related works.
+  </Card>
+  <Card title="Analyze trends" icon={<TrendingUp />}>
+    Group and count results by publication year, open-access status, country, source, topic, or another supported field.
+  </Card>
+</Cards>
+
+## When to Use OpenAlex
+
+Use OpenAlex when your question is about public scholarly records outside your current Zotero library:
+
+- Find recent papers on a research topic.
+- Discover influential earlier work or review papers.
+- Follow citations around a DOI or OpenAlex work ID.
+- Randomly sample matching records when you want exploratory coverage instead of only relevance or citation-count ranking.
+- Compare publication activity by year, source, institution, country, topic, or funding body.
+- Identify authors, journals, institutions, publishers, or funders before filtering papers by them.
+
+Use Zotero library search instead when you are asking about saved items, selected papers, collections, tags, notes, or attached PDFs.
+
+<Callout type="warning" title="Keep the boundary clear">
+  OpenAlex can identify papers worth considering, but it does not add them to Zotero automatically. Ask BibGenie explicitly before importing, tagging, moving, or editing any Zotero items.
+</Callout>
+
+## How to Ask
+
+<Tabs items={['Discover papers', 'Author or institution', 'Citation snowballing', 'Trend analysis']}>
+  <Tab value="Discover papers">
+    ```text
+    Search OpenAlex for recent review papers about retrieval augmented generation after 2023. Return title, year, venue, authors, citation count, DOI, and why each result may be useful.
+    ```
+  </Tab>
+  <Tab value="Author or institution">
+    ```text
+    Use OpenAlex to find papers by Geoffrey Hinton about deep learning. Resolve the author first, then list the most cited works with year, venue, DOI, and citation count.
+    ```
+  </Tab>
+  <Tab value="Citation snowballing">
+    ```text
+    Use OpenAlex to explore papers that cite 10.48550/arXiv.1706.03762. Focus on papers after 2021 and explain which ones look most relevant to LLM research.
+    ```
+  </Tab>
+  <Tab value="Trend analysis">
+    ```text
+    Use OpenAlex to analyze publication trends for graph neural networks from 2018 to 2025. Group by publication year and summarize the trend carefully.
+    ```
+  </Tab>
+</Tabs>
+
+## Recommended Workflow
+
+<Steps>
+  <Step>
+    Start with a broad OpenAlex search using a small result count.
+  </Step>
+  <Step>
+    Ask BibGenie to refine by year, work type, open-access status, source, author, institution, or topic.
+  </Step>
+  <Step>
+    For a promising seed paper, ask for citation neighbors, references, or related works.
+  </Step>
+  <Step>
+    Add only the most relevant candidates to Zotero after you review the results.
+  </Step>
+</Steps>
+
+## Good Prompt Patterns
+
+```text
+Search OpenAlex for papers about AI tools in academic writing. Prefer review articles after 2020 and return at most 10 results.
+```
+
+```text
+Find the OpenAlex record for this DOI, then show its cited-by papers and related works:
+10.1038/nature12373
+```
+
+```text
+Resolve "Stanford University" in OpenAlex, then find highly cited works about human-computer interaction from that institution since 2020.
+```
+
+```text
+First search my Zotero library for papers about LLM agents, then use OpenAlex to find external papers I may be missing. Keep Zotero results and external OpenAlex results separate.
+```
+
+## Important Limits
+
+- OpenAlex provides metadata such as title, authors, year, venue, DOI, open-access status, and citation count.
+- Do not treat citation count as proof of quality.
+- Do not infer a paper's methods, claims, or findings from metadata alone.
+- For close reading, add the paper to Zotero or provide readable full text, then ask BibGenie to read the source content.
