@@ -11,6 +11,8 @@
   [![Website](https://img.shields.io/badge/Website-bibgenie.com-2563eb)](https://www.bibgenie.com)
   [![Documentation](https://img.shields.io/badge/Docs-Get%20Started-0f766e)](https://www.bibgenie.com/docs)
   [![Discord](https://img.shields.io/badge/Discord-Community-5865f2)](https://discord.gg/kDXFAAYDNE)
+  [![GitHub Downloads](https://img.shields.io/github/downloads/BaiRuic/BibGenie/total?logo=github)](https://github.com/BaiRuic/BibGenie/releases)
+  [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/BaiRuic/BibGenie)
 
   **BibGenie works natively inside Zotero with your papers, notes, snapshots, images, and library structure. Add research context, ask grounded questions, search and organize your library, then save useful results back to Zotero notes.**
 
