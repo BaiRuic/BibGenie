@@ -1,9 +1,9 @@
 ---
 title: Models
-description: Understand official models, custom models, the AUTO model, credit multipliers, and model refresh behavior.
+description: Understand official models, custom models, credit multipliers, and model refresh behavior.
 icon: BrainCircuit
 datePublished: 2026-05-16
-lastModified: 2026-05-16
+lastModified: 2026-08-22
 ---
 
 BibGenie supports two kinds of models: **official models** and **custom models**.
@@ -56,19 +56,6 @@ Custom models are useful when:
 
 See [Custom Models](/docs/custom-models) for setup instructions.
 
-## The AUTO Model
-
-BibGenie includes a permanently free `AUTO` model. It requires no setup and is suitable for lightweight tasks:
-
-- Simple translation
-- Short text rewriting
-- Basic Q&A
-- Trying out the BibGenie experience
-
-<Callout type="warning" title="AUTO is not designed for complex work">
-  The `AUTO` model is less capable than recommended official models. We do not recommend it for long PDF deep reading, complex reasoning, multi-paper literature reviews, library organization, or tasks that require high accuracy.
-</Callout>
-
 ## What Do the Multipliers Mean?
 
 You may see labels such as `0x`, `1.5x`, or `2x` after a model name.
@@ -77,7 +64,6 @@ These labels indicate the approximate speed at which the model may consume credi
 
 | Label | Meaning |
 | :--- | :--- |
-| `0x` | Usually means the model consumes almost no credits or the cost is covered by the system, depending on the current product policy. |
 | `1x` | Standard consumption speed. |
 | `1.5x` | May consume credits faster than a standard model for a similar task. |
 | `2x` or higher | Usually indicates a higher-cost model, best reserved for more demanding tasks. |
@@ -113,7 +99,7 @@ If a model is missing, possible reasons include:
 
 <Cards>
   <Card title="Translation and short Q&A">
-    Start with AUTO or a low-multiplier model.
+    Start with an official model with a low multiplier.
   </Card>
   <Card title="Single-paper summaries">
     Use an official model with reliable context handling and strong output quality.
