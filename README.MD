@@ -7,27 +7,27 @@
 
   [English](README.MD) | [简体中文](README_ZH.MD)
 
-  [![Zotero 7, 8 and 9](https://img.shields.io/badge/Zotero-7%20%7C%208%20%7C%209-cc2936)](https://www.zotero.org/)
+  [![Zotero 7, 8, 9 and 10](https://img.shields.io/badge/Zotero-7%20%7C%208%20%7C%209%20%7C%2010-cc2936)](https://www.zotero.org/)
   [![Website](https://img.shields.io/badge/Website-bibgenie.com-2563eb)](https://www.bibgenie.com)
   [![Documentation](https://img.shields.io/badge/Docs-Get%20Started-0f766e)](https://www.bibgenie.com/docs)
   [![Discord](https://img.shields.io/badge/Discord-Community-5865f2)](https://discord.gg/kDXFAAYDNE)
   [![GitHub Downloads](https://img.shields.io/github/downloads/BaiRuic/BibGenie/total?logo=github)](https://github.com/BaiRuic/BibGenie/releases)
   [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/BaiRuic/BibGenie)
 
-  **BibGenie works natively inside Zotero with your papers, notes, snapshots, images, and library structure. Add research context, ask grounded questions, search and organize your library, then save useful results back to Zotero notes.**
+  > **Let AI handle the materials. Leave the understanding to the researcher.**
 
-  [Download Free Plugin](https://www.bibgenie.com/download) · [Documentation](https://www.bibgenie.com/docs) · [Join Discord](https://discord.gg/kDXFAAYDNE)
+  **BibGenie works natively inside Zotero with your papers, notes, snapshots, annotations, and library structure. Add research context, ask grounded questions, trace claims back to primary passages, search and organize your library, and preserve insights back to Zotero and Notion.**
+
+  [Download Free Plugin](https://www.bibgenie.com/download) · [Documentation](https://www.bibgenie.com/docs) · [About BibGenie](https://www.bibgenie.com/about) · [Join Discord](https://discord.gg/kDXFAAYDNE)
 </div>
 
 ---
 
-## A Native Zotero Research Workflow
+## Why BibGenie?
 
-BibGenie is not a separate web chatbot that requires you to move research material out of Zotero. It is an AI research agent in the Zotero sidebar, designed around the materials and organization you already use.
+As language models advance, summarizing a hundred papers has become deceptively easy. Yet an elegant summary is not proof that genuine understanding has occurred. Every sentence may sound fluent and plausible, but scholarly rigor requires checking: *Where does this conclusion originate? What empirical evidence was presented? Under what conditions does it hold? What counterexamples might challenge it?*
 
-1. **Add context**: insert Zotero items, PDF attachments, saved web snapshots, notes, selected text, page context, images, screenshots, tags, or collections.
-2. **Ask and search**: read papers, explain figures and formulas, search your library, compare articles, or synthesize a literature set.
-3. **Organize and preserve**: save responses as Zotero notes and use reviewable workflows for tags, collections, and metadata.
+BibGenie lives in your Zotero sidebar to assist with the friction of research—locating materials, comparing methods, and synthesizing evidence—while keeping you connected to the primary text.
 
 <p align="center">
   <img src="./public/blocks/demo-workflow.gif" alt="BibGenie workflow inside Zotero: add context, ask a paper question, and save the result" width="860"/>
@@ -35,15 +35,15 @@ BibGenie is not a separate web chatbot that requires you to move research materi
   <sub>Research workflow preview: add context, read a paper, and save the result. <a href="https://cfr2.bibgenie.com/bibgenie-mp4s/add_context_read_save_lq.mp4">View full-quality video</a></sub>
 </p>
 
-## Core Features
+---
 
-### Add Any Zotero Context
+## Core Capabilities
 
-Bring your workspace into the conversation rather than copying research material into a separate chatbot:
-
-- Type `@` or use Zotero's **Add to Chat** entry points to add items, PDFs, notes, snapshots, tags, and collections.
-- Add selected passages, current-page context, figures, pasted images, and screenshots.
-- Ask grounded questions about the paper, project, or literature set in view.
+### 1. Add Any Zotero Context
+Bring your actual workspace into the discussion rather than copying excerpts into an isolated web chatbot:
+- Type `@` or choose **Add to Chat** from the Library or Reader to attach items, PDF attachments, web snapshots, notes, tags, and collections.
+- Select passages, active page context, figures, formulas, or pasted screenshots.
+- Discuss difficult diagrams and mathematical proofs directly inside the Zotero reader.
 
 <p align="center">
   <img src="./public/blocks/demo-at-context.gif" alt="Adding Zotero context to BibGenie with the at sign menu" width="760"/>
@@ -51,89 +51,95 @@ Bring your workspace into the conversation rather than copying research material
   <sub>Add Zotero material with <code>@</code>. <a href="https://cfr2.bibgenie.com/bibgenie-mp4s/at_any_context.mp4">View full-quality video</a></sub>
 </p>
 
-Figures and screenshots are context too. BibGenie can explain a diagram, formula, or page region without leaving the Zotero reader.
-
 <p align="center">
   <img src="./public/blocks/demo-explain-image.gif" alt="BibGenie explaining a figure selected from a PDF in Zotero" width="760"/>
   <br/>
   <sub>Discuss figures and screenshots in the reader. <a href="https://cfr2.bibgenie.com/bibgenie-mp4s/explain_image.mp4">View full-quality video</a></sub>
 </p>
 
-### Search, Read, and Synthesize Your Library
+### 2. Trace Every Claim to Its Source
+- BibGenie places interactive citation markers beside the paragraphs they support.
+- Click a citation marker to **jump straight back to the supporting passage in Zotero's PDF/EPUB reader with contextual highlighting**.
+- Inspect nearby caveats, methodology details, and figures before adopting a conclusion, safeguarding your writing from AI hallucinations.
 
-- Find papers by title, author, year, DOI, tag, collection, journal, or conference.
-- Use semantic search over the local index of Zotero item titles and abstracts.
-- Deep-read papers, compare multiple articles, generate structured tables, and save useful results as Zotero notes.
+### 3. Search Your Library — Keyword & Semantic Indexing
+- Find papers across fields like title, author, year, DOI, tag, collection, journal, or conference.
+- Leverage the **local semantic vector index** of your library's titles and abstracts to discover conceptually relevant works without exact keyword matches.
+- All vector indexing and searches happen locally on your computer.
 
 <p align="center">
   <img src="./public/blocks/search_paper_compres.png" alt="BibGenie searching and reading papers in a Zotero library" width="860"/>
 </p>
 
-### Organize Your Zotero Library
+### 4. Explore Beyond Your Library (OpenAlex & Web Research)
+- **OpenAlex Academic Search**: Connect to hundreds of millions of scholarly metadata records worldwide to discover relevant papers outside your collection, navigate citation networks, and analyze research trends.
+- **Web Search & Extract**: Retrieve timely live web information and extract structured text for emerging interdisciplinary questions.
 
-- Inspect and organize tags, collections, item movement, and metadata.
-- For sensitive batch operations, ask BibGenie for a plan, review affected items, then explicitly apply the changes.
+### 5. Organize Your Library — with Preview-First Safety
+- Organize tags, restructure collections, and clean up inconsistent metadata across items.
+- **Explicit Human Approval**: For any operation that modifies your library database, BibGenie first presents an approval card displaying the proposed plan, affected items, and field changes. Nothing is written until you explicitly click approve.
 
 <p align="center">
   <img src="./public/blocks/organize_library_compress.png" alt="BibGenie organizing a Zotero library with preview-first changes" width="860"/>
 </p>
 
-### Choose the Model Setup That Fits Your Research
+### 6. Preserve Insights to Zotero & Notion
+- **Save as Note**: Save multi-paper comparisons, synthesis tables, and research insights directly as attached or standalone Zotero notes.
+- **Notion Integration**: Connect your authorized Notion workspace via Notion MCP to search and sync literature notes directly into your broader knowledge base.
 
-- Start immediately with BibGenie's official model options; no API key is required for the first question.
-- Connect OpenAI, Anthropic, DeepSeek, Gemini, OpenRouter, Groq, or OpenAI-compatible endpoints with your own key.
-- Use Ollama or LM Studio for local inference. Custom and local model requests go directly to the provider or runtime you configure.
+### 7. Local Zotero MCP Server
+- BibGenie includes a built-in local **Model Context Protocol (MCP)** server.
+- Connect external AI coding and research tools—such as **Cursor, Claude Desktop, Claude Code, and Cherry Studio**—to your local Zotero context, enabling them to search items, read attachments, and draft notes securely.
 
-### Extend the Workflow With Web Research and Zotero MCP
+### 8. Flexible Models & Local-First Privacy
+- **Instant Start**: Try curated managed models right away with monthly credits; no initial API key setup required.
+- **Custom Models**: Bring your own API key for OpenAI, Anthropic, DeepSeek, Google Gemini, OpenRouter, Groq, or any OpenAI-compatible provider. Requests travel directly between your machine and your provider.
+- **Offline Local Inference**: Connect to local Ollama or LM Studio runtimes. Sensitive research data never leaves your device.
+- **Local Storage**: Chat records and index caches remain stored locally in your Zotero profile database.
 
-- Paid plans add **Web Search**, **Web Extract**, and **OpenAlex Academic Search** for discovering public scholarly metadata, exploring citation networks, and analyzing research trends beyond your library.
-- The built-in local **Zotero MCP** server lets MCP-compatible clients such as Cursor, Claude Code, Claude Desktop, and Cherry Studio work with Zotero context.
-- Through MCP, trusted external clients can search items, read attachments or snapshots, create notes, and manage library metadata locally.
+---
 
-## Install BibGenie
+## Installation
 
 ### Requirements
-
-- Zotero 7, Zotero 8, or Zotero 9
+- **Zotero 7, Zotero 8, Zotero 9, or Zotero 10**
 - Windows, macOS, or Linux
 
-### Installation
-
-1. Download the latest `.xpi` plugin from the [BibGenie download page](https://www.bibgenie.com/download) or [GitHub Releases](https://github.com/BaiRuic/BibGenie/releases).
-2. In Zotero, open **Tools -> Plugins**.
-3. Click the gear icon and choose **Install Plugin From File...**.
-4. Select `bibgenie-<version>.xpi`, then restart Zotero.
+### Quick Setup
+1. Download the latest `.xpi` file from the [BibGenie Download Page](https://www.bibgenie.com/download) or [GitHub Releases](https://github.com/BaiRuic/BibGenie/releases).
+2. In Zotero, go to **Tools -> Plugins**.
+3. Click the gear icon in the top right and select **Install Plugin From File...**.
+4. Choose the downloaded `bibgenie-<version>.xpi` file, confirm the installation, and restart Zotero.
 5. Open BibGenie from the Zotero toolbar or **Tools -> BibGenie**.
 
-BibGenie checks for updates when Zotero starts. Automatic updates can also be enabled for BibGenie in Zotero's Plugin Manager.
+BibGenie checks for updates when Zotero starts, or you can enable automatic updates via Zotero's Plugin Manager.
 
-## Plans and Privacy
+---
 
-- **Free** includes the core Zotero research agent, context tools, library search, Save as Note, custom models, and monthly official-model credits.
-- **Pro / Max / Lifetime** provide larger official-model allowances; paid plans include Web Search / Web Extract / OpenAlex Academic Search.
-- **BYOK and local models** do not consume BibGenie official-model credits; provider cost or local compute remains yours.
-- Chat records are stored locally in Zotero by default. When using a custom or local model, requests are sent directly to the configured provider or runtime.
+## Documentation
 
-Current pricing and credit details are maintained on the [Pricing page](https://www.bibgenie.com/pricing) and in the [documentation](https://www.bibgenie.com/docs/pricing-credits).
-
-## Learn More
-
-- [Getting Started](https://www.bibgenie.com/docs/getting-started)
-- [Add Context](https://www.bibgenie.com/docs/add-context)
+- [Getting Started Guide](https://www.bibgenie.com/docs/getting-started)
+- [Traceable Citations & Navigation](https://www.bibgenie.com/docs/bibgenie-citations)
+- [Adding Research Context](https://www.bibgenie.com/docs/add-context)
+- [Semantic Library Indexing](https://www.bibgenie.com/docs/semantic-index)
 - [Literature Search](https://www.bibgenie.com/docs/literature-search)
 - [OpenAlex Academic Search](https://www.bibgenie.com/docs/openalex-research)
-- [Models and BYOK](https://www.bibgenie.com/docs/models)
-- [Zotero MCP](https://www.bibgenie.com/docs/mcp)
+- [Custom Models & API Keys](https://www.bibgenie.com/docs/custom-models)
+- [Local Zotero MCP Server](https://www.bibgenie.com/docs/mcp)
+- [Zotero to Notion Workflow](https://www.bibgenie.com/docs/zotero-to-notion)
+- [Pricing and Credits](https://www.bibgenie.com/docs/pricing-credits)
+
+---
 
 ## About This Repository
 
-This repository is the public home for BibGenie product information and downloadable releases. The BibGenie application source code is not published in this repository.
+This repository hosts official product information, issue tracking, and downloadable releases for BibGenie. The internal application source code is not published in this public repository.
 
-## Support
+## Community & Support
 
 - Website: [www.bibgenie.com](https://www.bibgenie.com)
 - Documentation: [www.bibgenie.com/docs](https://www.bibgenie.com/docs)
-- Discord: [Join the community](https://discord.gg/kDXFAAYDNE)
+- Discord: [Join our Community](https://discord.gg/kDXFAAYDNE)
 - Email: [support@bibgenie.com](mailto:support@bibgenie.com)
 
 <div align="center">
