@@ -3,7 +3,7 @@ title: OpenAlex Academic Search
 description: Search public scholarly metadata, resolve entities, explore citation neighborhoods, and analyze research trends outside your Zotero library.
 icon: Network
 datePublished: 2026-05-28
-lastModified: 2026-05-29
+lastModified: 2026-10-27
 ---
 
 import { Database, Network, SearchCheck, TrendingUp } from 'lucide-react';
@@ -12,7 +12,7 @@ OpenAlex Research is available in BibGenie v0.7.0 and helps you explore the publ
 
 OpenAlex results are external bibliographic metadata. They do not mean a paper is already saved in your Zotero library, and they do not replace reading the paper itself.
 
-OpenAlex search is a paid-plan feature.
+OpenAlex search is available to all users. On Free, each successful OpenAlex tool call costs **1 credit**; paid plans include these calls at **no additional credit cost**.
 
 ## What It Can Do
 
@@ -45,7 +45,7 @@ Use OpenAlex when your question is about public scholarly records outside your c
 Use Zotero library search instead when you are asking about saved items, selected papers, collections, tags, notes, or attached PDFs.
 
 <Callout type="warning" title="Keep the boundary clear">
-  OpenAlex can identify papers worth considering, but it does not add them to Zotero automatically. Ask BibGenie explicitly before importing, tagging, moving, or editing any Zotero items.
+  Finding an OpenAlex record does not add it to Zotero or download its PDF. Save papers you want to keep through your usual Zotero workflow. For close reading, make the full text available and ask BibGenie to read it; metadata alone is not enough to verify a paper's findings.
 </Callout>
 
 ## How to Ask
@@ -74,6 +74,8 @@ Use Zotero library search instead when you are asking about saved items, selecte
 </Tabs>
 
 ## Recommended Workflow
+
+When reviewing candidates, ask for the title, authors, year, DOI or source link, and reason for inclusion. Treat the reason as a screening aid until you have checked the original paper. Keep external candidates separate from items already saved in Zotero.
 
 <Steps>
   <Step>

@@ -1,110 +1,125 @@
 ---
 title: Add Context
-description: Add Zotero items, attachments, notes, selected text, and screenshots to a BibGenie conversation.
+description: Choose the papers, passages, notes, annotations, or images BibGenie should use to answer your question.
 icon: PlusCircle
 datePublished: 2026-05-16
-lastModified: 2026-05-16
+lastModified: 2026-10-27
 ---
 
-import { AtSign, Image, MousePointerClick, Plus } from 'lucide-react';
+Context is the material you want BibGenie to work with. You can ask about the paper you are reading, select papers in Zotero, or add particular sources and passages. You do not need to upload or attach a paper before every question.
 
-The quality of a BibGenie answer depends heavily on context. Add Context lets you bring Zotero research material into a conversation so BibGenie can respond based on your items, attachments, notes, and current reading state.
+## Start With What You Are Reading or Have Selected
 
-## Ways to Add Context
+BibGenie can check the active Zotero Reader and the items selected in the library list. Tell it which you mean:
 
-<Cards>
-  <Card title="@ mention" icon={<AtSign />}>
-    Type a space followed by `@` in the input box to search for and insert Zotero items, attachments, notes, tags, collections, and more.
-  </Card>
-  <Card title="Add Context button" icon={<Plus />}>
-    Click the Add Context button near the input box to open a selection dialog.
-  </Card>
-  <Card title="Right-click Add to Chat" icon={<MousePointerClick />}>
-    Add context from Zotero items, collections, tags, reader tabs, or selected text.
-  </Card>
-  <Card title="Paste images or screenshots" icon={<Image />}>
-    Paste images into the input box or use Zotero-side screenshots for figures, formulas, and page regions.
-  </Card>
-</Cards>
-
-## Supported Context Types
-
-| Type | Best for |
+| Material | Example request |
 | :--- | :--- |
-| Regular item | Bibliographic metadata, title, authors, year, and related attachments |
-| PDF attachment | Full-paper reading, section summaries, methods, and results |
-| Snapshot | Reading web pages saved in Zotero |
-| Note | Using Zotero notes, excerpts, and research notes as context |
-| Collection | Working with a set of papers |
-| Tag | Working with papers under a specific tag |
-| Selected text from PDF / EPUB / Snapshot | Precise explanation of a passage |
-| Current PDF page context | Asking about the page you are reading |
-| Image / screenshot | Analyzing figures, formulas, diagrams, and page regions |
+| Paper open in the Reader | “Summarize the paper I am reading and cite the main findings.” |
+| Selected library items | “List the papers I selected, then compare their methods.” |
+| Selected references’ metadata | “Check the selected references for missing metadata and show proposed changes.” |
 
-## Add Context With `@`
+If both an open paper and selected items could be relevant, say “the paper I am reading” or “the items I selected.” In a separate BibGenie window, these refer to its associated Zotero workspace. When several windows are open or you want another source, add the intended material explicitly.
 
-Type a space followed by `@` in the input box to open the context search menu. You can then type a title, author, keyword, note name, tag name, or collection name to filter results.
+Identifying a paper does not mean its full text has already been read. BibGenie retrieves content as your task needs it. Without an available attachment, an item may provide only metadata or an abstract.
 
-Common examples:
+## Add the Sources You Want to Use
+
+Add material explicitly when you want to choose another paper, combine papers with your notes, or make the source unambiguous.
+
+### Supported Context Types
+
+You can work with whole sources, a defined set of papers, a specific reading location, or images:
+
+| Context | What you can use it for |
+| :--- | :--- |
+| Zotero item | A paper’s title, authors, year, other bibliographic information, and related attachments |
+| PDF attachment | Reading a paper and discussing its methods, results, or sections |
+| EPUB attachment | Reading a book and discussing its arguments or sections |
+| Zotero webpage snapshot | Working with a saved copy of a webpage |
+| Zotero note | Using reading notes, excerpts, and your own research records |
+| Saved annotation | Using existing highlights, underlines, comments, image annotations, or ink annotations and their source locations |
+| Collection | Defining the set of papers to search or work with |
+| Tag | Defining the set of papers sharing a tag |
+| Selected text from a PDF, EPUB, or snapshot | Explaining, translating, or checking a particular passage |
+| Current PDF page | Asking about the page you are reading |
+| Current EPUB section | Discussing the current section of a book |
+| Image or screenshot | Examining figures, tables, formulas, scans, or page regions; BibGenie can also retrieve PDF page images |
+
+A collection or tag sets the scope; it does not load all full texts at once. Image input requires an image-capable model. The sections below explain how to add each kind of material and when to use it.
+
+### Find a Source From the Input Box
+
+Type a space followed by `@`, then search by title, author, keyword, note name, tag, or collection. Choose a result to insert it as a context block. You can add several blocks before sending the question. The **Add Context** button near the input box also opens a selection dialog.
 
 ```text
 @attention is all you need
 @Smith 2023
 @my research note
-@systematic-review
 @my project collection
 ```
 
-After selecting a result, it appears as a context block in the input box. You can add multiple context blocks before asking a question.
+### Send Material From Zotero
 
-## Add Context From Zotero
+Right-click the relevant item and choose **Add to Chat**. Entry points are available for library items, collections, tags, and open PDF, snapshot, or note tabs. You can also send Reader selections and saved annotations, as described below.
 
-You can add the current Zotero object directly to BibGenie:
+Use [Add to Chat Settings](/docs/add-to-chat-settings) to show or hide these entries.
 
-- Right-click one or more library items and choose **Add to Chat**.
-- Right-click a collection in the collection tree.
-- Right-click a tag in the tag selector.
-- Right-click a PDF, snapshot, or note tab.
-- Select text in a PDF, EPUB, or snapshot and add it to chat.
+## Focus on a Passage, Page, Annotation, or Figure
 
-These entry points can be enabled or disabled in [Add to Chat Settings](/docs/add-to-chat-settings).
+Use a smaller piece of context when the question concerns a definition, argument, method detail, or figure. Referring to “the current paper” alone does not identify the words you highlighted.
 
-## Examples
+### Selected Text and the Current Reading Location
 
-<Tabs items={['Single paper', 'Multi-paper comparison', 'Selected text', 'Screenshot question']}>
-  <Tab value="Single paper">
-    Add a PDF and ask:
+| Reader | What you can add | Useful for |
+| :--- | :--- | :--- |
+| PDF | Selected text or the current page | Explaining a passage or checking a page-specific claim |
+| EPUB | Selected text or the current section | Discussing a passage or part of a book |
+| Snapshot | Selected text | Explaining material from a webpage saved in Zotero |
 
-    ```text
-    Summarize this paper by research question, method, data, main findings, and limitations.
-    ```
-  </Tab>
-  <Tab value="Multi-paper comparison">
-    Add several related papers and ask:
+Select text and use **Add to Chat**. In the PDF Reader you can add the current page; in the EPUB Reader, **Add Section to Chat** adds the current section.
 
-    ```text
-    Compare these papers by assumptions, methods, and conclusions. Return a comparison table.
-    ```
-  </Tab>
-  <Tab value="Selected text">
-    Add a selected passage and ask:
+An EPUB section can be larger than the subsection shown in its table of contents. Check the material added if you only want to discuss a short part of the book.
 
-    ```text
-    Explain the logic of this passage and identify the key concepts.
-    ```
-  </Tab>
-  <Tab value="Screenshot question">
-    Add a figure screenshot and ask:
+After sending, the context appears in your message. If it includes valid location information, clicking it can reopen the Reader at the corresponding place. Answer citations provide another route back to the evidence; see [Traceable AI Answers](/docs/bibgenie-citations).
 
-    ```text
-    Explain the axes, curves, and main conclusion of this figure.
-    ```
-  </Tab>
-</Tabs>
+### Saved Highlights and Comments
 
-## Tips
+A selection is text you chose for this question. A saved annotation is an existing Zotero highlight, underline, comment, image annotation, or ink annotation.
 
-- Add only the context that is relevant to the current question.
-- For complex tasks, ask for a summary first, then follow up with details.
-- For multi-paper comparisons, ask BibGenie to list each paper first before synthesizing.
-- Screenshots are useful for figures and formulas, but add the source PDF or item if you need citation-level grounding.
+Select one or more saved annotations in the Reader, right-click, and choose **Add to Chat**. You can also add annotation items from the Library view. **Reader Annotations** and **Library Items** in [Add to Chat Settings](/docs/add-to-chat-settings) control these entries.
+
+Comments belong to the annotator, not the document author. Include the surrounding passage when you need to check the comment against the paper. To find earlier reading records first, see [Search Your Zotero Library](/docs/literature-search).
+
+### Figures, Formulas, and Scanned Pages
+
+For a page already in a Zotero PDF, ask BibGenie to inspect that page as an image; you do not have to take a screenshot yourself. This helps when extracted text cannot explain a figure, table, formula, scan, or page layout.
+
+```text
+Look at page 6 of the PDF I am reading as an image. Explain Figure 2’s axes, legend, and main result. Separate what the figure shows from your interpretation.
+```
+
+Use a [model that accepts images](/docs/models) and make sure the PDF is available on this device. Printed page numbers can differ from the PDF page order, so include the figure label when needed. Focus on a few relevant pages at a time.
+
+You can also paste an image into the input box or use Zotero-side screenshots. A cropped screenshot is useful for a small region, but add the source paper when you need surrounding context and traceable references. Check small labels, formulas, and values against the original. A page-image citation does not necessarily highlight the exact figure region.
+
+## Ask With the Material You Added
+
+State the task and the scope together. Adding a collection or tag identifies a set of materials; it does not load every paper’s full text. For a large collection, ask BibGenie to find candidates first, review the list, then choose what to read.
+
+You can combine papers, notes, and passages in the same question. For example:
+
+```text
+Compare the methods in these three papers. Use my project note to explain which approach fits my research question. Distinguish the papers’ findings from my own notes, and cite each important comparison.
+```
+
+For a focused explanation, add the passage and ask what its key concepts mean. For an EPUB chapter, ask for the main argument and its relationship to the book. For saved methods highlights, ask for a thematic summary, check the sources, then [save the reviewed answer as a note](/docs/save-as-note).
+
+You can refine the result with follow-up questions; you do not need to start a separate task mode for each research goal. Reusable examples are available in [Quick Prompts](/docs/quick-prompts).
+
+## If the Material Is Wrong or Cannot Be Read
+
+- **Wrong paper or unclear target:** check the context blocks in your message and sources in the answer. Name or add the intended paper and ask BibGenie to use it.
+- **Only metadata or an abstract:** confirm that the attachment opens in Zotero on this device, then ask BibGenie to read it before drawing full-text conclusions.
+- **The question concerns a particular passage:** add that selection or page instead of relying on the paper’s identity alone.
+- **A scan or figure is not understood:** ask to inspect the PDF page as an image, or provide a screenshot, using an image-capable model.
+- **An Add to Chat entry is missing:** check the corresponding toggle in [Add to Chat Settings](/docs/add-to-chat-settings).

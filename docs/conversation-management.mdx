@@ -1,0 +1,143 @@
+---
+title: Conversation Management
+description: Edit your latest prompt, retry an answer, branch from an earlier response, and compact long conversations.
+icon: Network
+datePublished: 2026-08-12
+lastModified: 2026-10-27
+---
+
+import { GitBranch, Minimize2, Pencil, RefreshCw } from 'lucide-react';
+
+BibGenie preserves each conversation as a research path that you can revise, extend, or branch. You can correct your latest prompt, regenerate an answer, continue from an earlier response in a separate conversation, and compact older context when a thread becomes long.
+
+<Cards>
+  <Card title="Edit the latest prompt" icon={<Pencil />}>
+    Revise the latest user message that can be edited safely, then submit it again.
+  </Card>
+  <Card title="Retry an answer" icon={<RefreshCw />}>
+    Ask BibGenie to generate the latest answer again from the same preceding context.
+  </Card>
+  <Card title="Fork a conversation" icon={<GitBranch />}>
+    Start a separate conversation from a completed response without losing the original path.
+  </Card>
+  <Card title="Compact earlier context" icon={<Minimize2 />}>
+    Summarize older content while retaining recent messages for the next model request.
+  </Card>
+</Cards>
+
+## Edit the latest prompt
+
+Move the pointer over the latest editable user message and select **Edit**. After you revise and submit it, BibGenie continues the current conversation from the updated prompt.
+
+Editing replaces everything that follows the selected message on the current path. The previous answer and any trailing state derived from it no longer belong to that path. If you may need the original line of inquiry, [fork the conversation](#fork-a-conversation) first.
+
+Editing may be unavailable while the AI is responding, a tool is still running, or an approval is pending.
+
+<VideoPlayer
+  src="https://cfr2.bibgenie.com/bibgenie-mp4s/agent-edit-last-message.mp4"
+  caption="Watch how to edit the latest user message"
+/>
+
+## Retry an answer
+
+If the latest answer is not useful, select **Retry** beneath the response. BibGenie keeps the preceding context and generates that answer again.
+
+Retry replaces the original answer on the current path. If a trailing compaction record depends on that answer, it becomes invalid as well. BibGenie evaluates the context again when you next send a message.
+
+To preserve both results, fork from the original answer before retrying in one of the conversations.
+
+<VideoPlayer
+  src="https://cfr2.bibgenie.com/bibgenie-mp4s/agent-retry.mp4"
+  caption="Watch how to retry the latest answer"
+/>
+
+## Fork a conversation
+
+Fork creates a new conversation from a completed response. Move the pointer over an eligible assistant response, select **Fork**, and confirm the action. BibGenie then creates and opens the new conversation.
+
+```text
+Original: Question 1 → Answer 1 → Question 2 → Answer 2
+                         │
+New fork:                └→ New question → New answer
+```
+
+The fork inherits the selected response and all context before it. From that point on, the two conversations develop independently: sending, editing, or retrying in one does not rewrite the later messages in the other.
+
+Fork is useful when you want to:
+
+- Explore different interpretations or hypotheses from the same paper.
+- Compare prompts, models, or analytical approaches.
+- Preserve a result before trying an operation that may change what follows.
+
+Only stable, completed assistant responses can be forked. Finish the current response, tool call, or approval before trying again.
+
+<VideoPlayer
+  src="https://cfr2.bibgenie.com/bibgenie-mp4s/agent-fork.mp4"
+  caption="Watch how to fork a conversation from an earlier response"
+/>
+
+## Compact long conversations
+
+Every model has a finite context window. As messages, papers, images, and tool results accumulate, a conversation approaches that limit. BibGenie can summarize older turns into compact context while retaining recent messages for continued work.
+
+<Callout type="tip" title="Manual compaction is usually unnecessary">
+  The BibGenie agent normally compacts a conversation automatically when needed. Unless you explicitly want to compact older context now, continue asking questions without selecting Compact yourself.
+</Callout>
+
+### Automatic compaction
+
+BibGenie checks the available context at these points:
+
+- Before sending a new message: if the projected request is approaching the model limit, BibGenie compacts older context first and then sends your message automatically.
+- After a turn finishes: if context usage has reached the compaction threshold, BibGenie compacts older content in the background.
+
+Automatic and manual compaction use the same progress indicator. If sending a message triggers compaction, the queued message continues automatically after compaction succeeds; you do not need to send it again.
+
+### Manual compaction
+
+When you explicitly want to compact the current conversation, move the pointer over the **Context Window** indicator at the lower-right of the composer and select the compaction icon in the card's upper-right corner. While it runs, the conversation shows **Compacting earlier context…**. You can keep editing the composer or select **Cancel** before compaction finishes.
+
+<VideoPlayer
+  src="https://cfr2.bibgenie.com/bibgenie-mp4s/agent-compact.mp4"
+  caption="Watch how to compact a conversation from the Context Window indicator"
+/>
+
+### Review the compacted summary
+
+After compaction, an **Earlier context compacted** divider appears in the conversation. Expand it to review:
+
+- The summary of earlier turns.
+- The context token count before compaction.
+- The model and context-window information used for compaction.
+
+The divider is not treated as a normal user prompt, and later answers do not respond to it directly. Before each model request, BibGenie combines the latest summary with the retained recent messages to form the effective context.
+
+<VideoPlayer
+  src="https://cfr2.bibgenie.com/bibgenie-mp4s/agent-view-compact.mp4"
+  caption="Watch how to review the compacted earlier-context summary"
+/>
+
+## How these actions work together
+
+Editing, retrying, or forking changes the conversation; it does not undo changes already made to Zotero or a connected workspace. Before repeating a request that writes data, check what has already completed and review any new approval carefully.
+
+| Action | Effect on the current conversation | Creates a new conversation | Calls the model |
+| :--- | :--- | :---: | :---: |
+| Edit | Replaces the selected user message and everything after it on the current path | No | When resubmitted |
+| Retry | Replaces the latest retryable answer and its trailing state | No | Yes |
+| Fork | Preserves the original and creates an independent path from the selected answer | Yes | No |
+| Compact | Summarizes older context while retaining recent messages | No | Yes |
+
+If an operation may replace an answer you still need, fork the conversation first.
+
+## When an action is unavailable
+
+Edit, Retry, Fork, or Compact may be temporarily unavailable when:
+
+- BibGenie is generating an answer.
+- A tool call is still running or waiting for your approval.
+- The conversation is being compacted, or a submitted message is waiting for compaction to finish.
+- The selected message is not at a position that can be edited or forked safely.
+- The saved conversation history is damaged and has opened in read-only mode.
+
+Finish or cancel the current operation, then try again. If a conversation opens as read-only, BibGenie preserves the history it can display safely and does not modify the original saved data.

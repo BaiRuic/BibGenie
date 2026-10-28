@@ -1,16 +1,21 @@
 ---
-title: Getting Started
+title: Quick Start
 description: Install BibGenie in Zotero and ask your first AI-powered research question.
 icon: Rocket
 datePublished: 2026-05-16
-lastModified: 2026-05-29
+lastModified: 2026-10-28
 ---
 
-This guide takes you through the fastest path to a working setup: download the plugin, install it in Zotero, open the sidebar, and ask your first question about a paper.
+[BibGenie](https://www.bibgenie.com/) is a Zotero AI plugin for reading papers, searching your library, and organizing references. This guide takes you through installation and your first question about a paper.
 
 <Callout type="info" title="Supported Zotero versions">
-  BibGenie supports Zotero 7, Zotero 8, and Zotero 9. We recommend using a recent Zotero version for the most stable plugin and reader experience.
+  BibGenie supports Zotero 7, Zotero 8, Zotero 9, and Zotero 10. We recommend using a recent Zotero version for the most stable plugin and reader experience.
 </Callout>
+
+<VideoPlayer
+  src="https://cfr2.bibgenie.com/bibgenie-mp4s/bibgenie_get_started.mp4"
+  caption="Watch the full getting started walkthrough"
+/>
 
 ## Download the Plugin
 
@@ -39,72 +44,61 @@ where `<version>` is the release number.
   <Step>
     Restart Zotero after installation.
   </Step>
-  <Step>
-    After restarting, open BibGenie from the Zotero toolbar or the Tools menu.
-  </Step>
 </Steps>
 
 ## Open BibGenie
 
-You can open BibGenie in several ways:
+Click the BibGenie icon in the Zotero toolbar.
 
-- Click the BibGenie icon in the Zotero toolbar.
+You can also use the menu or your configured shortcut:
+
 - Choose **Tools -> BibGenie** from the menu bar.
 - Use the configured keyboard shortcut to show or switch the BibGenie sidebar.
 
 If the shortcut conflicts with Zotero or your operating system, you can change it in [Keyboard Shortcuts](/docs/keyboard-shortcuts).
 
-## Sign In
-
-Free users can start with the core chat and context features. After you sign in, BibGenie can sync your subscription status, credit balance, and official model access.
-
-<Cards>
-  <Card title="Free users">
-    Best for lightweight translation, simple questions, and basic paper reading.
-  </Card>
-  <Card title="Paid plan users">
-    Includes more credits and access to advanced features such as Web Search, Web Extract, and OpenAlex Research Search.
-  </Card>
-</Cards>
-
 ## Ask Your First Question
 
 A good first task is to start with a PDF paper:
 
+On first launch, BibGenie uses a built-in model by default. You do not need to configure an API key or manually choose a model before asking your first question.
+
 <Steps>
   <Step>
-    Select a Zotero item that has a PDF attachment.
+    Open a paper's PDF attachment in the Zotero Reader.
   </Step>
   <Step>
-    On first launch, BibGenie uses a built-in model by default. You do not need to configure an API key or manually choose a model before asking your first question.
-  </Step>
-  <Step>
-    In the BibGenie input box, type a space followed by `@`, then search for and add the paper. You can also right-click the Zotero item and choose **Add to Chat**.
-  </Step>
-  <Step>
-    Ask a concrete question, for example:
+    Type your question, or insert **Summarize current paper** from Quick Prompts. A Quick Prompt fills the input box; review or edit it, then send it. You do not need to add the current paper with `@`.
 
     ```text
-    Summarize this paper's research question, method, main findings, and limitations.
+    Summarize the paper I am currently reading: its research question, method, main findings, and limitations. Cite the supporting passages.
     ```
   </Step>
   <Step>
-    If the answer is useful, click **Save as Note** on the last assistant message to save it as a Zotero note.
+    When the answer includes citations, click one to check the supporting source. A citation may return to a page or passage depending on the available source location; check that it supports the claim.
   </Step>
 </Steps>
 
-If you want to use your own API key, a local model, or an institutional model service later, read [Bring Your Own Key](/docs/byok) and [Custom Models](/docs/custom-models).
+If the answer is useful, click **Save as Note** on the last assistant message to save it as a Zotero note, then open the note to check its contents.
 
 <Callout type="tip" title="Ask for a clear output format">
   Strong prompts specify both the goal and the expected format, such as "summarize in five bullet points", "use sections for method, results, and limitations", or "turn this into a literature review note".
 </Callout>
 
-## Next Steps
+<Callout type="info" title="Need Help?">
+  If the plugin is missing, first check that it is enabled in **Tools → Plugins**, then restart Zotero. If the paper cannot be read, confirm its attachment opens locally and see [Add Context](/docs/add-context). For model or connection errors, use [Troubleshooting](/docs/error-in-bibgenie).
+</Callout>
 
-- Learn how to add richer context: [Add Context](/docs/add-context)
-- Understand model choices: [Models](/docs/models)
-- Understand plans and credits: [Pricing & Credits](/docs/pricing-credits)
-- Create reusable prompts: [Quick Prompts](/docs/quick-prompts)
+## Sidebar and Separate Window
+
+You can use BibGenie in the Zotero sidebar or in a separate window. Both views provide the same research tools; choose based on how much space you need for reading and conversation.
+
+| View | When to use it |
+| :--- | :--- |
+| Sidebar | Keep BibGenie beside the paper while you read, ask short follow-up questions, and check citations. |
+| Separate window | Give long answers and comparison tables more room, keep the PDF wider, or place the conversation on another monitor. |
+
+To switch from the sidebar, click the button with the tooltip **Open in separate window** in BibGenie's top bar. In the separate window, use **Move BibGenie back to Zotero sidebar** to return.
 
 ## Updating BibGenie
 
@@ -123,3 +117,18 @@ You can also enable automatic updates through Zotero's Plugin Manager:
     Set **Allow automatic updates** to On. Zotero will then update BibGenie automatically when new versions are available.
   </Step>
 </Steps>
+
+## Next Steps
+
+For another task, describe your goal and the papers, collection, or other context you want to use. You can add known materials or ask BibGenie to search your library. Follow up to refine the result, and review any proposed library changes before approving them.
+
+You can also select several items in Zotero's library list and ask, “Compare the methods in the papers I have selected.” BibGenie can check your current reader or selection and retrieve the relevant content as needed. For figures, tables, or scanned pages, you can ask it to inspect the relevant PDF page as an image using an image-capable model. See [Add Context](/docs/add-context).
+
+- Learn how to add richer context: [Add Context](/docs/add-context)
+- Learn how to edit, retry, fork, and compact conversations: [Conversation Management](/docs/conversation-management)
+- For source types, original-text locations, and limitations, see [Traceable AI Answers](/docs/bibgenie-citations).
+- Understand model choices: [Models](/docs/models)
+- Understand plans and credits: [Pricing & Credits](/docs/pricing-credits)
+- Create reusable prompts: [Quick Prompts](/docs/quick-prompts)
+
+If you want to use your own API key, a local model, or an institutional model service later, read [Custom Models](/docs/custom-models).

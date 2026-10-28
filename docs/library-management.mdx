@@ -3,14 +3,22 @@ title: Library Management
 description: Use BibGenie to help organize Zotero tags, collections, metadata, and item movement.
 icon: LibraryBig
 datePublished: 2026-05-16
-lastModified: 2026-05-16
+lastModified: 2026-10-27
 ---
 
 BibGenie can do more than read papers. It can help organize your Zotero library by managing tags, creating collections, moving items, and editing metadata.
 
 <Callout type="warning" title="Preview before applying changes">
-  Library management actions can modify your Zotero library. For batch operations, ask BibGenie to show a plan or preview before applying any changes.
+  BibGenie can inspect your library and discuss a plan without changing it. Actions that write to your library require approval. Read the proposed changes and affected items before approving; a plan written in the conversation is not confirmation that the changes have already run.
 </Callout>
+
+{/* TODO(media): 补充当前版本插件内文献库整理操作的真实审批卡片局部截图，例如为选中条目批量添加标签。画面需展示受影响条目、拟议变更，以及等待用户批准或拒绝的实际按钮；使用脱敏示例并保留足够上下文，避免只截按钮。仅说明该操作的审批，不暗示拒绝会撤销先前已完成的修改；无需新增视频。 */}
+
+## Choose What May Change
+
+Start with the selected items or a named collection and describe the result you want. Include any boundaries: reuse existing tags, preserve collection membership, or leave metadata unchanged.
+
+The same Zotero item can belong to several collections. Say whether papers should be **added to another collection** or **removed from their current collection as well**; do not assume “move” means the same thing in every request.
 
 ## Supported Organization Tasks
 
@@ -21,6 +29,10 @@ BibGenie can do more than read papers. It can help organize your Zotero library 
 | Metadata editing | Edit title, abstract, publication title, DOI, and related fields |
 | Metadata reading | Inspect authors, year, attachments, notes, and tags |
 | Literature classification | Group papers by topic, method, year, or project |
+
+<Callout type="tip" title="Need Multi-Source Academic Metadata Enrichment?">
+  If you need to query arXiv, Semantic Scholar, OpenAlex, DBLP, or OpenReview to automatically enrich missing abstracts, DOIs, journal abbreviations, or normalize casing, see the dedicated [Metadata Review & Cleaning](/docs/metadata-review) guide.
+</Callout>
 
 ## Common Workflows
 
@@ -63,15 +75,19 @@ Find papers in this collection that are missing a DOI or abstract, and return a 
     Ask for an organization plan, including which items will be modified.
   </Step>
   <Step>
-    Review the plan.
+    Check that the plan uses the intended papers, collection names, and tags. Ask for changes to the plan if needed.
   </Step>
   <Step>
-    Explicitly authorize BibGenie to apply the changes.
+    Review and approve the proposed write actions when they appear. A larger task may contain several actions; check the scope of each one.
   </Step>
   <Step>
-    Ask for a summary of what was changed.
+    Check the result in Zotero and ask which changes completed, failed, or were skipped.
   </Step>
 </Steps>
+
+Rejecting a proposal leaves that action unapplied. It does not reverse earlier actions you already approved. If a task stops partway through, check what has completed before asking BibGenie to continue.
+
+For example, start with “Add a `methods-review` tag to the selected papers, keep their existing tags and collections, and do not change metadata.” Check the affected papers in the preview, approve the action, and verify the tag in Zotero.
 
 <Callout type="tip" title="Set clear boundaries">
   For batch work, specify scope: "only selected items", "only this collection", or "do not edit metadata, only add tags".

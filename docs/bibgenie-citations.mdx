@@ -1,0 +1,128 @@
+---
+title: Traceable AI Answers
+description: Trace AI answers to source passages in PDF, EPUB, and snapshots, with text-block citations, source navigation, and highlights where locations can be resolved.
+icon: Quote
+datePublished: 2026-06-12
+lastModified: 2026-10-27
+---
+
+When an answer uses traceable sources, BibGenie can add citations so you can inspect the material behind its claims. Click a citation to return to the source, then decide whether it supports the answer. A real source does not guarantee a correct interpretation.
+
+## Check an Answer’s Sources
+
+Ask about the paper you are reading, or [add the sources you want to use](/docs/add-context), then ask your reading question. When checking the answer, also look for omitted exceptions or counterexamples.
+
+1. Find a claim you want to use, such as a result, method detail, or author’s argument.
+2. Click its citation. Citations may appear as numbers or readable source labels; choose your preference in [Citation Appearance](/docs/citation-format).
+3. Read the cited material and nearby context. Check qualifications, scope, and whether the answer has combined different findings.
+4. If needed, ask: “Rephrase this based on the cited passage, and mark anything the source does not establish.”
+
+### Evidence Links and Zotero Object Links
+
+An answer can contain two kinds of links:
+
+| Link | What it tells you | What to do with it |
+| :--- | :--- | :--- |
+| Source citation | Which material supports a particular statement | Open it and read the evidence |
+| Zotero object link | Which paper, note, attachment, collection, or tag the answer mentions | Open the object to continue working |
+
+For example, an answer can cite an EPUB passage to explain an argument and also link the book’s attachment so you can open it. The passage is the evidence; the attachment link alone does not establish that the argument was supported. A search result or library item link is not a substitute for reading the relevant content.
+
+## Where Each Citation Takes You
+
+| Source | What to expect |
+| :--- | :--- |
+| PDF text | Opens the cited page; valid text-position data can also locate and highlight the relevant text block |
+| PDF page image | Returns to the source page; an exact figure or table region is not necessarily highlighted |
+| EPUB | Returns to the relevant section or text location, with a temporary highlight when the passage can be resolved |
+| Zotero webpage snapshot | Opens the saved snapshot and can locate and temporarily highlight the relevant passage |
+| Saved Zotero annotation | Opens the parent document and navigates to the existing annotation |
+| Zotero note | Opens the source note so you can inspect its content |
+| Web search or extracted webpage | Opens the cited webpage or result; online content can change |
+| OpenAlex | Opens the scholarly record or result used; metadata does not mean the full paper was read |
+
+## Returning to the Original Text
+
+PDFs, EPUBs, and snapshots use different location information. A citation can point to a text block or a [selection you added to chat](/docs/add-context). When a precise location cannot be resolved, it may only open the document, page, or section. Read the nearby context rather than treating every jump as exact paragraph positioning.
+
+The temporary highlight shown when following a citation helps you find the passage. It does not create a permanent Zotero annotation. A reference to an annotation you already saved instead returns to that existing reading record.
+
+### Why the Location Matters
+
+| Citation level | What it identifies | What you still need to check |
+| :--- | :--- | :--- |
+| Work | Which paper or source was used | Find the relevant evidence within it |
+| Page | Which page contains the evidence | Locate the passage, figure, or table |
+| Passage or text block | The relevant part of the source, with a jump or highlight when its position resolves | Read the surrounding conditions and check that it supports the claim |
+
+Text-block citations narrow that evidence range. For PDFs, a resolved text block can retain its page and position so you can return to the passage rather than search the whole page. EPUB and snapshot citations serve the same reading purpose using the locations available in those formats.
+
+More precise does not mean reading one sentence in isolation. A definition may be followed by a qualification, and a result may depend on the setup described immediately before it. Read enough surrounding text to keep those relationships intact.
+
+### Cite the Passage You Selected
+
+Select a passage in a PDF, EPUB, or snapshot, choose **Add to Chat**, and ask about that passage. When valid Reader position information is available, the answer can cite the selection and take you back to it. This is useful for checking a definition, translating a passage, or asking why a specific claim follows from the evidence.
+
+Selected text can still be useful context when its location cannot be resolved. Missing or invalid location information should not be treated as a guarantee that a precise jump or highlight will be available. See [Add Context](/docs/add-context) for choosing the passage or reading unit.
+
+<VideoPlayer
+  src="https://cfr2.bibgenie.com/bibgenie-mp4s/block_citation.mp4"
+  caption="PDF example: follow a citation to its source passage"
+/>
+
+## Decide Whether the Source Supports the Claim
+
+- Distinguish the document author’s statements, an annotator’s comments, and the AI’s interpretation. A comment attached to a passage is not part of the original paper.
+- For a result or numerical claim, check the relevant conditions, figures, tables, and units in the source.
+- For comparisons, verify the evidence in each paper. Do not treat an OpenAlex record or abstract as full-text evidence.
+- Citations help with reading and verification; for a manuscript, use Zotero’s normal citation workflow and the required bibliography style.
+
+After checking the answer, you can [save it as a Zotero note](/docs/save-as-note).
+
+## Put Source Checking Into Your Research
+
+<Accordions type="multiple">
+  <Accordion title="Check whether a summary overgeneralized a result">
+    A paper may report an improvement on one dataset while a summary says the method is better overall. Or the authors may describe an observed association while the answer claims a causal mechanism. Open the citation and compare the answer with the author’s wording, tested conditions, and limitations.
+
+    ```text
+    Check the main conclusions in this answer against the source. For each one, show the supporting passage and any conditions or qualifications the summary omitted.
+    ```
+  </Accordion>
+  <Accordion title="Verify methods and experimental details">
+    Dataset size, baselines, evaluation measures, exclusions, and statistical tests can change how you interpret a result. Return to the relevant method or results passage, and inspect the original table or figure when the detail is visual. A passage mentioning an experiment is not enough unless it supports the exact value or comparison.
+
+    ```text
+    Extract the datasets, baselines, evaluation measures, and main comparisons. Cite each source location and mark details the paper does not report.
+    ```
+  </Accordion>
+  <Accordion title="Compare papers without losing each claim’s source">
+    A comparison table should let you distinguish what paper A reports from what paper B reports and what the AI inferred. Check each paper’s evidence, especially when datasets or measures differ. You can also combine an EPUB argument, your notes, a saved webpage, and external records; the source type tells you what kind of evidence each contributes.
+
+    ```text
+    Compare these papers by question, assumptions, method, evidence, and limitations. Cite important differences separately and distinguish author claims from your synthesis.
+    ```
+  </Accordion>
+  <Accordion title="Keep a reading note you can verify later">
+    Ask for a note draft, check its important citations, and then save it. Keep the author’s claims, your own comments, and the AI’s interpretation distinguishable. When you revisit the note, readable source information helps you identify the material; actual links and navigation depend on the source and available location information.
+  </Accordion>
+</Accordions>
+
+## Copying, Saving, and Formal References
+
+Copied answers and saved Zotero notes use readable source citations even if chat displays compact numbers. Keep that source information when organizing excerpts or literature notes, so you can return to the evidence later. [Citation Appearance](/docs/citation-format) explains the display preference; changing it does not change the underlying source.
+
+| Use | What the citation is for |
+| :--- | :--- |
+| Reading and research notes | Identify the material behind an AI answer and continue checking it |
+| A manuscript or formal report | Cite the original work using Zotero and the style required by your journal or institution |
+
+Do not treat a chat citation or highlighted text block as a submission-ready bibliography entry. Verify the original work and its metadata, then use the normal Zotero citation workflow for APA, MLA, Chicago, GB/T 7714, or another required style.
+
+## Missing Citations or Imprecise Locations
+
+Not every answer needs a citation: operational guidance may have no documentary source. If an important factual claim lacks support, ask which source and passage establish it. If no supporting source is available, treat the claim as unverified rather than asking for an invented citation.
+
+If a citation does not return to the expected place, confirm the attachment opens on this device and check that it is the intended document. Scanned PDFs, poor text extraction, unusual EPUB structure, or complex snapshot markup can limit positioning. For a figure or scanned page, ask BibGenie to inspect the PDF page as an image with an image-capable model; see [Add Context](/docs/add-context).
+
+Web material and external records may be incomplete or change. Recheck the original source before relying on it in research writing.

@@ -1,0 +1,122 @@
+---
+title: Metadata Review & Cleaning
+description: Automatically retrieve external metadata from arXiv, Semantic Scholar, OpenAlex, DBLP, and OpenReview to enrich, standardize, and clean your Zotero library with visual approval diffs.
+icon: Sparkles
+datePublished: 2026-09-05
+lastModified: 2026-10-27
+---
+
+import { CheckCircle2, Database, ShieldAlert, Sparkles } from 'lucide-react';
+
+Metadata Review & Cleaning is a core capability of BibGenie. Papers imported from various academic websites, PDFs, or generic web extractors often suffer from incomplete metadata (missing abstracts, DOIs, page numbers, or journal titles), all-uppercase titles, missing journal abbreviations, unlinked preprint updates, and truncated author lists.
+
+BibGenie pairs **large language models' scholarly intelligence** with **multi-source authoritative academic databases**. With a strictly read-only review engine, transparent candidate evidence, and visual diff approvals, you can effortlessly maintain a clean and standardized Zotero library.
+
+<Callout type="info" title="100% Read-Only Review & Safe Approval">
+  The review phase is strictly read-only and never silently modifies your library in the background. The AI generates a **visual diff preview card** comparing current values against proposed changes. Edits are safely written to Zotero only when you explicitly click "Approve".
+</Callout>
+
+## Key Capabilities
+
+<Cards>
+  <Card title="Multi-Source Academic Retrieval" icon={<Database />}>
+    Aggregates arXiv, Semantic Scholar, OpenAlex, DBLP, and OpenReview, intelligently routing based on DOI, arXiv ID, or DBLP keys.
+  </Card>
+  <Card title="Three Specialized Review Modes" icon={<Sparkles />}>
+    Choose between `lint` (local formatting), `blank` (fill missing facts, default), and `all` (full refresh and sync).
+  </Card>
+  <Card title="Scholarly Terminology Protection" icon={<CheckCircle2 />}>
+    Unlike rigid regex tools, BibGenie understands academic terms, protecting `mRNA`, `CRISPR-Cas9`, `PyTorch`, and Roman numerals from casing errors.
+  </Card>
+  <Card title="Visual Diff & Transactional Writes" icon={<ShieldAlert />}>
+    Visual old-vs-new previews, type-change mapping warnings, Better BibTeX Citation Key retention, and atomic failure rollback.
+  </Card>
+</Cards>
+
+## Supported Academic Data Sources
+
+BibGenie integrates specialized academic discovery channels tailored for different disciplines and publication stages:
+
+| Source | Coverage & Highlights | Best For |
+| :--- | :--- | :--- |
+| **OpenAlex** | 250M+ open scholarly graph across all fields | Comprehensive lookup, missing base metadata, citation contexts |
+| **arXiv** | Physics, Computer Science, Math preprint repositories | Preprint metadata, official version identifiers, published DOI links |
+| **DBLP** | Computer science bibliography | Top CS conferences/journals, author disambiguation |
+| **OpenReview** | Machine learning and AI venues (ICLR, NeurIPS, etc.) | Submission track verification, anonymous author protection, camera-ready tracking |
+| **Semantic Scholar** | High-precision CS and biomedicine corpus | Exact paper identifiers, TLDR summaries, citation analysis |
+| **Zotero Translators** | Zotero native publisher translators | Direct resolution from publisher landing pages (IEEE, ACM, Springer, Nature) |
+
+## Three Review Modes
+
+Describe what you want to fix in ordinary language, such as filling missing fields or checking whether a preprint has been published. You do not need to memorize mode names. The modes below explain which existing information may be changed; review the proposed edits before approving them.
+
+Depending on your workflow needs, you can instruct BibGenie to run under different modes:
+
+<Tabs items={['blank (Complete Missing, Recommended)', 'lint (Format & Standards)', 'all (Full Refresh)']}>
+  <Tab value="blank (Complete Missing, Recommended)">
+    **Default mode**. Queries authoritative academic sources to **propose updates only for empty local fields and creators**:
+    - Preserves existing non-empty titles, authors, years, and publication titles without overwriting.
+    - Fills missing abstracts, page ranges, DOIs, publication titles, or proceedings titles.
+    - Ideal for the vast majority of everyday library enrichment tasks.
+  </Tab>
+  <Tab value="lint (Format & Standards)">
+    **Local standardization mode**. Skips external fact retrieval and runs built-in scholarly rules to audit and clean existing metadata:
+    - Sentence case normalization for titles.
+    - Journal abbreviation standardization using LTWA dictionaries.
+    - Precise ISO-639-1 language detection.
+    - Identifies publisher domains misplaced in metadata fields.
+    - Ideal for items that already have complete data and only need typographical standardization.
+  </Tab>
+  <Tab value="all (Full Refresh)">
+    **Full synchronization mode**. Queries external sources to **compare and propose updates to existing fields, with full author list replacement**:
+    - Suited for fixing inaccurate or poorly parsed data from low-quality web imports.
+    - Great for updating a preprint after it has been officially published in a journal or conference.
+    - *Note: Do not upgrade to `all` solely because fields are missing; use `blank` for missing field completion.*
+  </Tab>
+</Tabs>
+
+## Safety & Ecosystem Compatibility
+
+1. **Better BibTeX Compatibility**:
+   - Many researchers rely on Better BibTeX for LaTeX citation keys. BibGenie's Extra field processor strictly preserves `Citation Key:`, `tex.*`, `bibtex:`, and unstructured notes, never stripping or modifying your citation keys.
+2. **Item Type Change Safeguards**:
+   - When proposing an item type conversion (e.g., from `preprint` to `journalArticle`), the approval card provides clear warnings of fields that may be mapped or discarded.
+3. **Scholarly Intelligence Over Heuristics**:
+   - Rigid casing rules often damage technical acronyms, chemical formulas, or library names. BibGenie's LLM context filters out inappropriate heuristic suggestions.
+
+## Example Prompts
+
+```text
+Please inspect the selected paper and fill in any missing abstract, pages, and DOI without changing existing information.
+```
+
+```text
+Help me standardize the title case and journal abbreviations for these selected items while preserving technical terminology.
+```
+
+```text
+This paper was previously an arXiv preprint. Please check DBLP or Semantic Scholar to see if it has been published in a peer-reviewed venue, and propose updating the item type and metadata if so.
+```
+
+```text
+Find items in this collection that lack an abstract or DOI, and review them to fill in the missing details.
+```
+
+## Recommended Workflow
+
+{/* TODO(media): 补充当前版本的元数据修改预览截图，展示旧值、新值和批准按钮；使用脱敏条目，现有文字足够说明其他步骤，无需增加视频。 */}
+
+<Steps>
+  <Step>
+    **Select Items**: Highlight one or more items in the Zotero library, and add them to context using `@` or direct instructions.
+  </Step>
+  <Step>
+    **Read-Only Review**: BibGenie retrieves multi-source facts and evaluates rules, generating structured proposals.
+  </Step>
+  <Step>
+    **Review Visual Diff**: A visual **Action Preview** card appears in the chat, highlighting changes between old and new values.
+  </Step>
+  <Step>
+    **Approve and Write**: Click "Approve" to atomically apply the changes to your Zotero items. If rejected, your library remains completely unchanged.
+  </Step>
+</Steps>

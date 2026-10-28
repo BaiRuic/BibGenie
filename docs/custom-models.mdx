@@ -1,182 +1,153 @@
 ---
-title: Custom Models
-description: Add and manage custom models, including OpenAI, Anthropic, OpenRouter, Ollama, LM Studio, and compatible APIs.
+title: Custom and Local Models
+description: Connect your provider account, institutional service, Ollama, or LM Studio, then choose the model for chat or semantic search.
 icon: SlidersHorizontal
 datePublished: 2026-05-16
-lastModified: 2026-05-16
+lastModified: 2026-10-27
 ---
 
-Custom models let you use your own API key, third-party provider, local model, or institutional model service. Once configured, BibGenie sends requests directly from the local Zotero plugin to the provider you choose.
+BibGenie includes [official models](/docs/models) optimized for reading and understanding papers and using research tools, balancing quality and value. Start AI paper reading in Zotero without configuring an API key.
 
-## Add a Model
+If research data privacy is a priority, or you want to use an existing model service, **custom models** let you connect your own API key (BYOK), institutional services, or local models through Ollama and LM Studio, directing model requests to the service you specify.
 
-<Steps>
-  <Step>
-    Open BibGenie and go to **Model Settings**.
-  </Step>
-  <Step>
-    Click **Add Model** in the Custom Models section.
-  </Step>
-  <Step>
-    Select or enter a **Provider ID**. BibGenie loads common providers from a model catalog and automatically fills Provider Name, Provider Type, and Base URL when possible.
-  </Step>
-  <Step>
-    Select or enter a **Model ID**. If the model exists in the catalog, BibGenie automatically fills Model Name, Family, Model Types, Context Window, Max Tokens, and Description.
-  </Step>
-  <Step>
-    Enter your API Key. For local services such as Ollama, an API key is usually not required.
-  </Step>
-  <Step>
-    Click **Test** to verify the connection. A successful test shows **Connected**. If the test fails, BibGenie shows the provider error message so you can correct the configuration.
-  </Step>
-  <Step>
-    Review the auto-filled fields and adjust Model Types, Context Window, or Max Tokens if needed.
-  </Step>
-  <Step>
-    Click **Add Model**. The model is saved, enabled, and becomes available in the chat model selector.
-  </Step>
-</Steps>
+BYOK means **Bring Your Own Key**: use your own provider credentials instead of BibGenie's official model service. You can also connect an institutional endpoint or a local service that does not require an API key. Use this page to set up the connection, select the model, and understand where data and charges go.
 
-## Auto-Fill Behavior
+The **Add Model** menu in Model Settings has two entries:
 
-Adding a custom model is not entirely manual. BibGenie loads provider and model information from the `models.dev` catalog when available:
+- **Add chat model**: configure a model for chat, paper reading, and tool calls.
+- **Add Embedding model**: configure a model for semantic indexing and literature search.
 
-- Provider ID supports searching common providers and entering a custom provider manually.
-- Selecting a provider can auto-fill Provider Name, Provider Type, and Base URL.
-- Model ID is filtered by the selected provider and supports both catalog models and custom model IDs.
-- Selecting a catalog model can auto-fill Model Name, Family, Model Types, Context Window, Max Tokens, Description, and pricing metadata.
-- If the model catalog cannot be loaded, BibGenie uses a built-in fallback provider list, and you can still add models manually.
+## Is a Custom Model Right for You?
 
-<Callout type="tip" title="Prefer catalog entries when available">
-  If your provider and model appear in the search dropdowns, select them instead of typing everything manually. This reduces mistakes in Provider Type, Base URL, model capabilities, and context limits.
-</Callout>
+Official models need no API-key setup. Configure a custom model if you:
 
-## Fields
+- Already have a provider API account and want charges on that account.
+- Need an institutional model service.
+- Want local model computation for sensitive material.
+- Need a model outside the official list.
 
-| Field | Required | Description |
-| :--- | :--- | :--- |
-| Provider ID | Required | Unique provider identifier, such as `openai`, `anthropic`, or `openrouter`; custom IDs are supported |
-| Provider Name | Required | Display name for the provider; usually auto-filled from the catalog |
-| Model ID | Required | Actual model ID used by the provider API, such as `gpt-4.1` or `claude-sonnet-4-5` |
-| Model Name | Required | Display name shown in BibGenie; usually auto-filled from the catalog |
-| API Key | Optional | Your provider API key; local providers such as Ollama usually do not require one |
-| Base URL | Optional | API endpoint; often auto-filled for catalog providers, but compatible or local services may require manual confirmation |
-| Provider Type | Required | API integration type, such as OpenAI, Anthropic, Ollama, or OpenAI Compatible |
-| Family | Optional | Model family, such as `qwen`, `gpt`, or `claude`; often auto-filled |
-| Model Types | Required | Capabilities such as Text, Vision, Reasoning, Function Calling, or Web Search |
-| Context Window | Optional | Model context window; often auto-filled for catalog models |
-| Max Tokens | Optional | Maximum output tokens; often auto-filled for catalog models |
-| Description | Optional | Model description; often auto-filled |
+## Before adding a model
 
-## Provider Type Guide
+For a cloud service, prepare the provider's **API Key, Model ID, and API address**.
 
-| Provider Type | Use when |
-| :--- | :--- |
-| OpenAI | You use the official OpenAI API |
-| Anthropic | You use the Anthropic Claude API |
-| xAI | You use the xAI Grok API |
-| DeepSeek | You use the official DeepSeek API |
-| Google | You use the Gemini API |
-| Groq | You use the Groq API |
-| Moonshot AI | You use Kimi / Moonshot models |
-| OpenRouter | You use the OpenRouter API |
-| Alibaba | Usually via OpenAI Compatible |
-| Z.AI / Zhipu AI | Usually via OpenAI Compatible |
-| Ollama | You use a local Ollama service |
-| OpenAI Compatible | You use LM Studio, an API proxy, or an institutional compatible endpoint |
+For a local model, start the service, prepare the appropriate model, and confirm the service address and Model ID. Local services usually do not require an API key.
 
-## Base URL
-
-Many official providers have a default Base URL. You usually need to edit Base URL only when:
-
-- You use OpenAI Compatible.
-- You use an API proxy.
-- You use a local model service.
-- Your provider requires a custom endpoint.
-
-Examples:
-
-```text
-https://api.openai.com/v1
-https://openrouter.ai/api/v1
-http://localhost:11434
-http://localhost:1234/v1
-```
-
-<Callout type="warning" title="Watch the /v1 path">
-  Many compatible APIs require a Base URL ending in `/v1`. Missing the version path can cause NetworkError, 404, or model-not-found errors.
-</Callout>
-
-## Ollama Example
+## Add a model
 
 <Steps>
   <Step>
-    Make sure Ollama is installed and running.
+    **Open the add dialog.** Go to **Settings → Models (Model Settings)**. Under Custom Models, click **Add Model**, then choose the appropriate entry.
   </Step>
   <Step>
-    Run `ollama list` in a terminal to confirm a local model is available.
+    **Enter the provider and model.** Search for a provider in **Provider ID**, then select a model in **Model ID**. Catalog entries fill in available names, connection settings, and model details. You can enter missing entries manually.
   </Step>
   <Step>
-    If Ollama is not yet running, start it with `ollama serve`. You should see output confirming it is listening on `127.0.0.1:11434`.
+    **Check the connection.** Enter the API Key and check **Provider Type** and **Base URL** against the provider's requirements. **Model ID** is the identifier used by the API; **Model Name** is the name displayed in BibGenie.
   </Step>
   <Step>
-    Add a model in BibGenie and choose **Ollama** as Provider Type.
-  </Step>
-  <Step>
-    Use `http://localhost:11434` as Base URL.
-  </Step>
-  <Step>
-    Use the model name shown by `ollama list`, such as `llama3.1:8b`, as Model ID.
+    **Test and save.** Click **Test**, then **Add Model** after Connected appears. If the test fails, check the configuration using the error message. When adding an Embedding model, you can leave dimensions empty to detect them on test or save.
   </Step>
 </Steps>
 
-## LM Studio Example
-
-LM Studio is usually configured through OpenAI Compatible:
-
-<Steps>
-  <Step>
-    Start the local API server in LM Studio.
-  </Step>
-  <Step>
-    Add a model in BibGenie and choose **OpenAI Compatible** as Provider Type.
-  </Step>
-  <Step>
-    Enter the LM Studio API address as Base URL, usually similar to `http://localhost:1234/v1`.
-  </Step>
-  <Step>
-    Enter the ID of the model currently loaded in LM Studio as Model ID.
-  </Step>
-</Steps>
-
-## Model Types
-
-Select capabilities according to what the model actually supports:
-
-- **Text**: text chat; usually required.
-- **Vision**: image, screenshot, and figure input.
-- **Reasoning**: useful for complex reasoning tasks.
-- **Function Calling**: affects search, reading, and library-management workflows.
-- **Web Search**: enable only if the provider and model support it.
-
-Incorrect capability settings can cause `ModelNotSupported` or tool-calling failures.
-
-## FAQ
+Expand these notes if you need to check the connection type or model parameters:
 
 <Accordions>
-  <Accordion title="Why does my model not appear in the chat page?">
-    Make sure the model was saved and enabled. If it still does not appear, reopen Model Settings or restart Zotero.
+  <Accordion title="Provider and API address">
+    **Provider Type** determines the API integration BibGenie uses and must match the provider's interface. Set **Base URL** to the API address, keeping required paths such as `/v1`.
+
+    | Connection | Provider Type | Base URL and Model ID |
+    | :--- | :--- | :--- |
+    | Cloud API | Match the provider's API type | Use the API address and model ID supplied by the provider |
+    | Compatible API or proxy | Usually OpenAI Compatible; follow provider instructions | Use the corresponding API address and model ID |
+    | Ollama | Ollama | Usually `http://localhost:11434`; use the actual name of an installed model as Model ID |
+    | LM Studio | Usually OpenAI Compatible | Use the local API Server address, such as `http://localhost:1234/v1`, and the loaded model's actual ID |
+
+    Embeddings currently support **OpenAI, Google, OpenAI Compatible, OpenRouter, and Ollama**. The specific model must also support embeddings; local services need an embedding model prepared as well.
   </Accordion>
-  <Accordion title="Is my API key uploaded to BibGenie?">
-    Custom model requests are sent directly from the local Zotero plugin to the provider you configure. See [Bring Your Own Key](/docs/byok) for data-flow details.
+  <Accordion title="Chat model capabilities and length limits">
+    Set **Model Types** according to the model's actual capabilities:
+
+    - **Text**: text chat.
+    - **Vision**: image input.
+    - **Reasoning**: reasoning capability.
+    - **Function Calling**: tool calls used in reading, search, and library tasks.
+    - **Web Search**: web search provided by the model service itself.
+
+    **Context Window** is the context length; **Max Tokens** is the output limit per request. After catalog completion, check these values against the capabilities and limits your provider actually offers.
   </Accordion>
-  <Accordion title="What should I check if a local model fails to connect?">
-    Make sure the local service is running, the port is correct, the Base URL is reachable, and no firewall or proxy is blocking the request.
+  <Accordion title="Embedding dimensions">
+    Leave dimensions empty when adding a model to detect them on Test or save. Detection must succeed before saving. Alternatively, enter a positive integer matching the model's native output vector length. This field checks output length; it does not request dimensionality reduction.
+
+    If you enter dimensions manually, you can save directly. Testing first is still recommended to check both connectivity and dimensions.
   </Accordion>
-  <Accordion title="Is my API key safe?">
-    Yes. Your API Key is encrypted and stored only in your local Zotero configuration. It is used directly to make requests to the model provider and will **never** pass through BibGenie's servers.
+  <Accordion title="Supported chat providers">
+    Chat models support OpenAI, Anthropic, xAI, DeepSeek, Google, Groq, Moonshot AI, OpenRouter, Ollama, and OpenAI Compatible. LM Studio normally uses OpenAI Compatible. Choose the integration that matches the service's actual API; a provider name alone does not guarantee that every model supports images or tools.
   </Accordion>
-  <Accordion title="How do I reset all custom model settings?">
-    Click the **Reset** button in the Custom Models area to restore all custom configurations to their initial state. **Warning: this will delete all models you have manually added.**
+</Accordions>
+
+## Use your added model
+
+### Chat model
+
+Make sure the model is enabled in Model Settings, then return to the chat page and select it in the model selector.
+
+To use it by default in new conversations, go to **Settings → Chat Settings → Default Model** and select it from the dropdown. Only enabled chat models appear here.
+
+### Embedding model
+
+Enable the model, then select it in **Settings → Library & Index → Semantic Index → Embedding Model**.
+
+If a confirmation appears, click **Switch and rebuild**. BibGenie regenerates the semantic index for included libraries without changing your original items. Rebuilding can take time and incur provider charges. See [Semantic Index](/docs/semantic-index) for index status and retrying failures.
+
+## Data and API Key Storage
+
+Custom model requests go directly from the local Zotero plugin to the service you configure, **without passing through BibGenie's model service**. Your **API key and model connection settings are stored locally in Zotero and are not uploaded to BibGenie servers**.
+
+| Model purpose | What the service receives | Where you choose it |
+| :--- | :--- | :--- |
+| Chat | Conversation content and paper context needed for the task | Chat page or Default Model in Chat Settings |
+| Embedding | Titles and abstracts for indexing, plus semantic search queries | Embedding Model in Library & Index |
+
+Chat and embeddings are independent. Choosing a custom chat model does not reroute an official embedding model. A compatible API or proxy receives requests at your configured Base URL; a cloud provider still receives the content needed for its model. Choose the service according to your research data requirements and its own terms.
+
+For local computation, run Ollama or LM Studio on your computer and keep the service available. If you want both chat and embedding computation local, prepare and select a local model for each purpose. A locally stored semantic index alone does not mean its vectors were generated locally. Web search and connected services have their own data routes.
+
+### Examples of Request Destinations
+
+| Configuration | Where the model request goes |
+| :--- | :--- |
+| OpenAI or Anthropic with that provider’s API address | Directly to the configured provider |
+| OpenAI Compatible proxy or institutional service | To the configured Base URL; the operator of that service receives the request |
+| Ollama or LM Studio running on this computer | To that local service for model computation |
+
+An API key alone does not determine the destination: check the Base URL. Apply this choice separately to chat and embeddings; local model computation does not make web tools local.
+
+## Costs and BibGenie Credits
+
+Custom chat and embedding requests do not consume BibGenie's **model credits**. A cloud provider may charge your provider account; local models use your computer's resources. Building or rebuilding an index and running semantic queries may incur embedding-provider charges.
+
+External tools still follow your BibGenie plan's separate charging rules. A separately selected official chat or embedding model also keeps its official billing rules. See [Pricing & Credits](/docs/pricing-credits) for those distinctions.
+
+## Common questions
+
+<Accordions>
+  <Accordion title="Why can't I find my saved model?">
+    Check that the model is enabled and look in the right place: select chat models on the chat page or in Default Model settings, and embedding models in Library & Index.
+  </Accordion>
+  <Accordion title="What should I check when Test fails?">
+    Use the error message to check API Key, Base URL, Provider Type, and Model ID. Confirm the provider account is usable and the model supports the selected purpose. For local services, check that the service is running, the model is installed or loaded, and the port is correct.
+
+    If embedding dimensions do not match, check the model's native output dimensions.
+  </Accordion>
+  <Accordion title="How do I edit, disable, or delete a model?">
+    Click a custom model card to edit it, use the switch to enable or disable it, or use the delete button. The default chat model and current embedding model cannot be disabled or deleted; select another model first.
+
+    You can edit the current embedding model's name, description, and API key without rebuilding. Other settings are locked while in use. Switch to another embedding model before changing the address, model, or dimensions. After updating a key, retry previous indexing failures with **Retry Failed** in Semantic Index.
+  </Accordion>
+  <Accordion title="How are custom models billed, and where is data sent?">
+    The selected custom model receives requests directly from Zotero. Its model requests do not use BibGenie model credits, but provider fees and the plan's external-tool charges may still apply. The data table above distinguishes chat content from embedding text; use the provider's terms when assessing sensitive material.
+  </Accordion>
+  <Accordion title="Does a local chat model also make semantic search local?">
+    Chat and embeddings use separately configured models. To process both types of model requests on your computer, add and select local chat and local embedding models separately.
   </Accordion>
 </Accordions>

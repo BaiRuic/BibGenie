@@ -3,25 +3,25 @@ title: Pricing & Credits
 description: Understand Free, Pro, Max, Lifetime, and how BibGenie credits are consumed.
 icon: CircleDollarSign
 datePublished: 2026-05-16
-lastModified: 2026-05-31
+lastModified: 2026-10-27
 ---
 
 BibGenie uses credits to meter official model usage. Credits are not the same as request counts: the cost of a request depends on the model, context length, output length, and tool usage.
 
 <Callout type="info" title="Core product distinction">
-  Free users can use core chat, context, attachments, images, screenshots, and large context. Pro adds paid web access and more monthly credits for regular research workflows. Max provides the highest monthly credits for heavy reading, comparison, and review workflows.
+  All plans can use OpenAlex, Web Search, and Web Extract. Free charges 1 credit per successful external tool call; paid plans include those calls at no additional credit cost and provide more monthly credits. Max provides the highest monthly credits for heavy reading, comparison, and review workflows.
 </Callout>
 
 ## Plan Comparison
 
 | Plan | Price | Monthly credits | Main capabilities |
 | :--- | :--- | :--- | :--- |
-| Free | $0 | 50 credits / month | Core chat, context, attachments, images, screenshots, large context, custom models |
-| Pro Monthly | $9.99 / month | 1000 credits / month | Everything in Free + Web Search / Web Extract |
-| Pro Yearly | $99 / year | 1000 credits / month | Everything in Free + Web Search / Web Extract |
-| Max Monthly | $30 / month | 3500 credits / month | Everything in Pro + more room for deep reading, comparison, and review generation |
-| Max Yearly | $295 / year | 3500 credits / month | Everything in Max Monthly |
-| Lifetime | $199 one-time | 1000 credits / month | Long-term Pro benefits |
+| Free | $0 | 200 credits / month | Core features + OpenAlex, Web Search, and Web Extract at 1 credit per successful call |
+| Pro Monthly | $9.99 / month | 10,000 credits / month | Everything in Free + no additional credit charge for external tool calls |
+| Pro Yearly | $99 / year | 10,000 credits / month | Everything in Pro Monthly |
+| Max Monthly | $30 / month | 35,000 credits / month | Everything in Pro + more room for deep reading, comparison, and review generation |
+| Max Yearly | $295 / year | 35,000 credits / month | Everything in Max Monthly |
+| Lifetime | $199 one-time | 10,000 credits / month | Long-term Pro benefits |
 
 <Callout type="warning" title="Checkout is the source of truth">
   Prices, discounts, and promotions may change. The final price is the one shown on the Pricing page and in Stripe Checkout.
@@ -33,7 +33,7 @@ Free and paid users can buy an additional credit package:
 
 | Package | Amount | Price | Expiration |
 | :--- | :--- | :--- | :--- |
-| Booster | 500 credits | $6.99 | 6 months |
+| Booster | 5,000 credits | $6.99 | 6 months |
 
 ## How Credits Are Consumed
 
@@ -43,23 +43,16 @@ Credit usage is mainly affected by:
 - Input length: PDFs, notes, snapshots, images, and chat history increase input tokens.
 - Output length: long reviews, long tables, and full notes use more tokens.
 - Tool usage: search, attachment reading, web search, and web extraction may involve multiple model calls.
-- **Web Search and Web Extract**: each use of Web Search or Web Extract costs a flat **1 credit** (in addition to the model's own token consumption).
+- **External tools**: on Free, each successful OpenAlex, Web Search, or Web Extract call costs **1 credit**. Paid plans include these calls at **no additional credit cost**. Model usage in the surrounding conversation is metered separately.
 - Model multiplier: labels such as `1.5x` or `2x` provide an approximate usage hint.
 
 <Callout type="tip" title="BYOK and local models">
-  Custom models, Ollama, and LM Studio do not use BibGenie's official model service, so they do not consume BibGenie credits. Any cost or compute usage is handled by your provider or your local machine.
+  Custom chat and embedding requests do not use BibGenie's official model service or consume its model credits. Your provider or local machine handles those model costs. This does not remove the plan's charges for external tool calls described above, or change the route of a separately selected official model. See [Custom and Local Models](/docs/custom-models) for details.
 </Callout>
 
 ## How Many Credits Does Reading a Paper Use?
 
-There is no single fixed number because papers, models, context size, and output requirements vary. As a practical reference:
-
-| Scenario | Approximate usage |
-| :--- | :--- |
-| Translating or explaining a short selected passage | Very low |
-| Summarizing a typical paper | About 1 credit |
-| Deep-reading a long PDF with structured long-form output | About 2-5 credits |
-| Comparing multiple papers, generating a review, or repeatedly searching and reading | Usually more than 5 credits |
+There is no fixed amount. Credit usage depends on the selected model, input context, output length, and current model pricing. Check the Usage page for the exact charge recorded for each request.
 
 ## What Happens When Credits Run Out?
 

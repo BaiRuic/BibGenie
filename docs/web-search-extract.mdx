@@ -1,14 +1,18 @@
 ---
 title: Web Search & Web Extract
-description: Use paid web access to search and read public web pages beyond your Zotero library.
+description: Search and read public web pages beyond your Zotero library, with plan-aware credit usage.
 icon: Globe
 datePublished: 2026-05-16
-lastModified: 2026-05-16
+lastModified: 2026-10-28
 ---
 
 import { FileText, Search } from 'lucide-react';
 
-By default, BibGenie searches and reads your Zotero library first. Web Search / Web Extract are paid-plan features that let BibGenie supplement your library with information from the public web.
+By default, BibGenie searches and reads your Zotero library first. Web Search / Web Extract are available to all users and let BibGenie supplement your library with information from the public web.
+
+<Callout type="info" title="Credit usage">
+  On Free, each successful Web Search or Web Extract call costs **1 credit**. Paid plans include these external tool calls at **no additional credit cost**. Model usage in the surrounding conversation may still consume credits normally.
+</Callout>
 
 ## Web Search vs Web Extract
 
@@ -38,9 +42,6 @@ Web Search / Web Extract is useful when you need to:
 ## How to Turn It On
 
 <Steps>
-  <Step>
-    Make sure your account is on a paid plan.
-  </Step>
   <Step>
     Find the **Web Search** button below the chat input box.
   </Step>
@@ -75,4 +76,4 @@ Web Search / Web Extract is useful when you need to:
 
 ## Privacy Note
 
-Web tools access public web pages. Avoid including sensitive, unpublished, or confidential material in requests that require web access. For private work, use Zotero library context, local context, BYOK, or local models instead.
+Web tools send queries or page addresses to external services. Avoid including sensitive, unpublished, or confidential material in those requests.

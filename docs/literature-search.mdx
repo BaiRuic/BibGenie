@@ -1,9 +1,9 @@
 ---
-title: Literature Search
+title: Search Your Zotero Library
 description: Find papers in your Zotero library, and know when to switch to OpenAlex for external scholarly discovery.
 icon: Search
 datePublished: 2026-05-16
-lastModified: 2026-05-29
+lastModified: 2026-10-27
 ---
 
 import { Brain, List, TextSearch } from 'lucide-react';
@@ -12,21 +12,23 @@ By default, BibGenie searches and reads your Zotero library first instead of goi
 
 When you need papers beyond your saved Zotero items, use [OpenAlex Research](/docs/openalex-research). OpenAlex searches public scholarly metadata such as works, authors, venues, institutions, topics, citation counts, and citation relationships. It does not mean the paper is already in your library.
 
-## Three Search Modes
+## Describe What You Want to Find
+
+Describe what you know or what you want to find. BibGenie can choose a search approach and refine the results; these are capabilities, not three modes you must select before asking a question.
 
 <Cards>
-  <Card title="Keyword Search" icon={<TextSearch />}>
+  <Card title="Find Papers From Known Details" icon={<TextSearch />}>
     Best when you know a title, author, year, DOI, tag, collection, or other explicit clue.
   </Card>
-  <Card title="Semantic Search" icon={<Brain />}>
+  <Card title="Find Papers by Research Topic" icon={<Brain />}>
     Best when you want to describe a research topic, theory, method, or problem in natural language.
   </Card>
-  <Card title="List Items" icon={<List />}>
+  <Card title="Browse Papers Within a Scope" icon={<List />}>
     Best for listing candidate papers, paging through results, or inspecting items within a defined scope.
   </Card>
 </Cards>
 
-## Keyword Search
+## Find Papers From Known Details
 
 Keyword search works well when you already know part of the target information:
 
@@ -50,7 +52,7 @@ Find causal inference papers after 2022 with the tag review.
 
 Keyword search is precise and easy to control. The trade-off is that it may miss relevant papers when your wording does not match the metadata.
 
-## Semantic Search
+## Find Papers by Research Topic
 
 Semantic search is designed for conceptual queries. You do not need to guess the exact terms used in titles or abstracts; describe the research topic instead.
 
@@ -72,9 +74,11 @@ Semantic search uses a local index of Zotero regular item titles and abstracts. 
 
 See [Semantic Index](/docs/semantic-index) for index status and troubleshooting.
 
-## List Items
+Finding a relevant item is the start of reading it. A title or abstract match is not evidence that BibGenie has read its PDF; ask it to read the relevant source before comparing methods, results, or limitations.
 
-List Items is used to display matching papers or continue browsing results.
+## Browse Papers Within a Scope
+
+Ask BibGenie to list matching papers or continue browsing results within the scope you specify.
 
 Example requests:
 
@@ -90,7 +94,23 @@ Show more results.
 List papers tagged systematic-review and sort them by year.
 ```
 
-List Items is especially useful when you want BibGenie to show a candidate set first, then decide which PDFs or notes to read next.
+Browse the candidate list first, then decide which PDFs or notes to read next.
+
+## Find Your Saved Highlights and Comments
+
+You can ask about annotations in a known document or find them across the libraries allowed in Library Scope. Name a paper, or specify highlighted words, comment text, tags, colors, annotation type, author, collection, or modification time.
+
+```text
+Show the highlights and comments in the paper I am reading.
+```
+
+```text
+Find yellow highlights tagged methods in my Literature Review collection, then show recent comments about sampling bias.
+```
+
+Annotation search uses saved annotation text and filters; it is different from semantic search over paper titles and abstracts. Image and ink annotations may have little searchable text. Ask for a narrower scope or more results as needed. Deleted annotations are not returned; opening the original document requires an available attachment.
+
+BibGenie reads and searches existing annotations; it does not edit or delete them. To discuss known annotations, [add them to the conversation](/docs/add-context), and distinguish your comments from the document author’s claims. For broader evidence, ask it to read the relevant document content.
 
 ## Recommended Workflow
 
@@ -129,3 +149,10 @@ First search my Zotero library for papers about LLM agents, then use OpenAlex to
 <Callout type="tip" title="Constrain your search">
   Add year, tag, collection, or result limits to make searches more useful. For example: "only after 2020", "within the Methods collection", or "return at most 10 papers".
 </Callout>
+
+## If a Paper Is Missing
+
+1. Check that the paper is saved in Zotero and that the relevant library is included in **Settings → Library & Index → Library Scope**.
+2. For a known paper, try its title, author, or DOI rather than relying only on a topic description.
+3. For semantic search, check that the item has a useful title and abstract, then check index status and failed items in [Semantic Index](/docs/semantic-index). You may only need to retry failures, not rebuild everything.
+4. If the item is found but its full text cannot be read, open the attachment in Zotero and confirm it is available locally. See [Add Context](/docs/add-context) for choosing the material to read.

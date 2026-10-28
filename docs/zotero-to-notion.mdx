@@ -1,0 +1,89 @@
+---
+title: Connect Zotero and Notion with BibGenie
+description: Connect Notion to BibGenie to read and update workspace content while discussing Zotero papers. Learn about permissions and data handling.
+icon: Cable
+datePublished: 2026-10-24
+lastModified: 2026-10-28
+---
+
+If you read papers in Zotero and use Notion for project materials or research notes, you can connect Notion in BibGenie. Once connected, BibGenie can call Notion tools on demand during a conversation to read or update workspace content you have authorized it to access.
+
+<Callout type="info" title="On-demand tool access, rather than continuous background sync">
+  You initiate this connection's actions in your research conversations. It does not continuously copy your Zotero library into Notion in the background. You can ask BibGenie to find and organize relevant information first, then review the operations that would write to Notion.
+</Callout>
+
+## Connect your Notion workspace
+
+<Steps>
+  <Step>
+    Open BibGenie in Zotero and go to **Settings → Connectors**.
+  </Step>
+  <Step>
+    Select **Notion** and start connecting.
+  </Step>
+  <Step>
+    Your system browser opens the Notion authorization page. Sign in, choose the workspace to authorize, and follow the prompts.
+  </Step>
+  <Step>
+    Return to BibGenie after authorization. In the Notion connection settings, enable the tools you want to use in conversations.
+  </Step>
+</Steps>
+
+The tool list comes from the Notion MCP service, so names and capabilities may change as the service evolves. You can adjust individual tool switches in the connection settings or disconnect Notion at any time.
+
+To check the connection, ask BibGenie to find a page you know by name in the intended workspace. Confirm the returned page is the one you meant before asking it to make an update.
+
+If the page cannot be found, check that you connected the intended Notion account, that the account can access the page, and that the relevant tools are enabled. If the connection itself failed, retry from **Settings → Connectors**.
+
+## Read or update Notion while discussing papers
+
+First, add the Zotero papers or other research materials you are discussing to your BibGenie conversation. Then describe how you want BibGenie to use Notion. You can ask it to find relevant pages, read their contents, and prepare suggestions first. When a write is needed, specify the target page or database and what should be added or changed.
+
+For example:
+
+```text
+Using the paper in this conversation, find the “Project Literature Notes” database in my Notion workspace.
+First list the pages corresponding to this paper, and extract its research question, methods, main findings, and limitations.
+If a page needs to be created or updated, explain the target page and proposed content first. Wait for my confirmation before executing the operation.
+```
+
+What can actually be done depends on the enabled Notion tools, your Notion access permissions, and whether the model can identify the target within your existing page and database structure. To avoid updating the wrong location, name the project, page, or database in your prompt and review the proposed content before confirming.
+
+## Permissions and data handling
+
+- **Notion access scope**: BibGenie accesses the workspace through your authorized Notion account and remains subject to that account's existing page permissions. Authorization does not bypass Notion's access controls.
+- **Write approval**: Tools marked read-only by Notion can run automatically; other tool calls require confirmation in BibGenie. You can also disable tools you do not want available to the conversation.
+- **Credential storage**: Notion connection credentials are stored locally in Zotero's credential manager. You can disconnect the workspace in **Settings → Connectors**.
+- **Model requests**: When Notion page content or Zotero materials are used as conversation context, the relevant content is sent to the selected model provider with model requests. Decide which materials to process according to your research ethics requirements, institutional policies, and the provider's data policy.
+
+Notion MCP is Notion's way of connecting AI applications to its tools. BibGenie acts as an MCP client calling Notion tools. This differs from BibGenie's local Zotero MCP Server, which exposes Zotero tools to external AI clients. See [Notion's official MCP documentation](https://www.notion.com/help/notion-mcp) and the [BibGenie MCP guide](/docs/mcp).
+
+## BibGenie and Notero serve different workflows
+
+[Notero](https://github.com/dvanoni/notero) is a Zotero plugin that monitors specified Zotero collections and syncs items and related information into a Notion database. BibGenie focuses on calling Notion on demand in research conversations: you can use the context of the papers being discussed to find or update Notion content within your authorized access.
+
+If you want changes to selected Zotero items to be written to Notion automatically, explore Notero's sync workflow. If you want to ask questions about papers, organize information, and then decide whether to update Notion, use the Notion connection in a BibGenie conversation. Choose the data flow you want to maintain when designing your Zotero-to-Notion workflow.
+
+## Frequently asked questions
+
+### Does BibGenie automatically sync my entire Zotero library to Notion?
+
+No. BibGenie does not continuously sync your entire Zotero library in the background. In a research conversation, you can ask it to use enabled Notion tools to read or update specific content. Operations that are not read-only require your confirmation.
+
+### Can BibGenie read every page in my Notion workspace after connecting?
+
+Notion tools remain subject to the authorized account's access permissions. BibGenie can only use available tools to access content that account is permitted to access. Workspace settings may also affect the tool list and specific operations.
+
+### Is research content sent to an AI model when I use Notion MCP?
+
+If Notion pages or Zotero materials are used in the current conversation, they may be included as context in requests to the selected model provider. Notion authorization determines what BibGenie can access through Notion tools; model data handling is governed by the provider you select and its policies.
+
+### Is the Notion connection the same as BibGenie's Zotero MCP Server?
+
+No. The Notion connection lets BibGenie call tools provided by Notion during a conversation. The local Zotero MCP Server lets compatible external AI clients call Zotero tools provided by BibGenie. See the [Zotero MCP guide](/docs/mcp) for the latter.
+
+## Further reading
+
+- [Add papers, notes, and other materials to a conversation](/docs/add-context)
+- [Save research findings as a Zotero note](/docs/save-as-note)
+- [BibGenie's MCP Server](/docs/mcp)

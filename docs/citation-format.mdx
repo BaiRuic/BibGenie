@@ -1,57 +1,38 @@
 ---
-title: Citation Format
-description: Configure how Zotero items appear in @ search and chat context.
+title: Citation Appearance
+description: Choose numbered citations or source labels in BibGenie chat, and understand how citations appear when copied or saved as notes.
 icon: Quote
 datePublished: 2026-05-16
-lastModified: 2026-05-16
+lastModified: 2026-10-27
 ---
 
-Citation Format controls how BibGenie displays Zotero items in chat context. It especially affects the item context style shown after you type `@` in the input box.
+You can choose how citations look in BibGenie chat: compact numbers or readable source labels. Both let you return to the supporting source.
 
-## What It Affects
+## Choose How Citations Appear
 
-- Item display in `@` search results.
-- Item display after being added to chat context.
-- The citation-style representation BibGenie receives as context.
+1. Open BibGenie **Settings → Chat Settings**.
+2. Find **Citation Appearance**.
+3. Select **Numbered** or **Source labels**. The **Chat preview** shows the difference.
 
-<Callout type="info" title="It does not modify Zotero metadata">
-  Citation Format only changes display. It does not edit item title, authors, year, journal, or other Zotero metadata.
-</Callout>
+| Option | What you see | When it helps |
+| :--- | :--- | :--- |
+| Numbered | Short markers such as `[1]` and `[2]` | Keep answers compact while reading |
+| Source labels | Readable labels identifying the source | Recognize sources while checking an answer |
 
-## Choose a CSL Style
 
-BibGenie uses CSL styles installed in Zotero. You can choose the default CSL style from **Citation Format** in Preferences.
+{/* TODO(media): 补充当前版本同一段聊天回答、同一批来源的两种引用显示方式并排对照截图：编号（Numbered）与来源标签（Source labels）。截取真实界面并按实际名称标注，来源标签以客户端实际显示为准，不写成 Before/After，也不另称 Compact；裁去无关设置，使用脱敏示例。图片只比较外观，不暗示证据或定位能力有差别；无需新增视频。 */}
+This preference applies to citations across your chats. It changes their appearance, not the evidence or source location behind them. You do not need to regenerate an answer to change the display preference.
 
-Common styles include:
+## Copying Answers and Saving Notes
 
-- APA
-- Chicago
-- MLA
-- IEEE
-- Nature
-- Vancouver
+Copied answers and saved Zotero notes use readable source citations, even when you choose numbered markers in chat. This keeps source information understandable outside the conversation.
 
-## When to Change It
+For saving an answer, see [Save as Note](/docs/save-as-note). For supported sources and what happens when you select a citation, see [Traceable AI Answers](/docs/bibgenie-citations).
 
-<Cards>
-  <Card title="Writing workflows">
-    Choose the style required by your field, journal, or manuscript.
-  </Card>
-  <Card title="Recognizing papers quickly">
-    Author-year styles are often easier to scan in social sciences and humanities.
-  </Card>
-  <Card title="Engineering papers">
-    Numbered styles may fit engineering, computer science, or IEEE-style workflows.
-  </Card>
-</Cards>
+## What This Setting Does Not Change
 
-## FAQ
+- It does not select an APA, MLA, Chicago, or other manuscript citation style.
+- It does not change Zotero's Word plugin, bibliography settings, or item metadata.
+- A source label is not proof that an answer is correct. Open the source and check whether it supports the claim.
 
-<Accordions>
-  <Accordion title="Why can't I find a style?">
-    BibGenie reads CSL styles installed in Zotero. Install or enable the style in Zotero first.
-  </Accordion>
-  <Accordion title="Does this affect Zotero's Word plugin citations?">
-    No. This setting mainly affects BibGenie's chat context display.
-  </Accordion>
-</Accordions>
+For a paper or report, use Zotero's normal citation workflow and the style required by your journal or institution.

@@ -3,7 +3,7 @@ title: Quick Prompts
 description: Create reusable prompt shortcuts for common research tasks.
 icon: WandSparkles
 datePublished: 2026-05-16
-lastModified: 2026-05-16
+lastModified: 2026-10-27
 ---
 
 Quick Prompts are reusable shortcuts for recurring research tasks. Save prompts you use often, insert them quickly into the input box, and adapt them to the current context.
@@ -29,7 +29,7 @@ Quick Prompts are reusable shortcuts for recurring research tasks. Save prompts 
 
 <Steps>
   <Step>
-    Open BibGenie and go to **Prompts Settings**.
+    Open BibGenie and go to **Settings → Prompts**.
   </Step>
   <Step>
     Click the add button to create a new quick prompt.
@@ -71,19 +71,25 @@ Based on the paper I added, please use the following structure:
   Put stable personal preferences in Custom Instructions and task-specific workflows in Quick Prompts.
 </Callout>
 
-## System Prompt
+## Built-In Prompts and Your Own Copies
 
-System Prompts guide the AI's overall behavior across all conversations. Unlike Quick Prompts (which apply to the current input), a System Prompt takes effect **globally** — every conversation follows the same instruction.
+BibGenie includes prompts such as **Summarize current paper** and **Compare selected papers**. Open the paper or select the items you want to use; for a comparison, select at least two papers. Insert a prompt and adjust the request before sending it. If the target is unclear, name it or [add context](/docs/add-context).
 
-For example, setting the system prompt to:
+Built-in prompt text can improve with plugin updates. To customize one, open its card in **Settings → Prompts**, select **Create a custom copy**, edit it, and select **Save copy**. You can disable the original if you only want your copy to appear. The original built-in prompt remains available.
+
+## Set Custom Instructions
+
+Use **Custom Instructions** at the top of **Settings → Prompts** for ongoing preferences, such as response language or writing style. Edit the text and select **Save**. Use Quick Prompts for the task you want to perform now.
+
+For example:
 
 ```text
 Always respond in English. Use academic writing conventions appropriate for computer science.
 ```
 
-means every response will follow this instruction without you needing to repeat it.
+The default preference is to respond in the same language as your input. You can change it if you want a consistent response language across conversations.
 
-You can set one System Prompt in **Prompts Settings**. The default is `Always respond in English.` You can change it to match your preferred response language, tone, role, or formatting style.
+**Reset** restores the default instructions and discards unsaved edits in this field. Custom Instructions guide responses; they do not change model capabilities, grant access to unavailable sources, or replace your approval for library changes.
 
 ## Quick Prompt Configuration
 
@@ -104,7 +110,21 @@ Each Quick Prompt has the following fields:
   </Card>
 </Cards>
 
+## Start Simply, Then Refine
+
+“Summarize the paper I am reading” is a useful starting point. You do not need a long prompt. After the first answer, add the detail that matters to your research:
+
+| Goal | A follow-up you can use |
+| :--- | :--- |
+| Understand a method | “Focus on the method, data, evaluation measures, and limitations. Mark anything the paper does not report.” |
+| Examine an argument | “Explain the main claim, theoretical framework, context, and supporting evidence. Separate the author’s position from your interpretation.” |
+| Compare selected papers | “Compare the selected papers by question, approach, evidence, and limitations. Cite each important difference and mark missing information.” |
+
+These are requests you can adapt, not separate product modes. For important claims, open the cited source and verify it rather than relying on the prompt alone.
+
 ## Example Templates
+
+Add or specify the papers or passages each task needs. For comparisons, identify the papers and check the source for each important claim; ask BibGenie to mark information that the sources do not report instead of guessing. These are examples to adapt, not separate modes you need to enable.
 
 <Tabs items={['Paper summary', 'Passage explanation', 'Review extraction']}>
   <Tab value="Paper summary">

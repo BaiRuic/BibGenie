@@ -1,12 +1,12 @@
 ---
 title: Semantic Index
-description: Understand the local title-and-abstract index used by BibGenie semantic search.
+description: Learn how BibGenie uses semantic indexing to find Zotero papers by topic, configure embedding models, check index status, and resolve indexing failures.
 icon: DatabaseZap
 datePublished: 2026-05-16
-lastModified: 2026-05-16
+lastModified: 2026-10-28
 ---
 
-Semantic Index powers BibGenie's semantic literature search. It indexes Zotero regular-item titles and abstracts locally, so you can describe a research topic in natural language instead of relying only on keywords.
+Semantic Index powers [BibGenie](https://www.bibgenie.com/)'s semantic literature search in Zotero. It indexes Zotero regular-item titles and abstracts locally, so you can describe a research topic in natural language instead of relying only on keywords.
 
 ## What Does It Index?
 
@@ -18,6 +18,55 @@ The semantic index currently focuses on Zotero regular items:
 
 <Callout type="warning" title="Not PDF full-text search">
   Semantic Search is not the same as PDF full-text search. If a paper has no abstract or incomplete metadata, semantic matching may be less accurate.
+</Callout>
+
+This semantic index does **not** include:
+
+- PDF full text.
+- EPUB, snapshot, or other attachment content.
+- Zotero note content.
+- Annotation text or comments.
+
+This does not mean BibGenie cannot use those materials. [Add them as context](/docs/add-context) for reading, or [search saved annotations](/docs/literature-search) using their text and filters. Those are separate from title-and-abstract semantic search.
+
+## How Semantic Matching Works
+
+Ask for “graph methods for biomedical research” and semantic search may find a paper titled “Knowledge graphs for drug discovery”, even when the wording differs. It compares meanings using indexed titles and abstracts, not PDF full text, and does not guarantee every relevant paper will appear.
+
+An embedding represents text meaning in a form the model can compare. The local index stores these representations so they can be searched without processing the whole library again for every question. Where embeddings are generated depends on the selected model; a local index alone does not mean local model computation. For practical requests, see [Search Your Zotero Library](/docs/literature-search).
+
+## Choose an Embedding model
+
+The semantic index uses the selected embedding model for titles, abstracts, and search queries, independently of the chat model. You can use an official model or a [custom Embedding model](/docs/custom-models).
+
+<Steps>
+  <Step>For a custom model, first add and enable it in **Model Settings → Add Model → Add Embedding model**.</Step>
+  <Step>Open BibGenie settings, go to **Library & Index → Semantic Index**, and select a model from **Embedding Model**. Only enabled embedding models appear here.</Step>
+  <Step>If a confirmation appears, select **Switch and rebuild**. BibGenie regenerates the semantic index for included libraries. Your original items are unaffected.</Step>
+  <Step>Wait for indexing, then check status and failed items. You do not need to trigger another rebuild after confirming the switch.</Step>
+</Steps>
+
+Vectors from different models cannot be mixed. Switching requires rebuilding, which can take time and incur provider charges. The **Current** badge in Model Settings identifies the embedding model in use.
+
+## Rebuild or retry?
+
+- **Rebuild Index**: starts the index over when a full refresh is needed. The model-switch flow triggers this when switching.
+- **Retry Failed**: retries only failed items. Use this after fixing an API key, connection, or upstream account issue instead of rebuilding everything.
+- New and edited items are normally updated in the background; frequent manual rebuilds are unnecessary.
+
+## Troubleshoot custom models
+
+| Problem | What to check |
+| :--- | :--- |
+| New model missing from dropdown | Ensure it is an enabled Embedding model; chat models do not appear here |
+| Login required | Sign in to BibGenie, including when using custom or local embeddings |
+| Connection, key, or upstream account error | Check the selected model's API Key, Base URL, Model ID, and provider status in Model Settings; test, then retry failed items |
+| Dimension mismatch | Check native output dimensions; the field does not reduce dimensions. Switch away before editing locked settings, then select the model again to rebuild |
+
+You can update the current model's name, description, and API key without rebuilding. Updating a key does not retry previous failures automatically; click **Retry Failed**.
+
+<Callout type="info" title="Local index and request destination">
+  Custom embedding requests go directly to your provider without using BibGenie Credit. Cloud providers receive titles, abstracts, and semantic queries and may charge for requests. Selecting a local chat model alone does not make embeddings local.
 </Callout>
 
 ## Status Reference
@@ -50,7 +99,7 @@ The semantic index currently focuses on Zotero regular items:
 
 <Steps>
   <Step>
-    Open Preferences and check the Semantic Index status.
+    Open BibGenie settings, go to **Library & Index**, and check the **Semantic Index** status.
   </Step>
   <Step>
     If it is indexing or updating, wait for it to finish.

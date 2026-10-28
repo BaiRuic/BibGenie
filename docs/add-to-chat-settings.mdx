@@ -1,12 +1,14 @@
 ---
 title: Add to Chat Settings
-description: Choose where Zotero shows Add to Chat entry points.
+description: Choose which Add to Chat entry points Zotero shows for library objects, saved annotations, document locations, and selected text.
 icon: ToggleLeft
 datePublished: 2026-05-16
-lastModified: 2026-05-16
+lastModified: 2026-10-27
 ---
 
-BibGenie adds **Add to Chat** entry points in several places inside Zotero. You can turn these entry points on or off to keep the Zotero interface aligned with your workflow.
+BibGenie places **Add to Chat** in the parts of the Zotero library and Reader where you already work. You can send a relevant source or the passage you are reading to the AI without copying text, hunting down the attachment, and switching back to the chat first.
+
+Different research habits call for different entry points. Keep PDF selections and EPUB sections if you use them often, or hide lower-frequency actions to keep Zotero's context menus clean.
 
 <Callout type="info" title="These toggles affect entry-point visibility">
   Disabling an Add to Chat entry point usually hides that menu item or shortcut. It does not necessarily mean BibGenie cannot add that type of context by other methods.
@@ -16,14 +18,34 @@ BibGenie adds **Add to Chat** entry points in several places inside Zotero. You 
 
 | Setting | What it controls |
 | :--- | :--- |
-| Library Items | Shows Add to Chat for selected Zotero items |
+| Library Items | Shows Add to Chat for supported Zotero items, including saved annotations |
 | Collections | Shows Add to Chat in the collection tree |
 | Tags | Shows Add to Chat in the tag selector |
 | Reader Tabs | Shows Add to Chat for open PDF, snapshot, and note tabs |
 | PDF Text Selection | Adds selected PDF text to chat |
 | EPUB Text Selection | Adds selected EPUB text to chat |
 | Snapshot Text Selection | Adds selected snapshot text to chat |
-| Reader Page Context | Adds context from the current PDF page |
+| Reader Annotations | Adds one or more saved annotations from the Reader context menu |
+| Reader Page Context | Shows Add Page to Chat in the PDF Reader and adds the current page |
+| EPUB Section Context | Shows Add Section to Chat in the EPUB Reader and adds the current section |
+
+## What These Entry Points Add
+
+Add to Chat works at three levels:
+
+<Cards>
+  <Card title="Research objects">
+    Items, collections, and tags tell BibGenie which sources or groups of sources you are working with.
+  </Card>
+  <Card title="Complete material">
+    Reader tabs add a PDF, snapshot, or note as a whole, which is useful for summaries and synthesis.
+  </Card>
+  <Card title="Precise reading locations">
+    PDF pages, EPUB sections, and selected text focus the question on what you are reading right now.
+  </Card>
+</Cards>
+
+When the context includes valid location data, you can click its component in your message to reopen the document and return to the relevant location.
 
 ## Recommended Defaults
 
@@ -31,7 +53,7 @@ If you are new to BibGenie, keep the default configuration. Common preferences:
 
 <Cards>
   <Card title="High-frequency entries">
-    Keep Library Items, Reader Tabs, and PDF Text Selection enabled.
+    Keep Library Items, Reader Tabs, and the Text Selection entries for the formats you use most.
   </Card>
   <Card title="Review workflows">
     Keep Collections and Tags enabled if you often work by project, theme, or literature group.
@@ -44,5 +66,7 @@ If you are new to BibGenie, keep the default configuration. Common preferences:
 ## Tips
 
 - If you read PDFs heavily, enable PDF Text Selection and Reader Page Context.
+- If you read ebooks, enable EPUB Text Selection and EPUB Section Context.
+- If you analyze saved web pages, enable Snapshot Text Selection.
 - If you write literature reviews, enable Collections and Tags.
 - If you prefer a minimal setup, keep Library Items and the input-box `@` menu.

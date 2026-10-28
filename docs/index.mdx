@@ -1,78 +1,171 @@
 ---
-title: Overview
+title: Using BibGenie in Zotero
 description: Learn what BibGenie is, how it fits into Zotero, and where to start.
 icon: Sparkles
 datePublished: 2026-05-16
-lastModified: 2026-05-29
+lastModified: 2026-10-28
 ---
 
-import { Network, NotebookPen, PlusCircle, Search } from 'lucide-react';
+BibGenie is a **Zotero AI plugin** for reading papers, searching your library, and organizing references. [**Paragraph-level citations and source highlighting**](/docs/bibgenie-citations) help you trace conclusions back to evidence and examine assumptions and limitations. Use built-in models or connect [your own API key or local model](/docs/custom-models).
 
-BibGenie is an AI research agent built directly into Zotero. Instead of acting like a separate web chatbot, it works inside your Zotero workspace with your library, PDFs, web snapshots, notes, and the material you are reading.
+Work in Zotero’s sidebar or a separate window. Ask about the paper you are reading or the items you have selected, or add PDFs, EPUBs, snapshots, notes, annotations, and images. Connect [**Notion**](/docs/zotero-to-notion) to read or update authorized workspace content during conversations.
 
-Add Zotero items, PDF attachments, snapshots, notes, selected text, page context, images, or screenshots to a conversation, then ask BibGenie to read, explain, search, organize, and preserve your research material.
+Chat history is stored locally in Zotero; where research content is processed depends on the models and connected services you use.
 
-<Callout type="info" title="Local-first by design">
-  BibGenie's core experience runs in your Zotero environment. Chat history and many settings are stored locally. When you use a custom or local model, requests are sent directly to the provider you configure.
-</Callout>
+New to BibGenie? [Install the plugin and ask your first question](/docs/getting-started).
 
-## Core Workflow
+## Research Workflow
+
+1. Describe your research goal and the papers, collection, or other material you want to work with.
+2. Ask about the paper you are reading or the items selected in Zotero, [add specific context](/docs/add-context), or ask BibGenie to search your library. You can summarize one paper, compare several, or ask a follow-up in the same conversation.
+3. [Follow citations back to the sources](/docs/bibgenie-citations) to check important claims. Before approving library changes, review the affected items and proposed edits.
+4. Refine the result with a follow-up or [save it as a Zotero note](/docs/save-as-note). [Quick Prompts](/docs/quick-prompts) provides examples you can adapt.
+
+## Find the Guide You Need
+
+Browse by topic below. The groups and page order match the sidebar; each link opens a specific guide.
+
+### Getting Started
 
 <Cards>
-  <Card title="Add context" icon={<PlusCircle />}>
-    Add Zotero items, PDFs, snapshots, notes, selected text, or screenshots so BibGenie understands the material you are working with.
-  </Card>
-  <Card title="Ask and search" icon={<Search />}>
-    Summarize papers, explain figures, search your library, compare articles, use OpenAlex for public scholarly records, or use paid-plan web search to gather public information.
-  </Card>
-  <Card title="Discover beyond Zotero" icon={<Network />}>
-    Use OpenAlex to find external papers, authors, venues, citation neighbors, and publication trends while keeping them separate from saved Zotero items.
-  </Card>
-  <Card title="Organize and save" icon={<NotebookPen />}>
-    Save useful answers as Zotero notes, or ask BibGenie to help organize tags, collections, and metadata.
-  </Card>
+  <Card
+    title="Quick Start"
+    description="Install the plugin, ask your first question, and check the answer’s sources."
+    href="/docs/getting-started"
+  />
+  <Card
+    title="Pricing &amp; Credits"
+    description="Compare plans, understand credit usage, and check your balance."
+    href="/docs/pricing-credits"
+  />
 </Cards>
 
-## What You Can Do With BibGenie
-
-- Read papers: summarize research questions, methods, contributions, limitations, and future work.
-- Deep-read excerpts: explain selected passages, formulas, figures, or experimental results.
-- Search your library: find relevant papers by keyword or by describing a research topic in natural language.
-- Discover external literature: use OpenAlex to find public scholarly records, citation neighbors, authors, venues, and research trends beyond your Zotero library.
-- Organize your library: manage tags, collections, metadata, and item movement.
-- Save notes: turn structured AI responses into Zotero notes.
-- Connect external tools: expose local Zotero tools through BibGenie's MCP server.
-
-## Recommended Reading Path
-
-<Steps>
-  <Step>
-    **First-time setup**: start with [Getting Started](/docs/getting-started) to install BibGenie and ask your first question.
-  </Step>
-  <Step>
-    **Understand models and credits**: read [Models](/docs/models) and [Pricing & Credits](/docs/pricing-credits).
-  </Step>
-  <Step>
-    **Learn the core features**: continue with [Add Context](/docs/add-context), [Literature Search](/docs/literature-search), [OpenAlex Research](/docs/openalex-research), and [Save as Note](/docs/save-as-note).
-  </Step>
-  <Step>
-    **Advanced setup**: if you have your own API key or a local model, read [Bring Your Own Key](/docs/byok) and [Custom Models](/docs/custom-models).
-  </Step>
-</Steps>
-
-## Documentation Sections
+### Working with the Agent
 
 <Cards>
-  <Card title="Introduction" href="/docs/getting-started">
-    Installation, models, pricing, and credits.
-  </Card>
-  <Card title="Features" href="/docs/add-context">
-    Context, prompts, Zotero search, OpenAlex research, web access, library management, notes, and MCP.
-  </Card>
-  <Card title="Configuration" href="/docs/custom-models">
-    Custom models, MCP, Add to Chat, shortcuts, citation format, and semantic indexing.
-  </Card>
-  <Card title="Troubleshooting" href="/docs/error-in-bibgenie">
-    Common errors, model failures, network issues, and Zotero compatibility.
-  </Card>
+  <Card
+    title="Add Context"
+    description="Use the current paper or selected items, or add passages, notes, annotations, and images."
+    href="/docs/add-context"
+  />
+  <Card
+    title="Traceable AI Answers"
+    description="Follow citations back to PDF, EPUB, snapshot, and other sources to check the evidence."
+    href="/docs/bibgenie-citations"
+  />
+  <Card
+    title="Conversation Management"
+    description="Edit, retry, branch, and compact conversations while keeping track of completed actions."
+    href="/docs/conversation-management"
+  />
+  <Card
+    title="Save as Note"
+    description="Save a useful answer as a Zotero note and understand where it is stored."
+    href="/docs/save-as-note"
+  />
+  <Card
+    title="Quick Prompts"
+    description="Use built-in prompts, create reusable prompts, and adjust custom instructions."
+    href="/docs/quick-prompts"
+  />
+</Cards>
+
+### Research Tools
+
+<Cards>
+  <Card
+    title="Search Your Zotero Library"
+    description="Find saved papers by known details or topic, and search highlights and comments."
+    href="/docs/literature-search"
+  />
+  <Card
+    title="OpenAlex Academic Search"
+    description="Discover papers outside your library and explore scholarly records and citation relationships."
+    href="/docs/openalex-research"
+  />
+  <Card
+    title="Web Search &amp; Web Extract"
+    description="Search the web and read webpage content during a research conversation."
+    href="/docs/web-search-extract"
+  />
+  <Card
+    title="Library Management"
+    description="Organize tags and collections, preview proposed changes, and approve library updates."
+    href="/docs/library-management"
+  />
+  <Card
+    title="Metadata Review &amp; Cleaning"
+    description="Compare scholarly metadata sources and review corrections before applying them."
+    href="/docs/metadata-review"
+  />
+</Cards>
+
+### Models and Settings
+
+<Cards>
+  <Card
+    title="Models"
+    description="Choose chat and embedding models and understand their capabilities and data routes."
+    href="/docs/models"
+  />
+  <Card
+    title="Custom and Local Models"
+    description="Connect your own API key, a local model, or an institutional model service."
+    href="/docs/custom-models"
+  />
+  <Card
+    title="Semantic Index"
+    description="Understand title-and-abstract semantic search, choose an embedding model, and resolve index failures."
+    href="/docs/semantic-index"
+  />
+  <Card
+    title="Add to Chat Settings"
+    description="Choose where Add to Chat actions appear in Zotero menus and readers."
+    href="/docs/add-to-chat-settings"
+  />
+  <Card
+    title="Keyboard Shortcuts"
+    description="Change the assistant shortcut and resolve keyboard conflicts."
+    href="/docs/keyboard-shortcuts"
+  />
+  <Card
+    title="Citation Appearance"
+    description="Switch between numbered citations and readable source labels in chat."
+    href="/docs/citation-format"
+  />
+</Cards>
+
+### Connections
+
+<Cards>
+  <Card
+    title="Zotero MCP"
+    description="Let compatible external AI clients access Zotero through BibGenie’s local MCP server."
+    href="/docs/mcp"
+  />
+  <Card
+    title="Connect Zotero and Notion with BibGenie"
+    description="Connect Notion to read or update authorized workspace content during conversations."
+    href="/docs/zotero-to-notion"
+  />
+</Cards>
+
+### Help and Zotero Guides
+
+<Cards>
+  <Card
+    title="Troubleshooting"
+    description="Resolve common installation, model, connection, and usage errors."
+    href="/docs/error-in-bibgenie"
+  />
+  <Card
+    title="Zotero Collections &amp; Tags Guide"
+    description="Organize research materials with collections and tags, with examples of when to use each."
+    href="/docs/zotero-collections-tags-best-practices"
+  />
+  <Card
+    title="Zotero WebDAV"
+    description="Configure Zotero attachment sync with WebDAV and troubleshoot synchronization."
+    href="/docs/zotero-webdav"
+  />
 </Cards>

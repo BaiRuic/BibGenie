@@ -1,9 +1,9 @@
 ---
-title: MCP
-description: Use BibGenie's local MCP server to let external clients access Zotero tools.
+title: Zotero MCP
+description: Connect an external AI client to Zotero through BibGenie’s local MCP server, explore the available tools, and determine whether your workflow needs MCP.
 icon: Cable
 datePublished: 2026-05-16
-lastModified: 2026-05-24
+lastModified: 2026-10-27
 ---
 
 MCP stands for Model Context Protocol. BibGenie can start a local MCP server that lets MCP-compatible clients access Zotero-related tools.
@@ -60,7 +60,8 @@ For example, an external client can search your library, inspect collections, re
 | Visual PDF reading | Render PDF pages as images when figures, tables, or scanned pages need visual inspection. |
 | Notes and snapshots | Read Zotero notes and web snapshots from your library. |
 | Library organization | List collections and tags, create collections, and manage tags or collection membership. |
-| Controlled writing | Create notes or edit metadata through explicit MCP tool calls from trusted clients. |
+| Metadata review | Run read-only `review_metadata` to aggregate arXiv, Semantic Scholar, OpenAlex, DBLP, and OpenReview facts with rule diagnostics. |
+| Controlled writing | Create notes or validate and apply metadata updates through `edit_metadata` tool calls. |
 
 ## Plugin Chat vs MCP
 
@@ -68,6 +69,10 @@ For example, an external client can search your library, inspect collections, re
 | :--- | :--- | :--- |
 | BibGenie in-plugin chat | Most users | No |
 | Local MCP Server | Users connecting Zotero to external AI clients | Yes |
+
+Your external client's permission and approval controls govern its requests. Do not assume that it will show the same approval cards as BibGenie's own chat before writing to Zotero. Configure the client accordingly before allowing library changes.
+
+The MCP connection is local, but an external client may send retrieved research content to its model provider. Check that client's model and data settings before using private material.
 
 ## Server Type and URL
 
@@ -105,6 +110,21 @@ The port can be different if your Zotero HTTP server uses a custom port. Always 
     Click **Test Connection** to verify it works.
   </Step>
 </Steps>
+
+## Status Reference
+
+| Status | Meaning |
+| :--- | :--- |
+| Server is off | MCP Server is disabled |
+| Starting | Server is starting |
+| Server running | Server is ready for external clients |
+| Testing connection | Connection test is running |
+| Connection verified | Test succeeded |
+| Connection failed | Test failed; check the URL or server state |
+
+## Disable MCP
+
+When you are not using external clients, turn off **Enable MCP Server**. External clients will no longer be able to access BibGenie's MCP tools.
 
 ## Connect External Clients
 
@@ -247,7 +267,15 @@ Cherry Studio supports Streamable HTTP MCP directly.
     No. It is a local service running in your Zotero and BibGenie environment.
   </Accordion>
   <Accordion title="Why does my external client fail to connect?">
-    Make sure the MCP server is enabled, the URL was copied correctly, Zotero is running, and Test Connection succeeds. If your Zotero HTTP server uses a custom port, the URL may not use `23119`.
+
+Check these in order:
+
+1. Zotero is running and the BibGenie plugin is enabled.
+2. **Enable MCP Server** is on and the server has finished starting.
+3. Copy the current **Server URL** from settings, including its actual port; do not assume it is `23119`.
+4. Run **Test Connection**. If you just enabled the server or updated the plugin and it still fails, restart Zotero and copy the URL again.
+5. If the local test succeeds but the external client still fails, check its Streamable HTTP configuration and reconnect or restart that client.
+
   </Accordion>
   <Accordion title="Can I open the Server URL in a browser to test MCP?">
     No. The browser address bar sends a GET request, while MCP clients use POST JSON-RPC requests. Use Test Connection or configure an MCP client.

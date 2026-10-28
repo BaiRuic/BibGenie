@@ -1,9 +1,9 @@
 ---
 title: Models
-description: Understand official models, custom models, credit multipliers, and model refresh behavior.
+description: Choose between BibGenie-managed and custom models, understand when your own API key is needed, and check credit multipliers and model list updates.
 icon: BrainCircuit
 datePublished: 2026-05-16
-lastModified: 2026-08-22
+lastModified: 2026-10-27
 ---
 
 BibGenie supports two kinds of models: **official models** and **custom models**.
@@ -13,9 +13,23 @@ BibGenie supports two kinds of models: **official models** and **custom models**
 
 You can manage both from **Model Settings**.
 
+## What Do You Need to Choose?
+
+For your first conversation, start with the built-in chat model. You can choose another model later when a task needs a different capability or data route.
+
+| Need | What to choose or check |
+| :--- | :--- |
+| Ask questions, summarize, or compare papers | A chat model; built-in models avoid API setup |
+| Find library papers by meaning | An embedding model, selected separately in Library & Index |
+| Ask about a screenshot, figure, or scanned page | A chat model that accepts image input |
+| Let the agent search, read, or organize with tools | A chat model that supports tool use |
+| Use an existing provider account or a local model | A [custom model](/docs/custom-models); see [Custom and Local Models](/docs/custom-models) for data routes and billing |
+
+Changing the chat model does not change the embedding model. If you want both types of model requests to stay local, configure and select local models for both purposes.
+
 ## Official Models
 
-There are many AI models on the market, but only a small subset works well as a Zotero agent. BibGenie does not choose models based only on public benchmarks. We care about whether they can reliably handle real research workflows:
+Official models are configured by BibGenie for research tasks such as:
 
 - Long-context paper reading
 - Multi-paper comparison
@@ -30,18 +44,20 @@ To reduce configuration work for users, BibGenie does several things:
 
 <Steps>
   <Step>
-    We test a selected set of models on paper reading, literature search, library management, and note-taking workflows.
+    We test selected models on paper reading, literature search, library management, and note-taking workflows.
   </Step>
   <Step>
-    We discuss recommended deployment and usage patterns with model or provider teams when possible.
+    When possible, we discuss recommended deployment and usage patterns with model or provider teams.
   </Step>
   <Step>
-    We work with selected providers to make sure models are served in a way that works well for BibGenie.
+    We work with selected providers so models are served in ways that work well with BibGenie.
   </Step>
   <Step>
-    We benchmark model-provider combinations and maintain a recommendation list.
+    We benchmark model-provider combinations and maintain a recommended list.
   </Step>
 </Steps>
+
+You do not need your own API key for official models. Check the available list in Model Settings and use the guidance below when choosing among them.
 
 ## Custom Models
 
@@ -108,6 +124,31 @@ If a model is missing, possible reasons include:
     Use a model with stronger reasoning ability and a longer context window.
   </Card>
   <Card title="Privacy or local execution">
-    Use BYOK, a custom provider, Ollama, or LM Studio.
+    Check where your requests will go in [Custom and Local Models](/docs/custom-models). A cloud provider still receives the material sent to its model; choose a local model if you need local model computation.
   </Card>
 </Cards>
+
+## Data and Credit Questions
+
+<Accordions>
+<Accordion title="Does my paper leave this device?">
+
+When you use an official model, the prompt and necessary paper context pass through BibGenie’s service to its model provider. Custom model requests go directly to the service you configure; a cloud provider still receives that content. Local chat and local embedding models must be selected separately if you want both kinds of model computation to stay on your device. Web search and connected services have their own data routes. See [Custom and Local Models](/docs/custom-models).
+
+</Accordion>
+<Accordion title="Is my library used to train models?">
+
+BibGenie’s [Privacy Policy](/privacy) states that BibGenie does not use your Zotero library, local files, local chat history, or BYOK keys to train AI models. This is not a blanket promise about every model provider: check the terms and settings of the service you use, especially for unpublished or restricted material. A locally stored semantic index does not mean embedding generation is local; that depends on the selected embedding model.
+
+</Accordion>
+<Accordion title="Does using a local or custom model cost credits?">
+
+Custom chat and embedding requests do not consume BibGenie model credits. Provider fees or local computation costs still apply. External tools follow your plan’s separate charging rules, and choosing a custom chat model does not change a separately selected official embedding model. See [Pricing & Credits](/docs/pricing-credits).
+
+</Accordion>
+<Accordion title="How many papers can my balance cover?">
+
+There is no fixed paper count: length, model, follow-up questions, images, and tool steps all affect usage. Start with a focused question or a few relevant pages and check the recorded charge in Usage before a larger task.
+
+</Accordion>
+</Accordions>

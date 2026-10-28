@@ -3,7 +3,7 @@ title: Save as Note
 description: Save BibGenie responses as Zotero notes and understand how parent items are handled.
 icon: NotebookPen
 datePublished: 2026-05-16
-lastModified: 2026-05-16
+lastModified: 2026-10-27
 ---
 
 import { MessageSquareText, Save } from 'lucide-react';
@@ -14,12 +14,14 @@ Save as Note turns useful BibGenie responses into Zotero notes that you can keep
 
 <Cards>
   <Card title="Ask in natural language" icon={<MessageSquareText />}>
-    Tell BibGenie: "Save the summary above as a note for this paper."
+    Ask BibGenie to prepare and save a note. Specify the paper, title, and content you want, then review and approve the proposed creation.
   </Card>
   <Card title="Use the button" icon={<Save />}>
     Click **Save as Note** on the last assistant message to save the latest response.
   </Card>
 </Cards>
+
+The button saves the **latest assistant response**, not the full conversation. If you want a combined summary of several answers, ask BibGenie to write the complete note first. To choose a specific parent paper or note title, ask it to save the note in natural language.
 
 ## Supported Content
 
@@ -37,9 +39,14 @@ BibGenie converts Markdown / HTML content into Zotero notes. Common supported co
   Zotero notes have their own editor and HTML support. Most common formats work well, but very complex Markdown or custom HTML may be simplified.
 </Callout>
 
-## Parent Item Logic
+## Where the Note Is Saved
 
-When saving a note, BibGenie places it in the most appropriate location it can determine.
+The two saving methods choose a destination differently:
+
+- **Save as Note button**: if the sources you added to the conversation identify one parent paper, the new note is attached to it. If the conversation includes several parent papers or no clear parent, it becomes a standalone note. The button uses the conversation title and selects the new note in Zotero.
+- **Ask BibGenie to save**: name the paper or collection you want to use. Review the proposed destination and content before approving. This is useful when the conversation covers several papers but the note belongs to one of them.
+
+When you ask BibGenie to save a note:
 
 | Input | Result |
 | :--- | :--- |
@@ -48,6 +55,8 @@ When saving a note, BibGenie places it in the most appropriate location it can d
 | Child note specified | Finds the child note's regular parent item when possible and attaches the note there |
 | No parent specified | Creates a standalone note |
 | Parent and collection both specified | The collection is ignored because Zotero child notes inherit collection membership from their parent item |
+
+Saving creates a **new note**. It does not replace an existing note. If you want to revise an existing note, ask for replacement text in chat and edit the Zotero note yourself.
 
 ## Examples
 
@@ -75,3 +84,5 @@ When saving a note, BibGenie places it in the most appropriate location it can d
 - For long conversations, first ask BibGenie to "rewrite this as a note", then save.
 - If the note should belong to a specific paper, name the target item explicitly.
 - If you want a standalone note, say that it should not be attached to a paper.
+- Wait until the response finishes before using the save button. If it is unavailable, check that the latest message is an assistant response with text to save.
+- Open the saved note to check its content, parent paper, and source links. If an attempted save reports an error, check Zotero before trying again so you do not create an unwanted duplicate.
